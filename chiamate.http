@@ -1,0 +1,39 @@
+GET https://www.omdbapi.com/?apikey=450e73c0&s=frits+the+cat HTTP/1.1
+###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&s=pirates+of+the+carebbian HTTP/1.1
+###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&s=lord+of+the+ring HTTP/1.1
+###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare HTTP/1.1
+###
+
+//solo episodes
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=episode HTTP/1.1
+###
+
+//solo series
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=series HTTP/1.1
+###
+
+//solo games
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=game HTTP/1.1
+###
+
+//solo movies
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movieHTTP/1.1
+###
+
+//solo movies page 1
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movie&page=1 HTTP/1.1
+###
+
+//solo movies page 2
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movie&page=2 HTTP/1.1
+###
+
+//solo movies in ordine di anno
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movie&y= HTTP/1.1
+###
