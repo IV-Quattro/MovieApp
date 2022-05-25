@@ -9,10 +9,29 @@
 <body>
     <script type="module">
         import {onion} from "./index.js";
+        import {nightmare} from "./index.js";
+        import {watchman} from "./index.js";
+
         console.log("inizio esecuzione");
         onion();
         console.log("fine esecuzione");
-        console.log()
+
+        setTimeout(5);
+        for(let i=0;i<5;i++){
+            setTimeout(1);
+            console.log(i);
+        }
+        
+        nightmare();
+
+        setTimeout(5);
+        for(let i=0;i<5;i++){
+            setTimeout(1);
+            console.log(i);
+        }
+
+        watchman();
+
         
     </script>
 </body>

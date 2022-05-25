@@ -1,6 +1,9 @@
 GET https://www.omdbapi.com/?apikey=450e73c0&s=frits+the+cat HTTP/1.1
 ###
 
+GET https://www.omdbapi.com/?apikey=450e73c0&s=watchman&type=series HTTP/1.1
+###
+
 GET https://www.omdbapi.com/?apikey=450e73c0&s=pirates+of+the+carebbian HTTP/1.1
 ###
 
@@ -23,7 +26,7 @@ GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=game HTTP/1.1
 ###
 
 //solo movies
-GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movieHTTP/1.1
+GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movie HTTP/1.1
 ###
 
 //solo movies page 1
