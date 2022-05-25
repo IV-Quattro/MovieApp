@@ -8,31 +8,13 @@
 </head>
 <body>
     <script type="module">
-        import {onion} from "./index.js";
-        import {nightmare} from "./index.js";
-        import {watchman} from "./index.js";
+        import {CONTENT_TYPE} from "./config.js";
+        import {apiList} from "./index.js";
 
         console.log("inizio esecuzione");
-        onion();
+        apiList("nightmare",CONTENT_TYPE.MOVIES);
+        apiList("watchmen",CONTENT_TYPE.SERIES);
         console.log("fine esecuzione");
-
-        setTimeout(5);
-        for(let i=0;i<5;i++){
-            setTimeout(1);
-            console.log(i);
-        }
-        
-        nightmare();
-
-        setTimeout(5);
-        for(let i=0;i<5;i++){
-            setTimeout(1);
-            console.log(i);
-        }
-
-        watchman();
-
-        
     </script>
 </body>
 </html>

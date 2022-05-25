@@ -1,33 +1,24 @@
- const URL_ONION = "https://www.omdbapi.com/?apikey=450e73c0&s=onion+movie";
- const URL_NIGHTMARE_MOVIES = "https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movie";
- const URL_WATCHMAN_SERIES = "https://www.omdbapi.com/?apikey=450e73c0&s=watchman&type=series";
+import {URL_BASE} from "./config.js"
+// const URL_ONION = "https://www.omdbapi.com/?apikey=450e73c0&i=tt0392878";
 
- export const onion = () => {
-     fetch(URL_ONION)
-     .then(jsonResponse => jsonResponse.json())
-     .then(objResult => {
-        const movie = objResult.Search;
-        console.log("stampa the onion movie");
-        console.log(movie);
-     });
+
+ export const delay = () => {
+    setTimeout(5);
+    for(let i=5;i>0;i--){
+        setTimeout(1);
+        console.log(i);
+    }
  }
 
- export const nightmare = () => {
-     fetch(URL_NIGHTMARE_MOVIES)
-     .then(response => response.json())
-     .then(result => {
-         const movies = result.Search;
-         console.log("stampa movies nightmare");
-         console.log(movies);
-     });
- }
-
- export const watchman = () => {
-    fetch(URL_WATCHMAN_SERIES)
-    .then(response => response.json())
-    .then(result => {
-        const series = result.Search;
-        console.log("stampa series watchman");
-        console.log(series);
-    });
-}
+export const apiList = (s,type) => {
+    const url=URL_BASE+`s=${s}&type=${type}`;
+    fetch(url)
+        .then(jsonResponse => jsonResponse.json())
+        .then(objResult => {
+           const item = objResult.Search;
+           delay();
+           //console.log("print of " + item.Title);
+           console.log(item);
+        });
+   }
+   
