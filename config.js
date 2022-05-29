@@ -4,6 +4,7 @@ export const URL_BASE=`http://www.omdbapi.com/?apikey=${API_KEY}&`;
 export const CONTENT_TYPE = {
     MOVIES: "movie",
 	SERIES: "series",
-	EPISODES: "episodes",
-	GAMES: "games"
+	EPISODES: "episode",
+	GAMES: "game"
 }
+

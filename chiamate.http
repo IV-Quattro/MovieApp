@@ -40,3 +40,20 @@ GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movie&page=2 HTTP/
 //solo movies in ordine di anno
 GET https://www.omdbapi.com/?apikey=450e73c0&s=nightmare&type=movie&y= HTTP/1.1
 ###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&s=tropic%20thunder HTTP/1.1
+###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&s=sin%20city&type=movie HTTP/1.1
+###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&t=dagon&type=movie HTTP/1.1
+###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&t=interstellar&type=movie HTTP/1.1
+###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&i=tt0102511 HTTP/1.1
+
+
+/*{"Title":"A Nightmare on Elm Street","Year":"2010","imdbID":"tt1179056","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BODIxMTQ0NTIxM15BMl5BanBnXkFtZTcwMzY1NDAyMw@@._V1_SX300.jpg"}*/

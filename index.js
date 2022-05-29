@@ -15,10 +15,23 @@ export const apiList = (s,type) => {
     fetch(url)
         .then(jsonResponse => jsonResponse.json())
         .then(objResult => {
-           const item = objResult.Search;
+           const items = objResult.Search;
            delay();
-           //console.log("print of " + item.Title);
-           console.log(item);
+           viewItems(items);
+           console.log(items);
         });
    }
    
+
+
+ const viewItems = (items) => {
+     
+    items.map((item) => {
+        console.group(item.Title);
+            console.log(item.Year);
+            console.log(item.Type);
+            console.log(item.Poster);
+        console.groupEnd();
+    });
+
+   }
