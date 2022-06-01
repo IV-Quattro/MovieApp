@@ -90,7 +90,7 @@ GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20warriors&type=movie HTTP/1.
 ###
 
 //
-GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+GET https://www.omdbapi.com/?apikey=450e73c0&s=interstellar&type=movie HTTP/1.1
 ###
 
 //
