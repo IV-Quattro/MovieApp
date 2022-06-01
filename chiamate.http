@@ -85,8 +85,8 @@ GET https://www.omdbapi.com/?apikey=450e73c0&t=slc%20punk&type=movie HTTP/1.1
 GET https://www.omdbapi.com/?apikey=450e73c0&t=silent%20hill&type=movie HTTP/1.1
 ###
 
-//
-GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+//the warriors
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20warriors&type=movie HTTP/1.1
 ###
 
 //
