@@ -1,0 +1,100 @@
+body{
+    background-color: #000000;
+}
+
+/* unvisited link */
+a:link {
+    color:#868686;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
+
+#splash{
+    background-color:#757575;
+
+}
+.bgimg1{
+    /*position:absolute;
+    z-index:-1;*/
+    width:100%;
+    
+}
+.scritta-sopra{
+    /*position:relative;
+    z-index:99;*/
+}
+
+.mUpNav{
+    margin-top: 56px;
+}
+
+#attuale{
+    background-color:#646464;
+}
+
+#categorie{
+    background-color:#535353;
+    color:#FFFFFF !important;
+    text-align: center;
+}
+
+.cardCat{
+    width:18rem !important;
+    height:15rem !important;
+    
+}
+   
+
+/*      COME CAZZO SI FA STA ROBA?
+.cardhide{
+    display:none !important;
+}
+.cardhide:hover {
+    display:inline;
+  }*/
+
+.cardHov:hover{    
+    transform:scale(1.2);
+}
+
+
+#all{
+    background-color:#404040;
+}
+.filmImg{
+    
+}
+
+.filmCard{
+    height:100%;
+    width: 301.5px !important;
+}
+.filmCard:hover{
+    transform:scale(1.1);
+}
+
+/*
+.ulHide{
+    visibility: collapse;
+}
+.ulHide:hover {
+    visibility:visible;
+}*/
+
+
+.white{color:#FFFFFF;}
+.bgwhite{background-color: #FFFFFF;}
+.bggray{background-color: #868686;}
