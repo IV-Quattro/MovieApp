@@ -24,7 +24,7 @@ a:link {
 
 #splash{
     background-color:#757575;
-
+    color: #FFFFFF;
 }
 .bgimg1{
     /*position:absolute;
@@ -43,6 +43,7 @@ a:link {
 
 #attuale{
     background-color:#646464;
+    color: #FFFFFF;
 }
 
 #categorie{
