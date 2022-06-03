@@ -21,11 +21,38 @@ export const apiList = (s,type) => {
            
         });
    }
+ prova
+   export const prova = () => {
    
-  
+    const main = document.getElementById("all");
+    const heading = document.createElement("h1");
+   heading.setAttribute("class", "red");
+   main.appendChild(heading);
+   const contenutoTestuale = document.createTextNode("PROVAAAAAAA");
+   heading.appendChild(contenutoTestuale);
+   return heading;
+}
+   
+   
+  /*
+export const prova = () => {
+   
+   const main = document.getElementById("all");
+   const container = document.createElement("div");
+   main.appendChild(container);
+   container.setAttribute("class", "bggrey");
 
+   const riga = document.createElement("div");
+   riga.setAttribute("class", "rig");
+   const heading = document.createElement("h1");
+   heading.setAttribute("class", "red");
+   riga.appendChild(heading);
+   const contenutoTestuale = document.createTextNode("PROVAAAAA");
+   heading.appendChild(contenutoTestuale);
+   return riga;
+}*/
 
- const viewItems = (items) => {
+ /*const viewItems = (items) => {
     const place = document.getElementById("all");
     items.map((film) => {
         //place.appendChild(createHTMLfilm(film));
@@ -33,16 +60,20 @@ export const apiList = (s,type) => {
         place.appendChild(createFilmPoster(film));
         place.appendChild(createFilmYear(film));
     });
-   }
+   }*/
+
+ 
+
+
    
 
  /*ritorna un pacchetto con tutte le info insieme separate da uno spazio
    const createHTMLfilm = (film) => {
-       let parametro = [film.Title, film.Year, film.imdbID, film.Type, film.Poster];
+       const info = ["film.Title", "film.Year", "film.imdbID", "film.Type", "film.Poster"];
        const tutto = document.createElement("div");
-       for(let i=0;i<parametro.length; i++){
+       for(let i=0;i<parinfoametro.length; i++){
             const paragrafo = document.createElement("p");
-            const nodo = document.createTextNode(parametro[i]);
+            const nodo = document.createTextNode(info[i]);
             paragrafo.appendChild(nodo);
             tutto.appendChild(paragrafo);
        }
@@ -51,11 +82,13 @@ export const apiList = (s,type) => {
         return tutto;
     }*/
 
-    const createFilmPoster = (film) => {
-        const paragrafo = document.createElement("p");
+  /*  const createFilmPoster = (film) => {
+        const imgPoster = document.createElement("img").src;
+        
         const nodo = document.createTextNode(film.Poster);
-        paragrafo.appendChild(nodo);
-        return paragrafo;
+        imgPoster.appendChild(nodo);
+        
+        return imgPoster;
     }
 
     const createFilmTitle = (film) => {
@@ -72,13 +105,14 @@ export const apiList = (s,type) => {
     }
 
     const createHTMLcard = (film) => {
+        
         const riga = document.createElement("div");
             riga.class = "row";
         const colonna = document.createElement("div");
-        colonna.class = "col"
+            colonna.class = "col";
         riga.appendChild(colonna);
         riga.appendChild(colonna);
         riga.appendChild(colonna);
         const carta = document.createElement("div.card")
 
-    }
+    }*/

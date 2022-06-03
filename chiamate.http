@@ -94,6 +94,102 @@ GET https://www.omdbapi.com/?apikey=450e73c0&s=interstellar&type=movie HTTP/1.1
 ###
 
 //
+GET https://www.omdbapi.com/?apikey=450e73c0&t=naked%20lunch&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=necronomicon&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20call%20of%20cthulhu&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=watchmen&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=machete&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=sleepy%20hollow&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=il%20grande%20gatsby&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=il%20grande%20lebowsky&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=jackass&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20fly&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&s=fear%20and%20loathing%20in%20las%20vegas&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+###
+
+//
 GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
 ###
 

@@ -1,3 +1,13 @@
+/* BOOSTRAP MEDIA BREAKPOINTS */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  }
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
 body{
     background-color: #000000;
 }
@@ -27,14 +37,16 @@ a:link {
     color: #FFFFFF;
 }
 .bgimg1{
-    /*position:absolute;
-    z-index:-1;*/
+    /*position:absolute;*/
+    position:relative;
+    z-index:-1;
     width:100%;
     
 }
 .scritta-sopra{
-    /*position:relative;
-    z-index:99;*/
+    position:absolute;
+    z-index:99;
+    top:20%;
 }
 
 .mUpNav{
@@ -46,6 +58,42 @@ a:link {
     color: #FFFFFF !important;
 }
 
+.immagineCarousel{
+    height: 750px;
+}
+
+@media (max-width: 576px) { 
+    .immagineCarousel{
+        height: 250px;
+    }
+ }
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .immagineCarousel{
+        height: 400px;
+    }
+ }
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+    .immagineCarousel{
+        height: 500px;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .immagineCarousel{
+        height: 750px;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .immagineCarousel{
+        height: 750px;
+    }
+}
+
+
+
 #categorie{
     background-color:#535353;
     color:#FFFFFF !important;
@@ -55,6 +103,7 @@ a:link {
 .cardCat{
     width:18rem !important;
     height:15rem !important;
+    margin: 0 auto;
     
 }
    
@@ -86,6 +135,7 @@ a:link {
 .filmCard{
     height:100%;
     width: 301.5px !important;
+    margin:0 auto;
 }
 .filmCard:hover{
     transform:scale(1.1);
@@ -102,5 +152,9 @@ a:link {
 
 .white{color:#FFFFFF !important;}
 .bgwhite{background-color: #FFFFFF;}
-.grey{color:#979797}
-.bggray{background-color: #868686;}
+.grey{color:#979797;}
+.bggray{background-color: rgba(134, 134, 134,0.6);}
+.bgtrasp{
+    background-color: transparent;
+    --bs-bg-opacity:9;
+}
