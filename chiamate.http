@@ -138,7 +138,7 @@ GET https://www.omdbapi.com/?apikey=450e73c0&s=fear%20and%20loathing%20in%20las%
 ###
 
 //
-GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+GET https://www.omdbapi.com/?apikey=450e73c0&s=jurassic%20world&type=movie HTTP/1.1
 ###
 
 //
