@@ -149,6 +149,10 @@ a:link {
     visibility:visible;
 }*/
 
+#search{
+    background-color:#333333;
+}
+
 
 .white{color:#FFFFFF !important;}
 .bgwhite{background-color: #FFFFFF;}

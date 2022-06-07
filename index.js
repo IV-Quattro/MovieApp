@@ -17,11 +17,11 @@ export const apiList = (s,type) => {
         .then(objResult => {
            
 
-            const everything = document.getElementById("all");
+            const everything = document.getElementById("search");
             const argomentoDiv = document.createElement("h1");
-            argomentoDiv.setAttribute("class", "text-white");
-            argomentoDiv.setAttribute("class", "text-center");
-                const nodo1 = document.createTextNode(type);
+            argomentoDiv.className = "text-white text-center";
+            
+                const nodo1 = document.createTextNode("search: " + s);
                 argomentoDiv.appendChild(nodo1);
             everything.appendChild(argomentoDiv);
             const items = objResult.Search;
@@ -32,15 +32,10 @@ export const apiList = (s,type) => {
 
    
    const viewItems = (items) => {
-    const place = document.getElementById("all");
+    const place = document.getElementById("search");
     const riga = document.createElement("div");
-    riga.setAttribute("class", "row");
-    riga.setAttribute("class", "row-cols-1");
-    riga.setAttribute("class", "row-cols-md-2");
-    riga.setAttribute("class", "row-cols-xxl-4");
+    riga.className = "row row-cols-1 row-cols-md-2 row-cols-xxl-4";
     place.appendChild(riga);
-
-
 
     items.map((media) => {
         riga.appendChild(mediaCardGenerator(media));
@@ -50,83 +45,64 @@ export const apiList = (s,type) => {
    }
 
    const mediaCardGenerator = (media) =>{
-    //const rig = document.querySelector("row"); //riguardareee
-    const colonna = document.createElement("div"); 
-    colonna.setAttribute("class", "col");
-    colonna.setAttribute("class", "my-5");
-    
+    const colonna = document.createElement("div");
+    colonna.className="col my-5" 
         const card = document.createElement("div");
+        card.className="filmCard";
         card.setAttribute("class", "filmCard");
         colonna.appendChild(card);
             const header = document.createElement("ul");
-            header.setAttribute("class", "list-group");
-            header.setAttribute("class", "list-group-flush");
-            header.setAttribute("class", "ulHide");
+            header.className="list-group list-group-flush ulHide";
             card.appendChild(header);
                 const elementoLista1 = document.createElement("li");
-                elementoLista1.setAttribute("class", "list-group-item");
-                elementoLista1.setAttribute("class", "bg-dark");
+                elementoLista1.className="list-group-item bg-dark";
                 header.appendChild(elementoLista1);
                     const titolo = document.createElement("h5");
-                    titolo.setAttribute("class", "card-title");
-                    titolo.setAttribute("class", "text-white");
-                    titolo.setAttribute("class", "text-center");
+                    titolo.className="card-title text-white text-center";
                     elementoLista1.appendChild(titolo);
-                        const nodoTitolo = document.createTextNode("media.Title");
+                        const nodoTitolo = document.createTextNode(media.Title);
                         titolo.appendChild(nodoTitolo);
-
                 const elementoLista2 = document.createElement("li");
-                elementoLista2.setAttribute("class", "list-group-item");
-                elementoLista2.setAttribute("class", "bg-dark");
-                elementoLista2.setAttribute("class", "text-white");
-                elementoLista2.setAttribute("class", "text-center");
+                elementoLista2.className="list-group-item bg-dark text-white text-center";
                 header.appendChild(elementoLista2);
-                    const nodoRelised = document.createTextNode(media.Relised);
-                    elementoLista2.appendChild(nodoRelised);
-            const linkAllaSchedaTec = document.createElement("a");
-            linkAllaSchedaTec.setAttribute("href", "#");
-            card.appendChild(linkAllaSchedaTec);
+                    const paragrafo2 = document.createElement("p");
+                    elementoLista2.appendChild(paragrafo2);
+                        const nodoRelised = document.createTextNode(media.Relised);
+                        paragrafo2.appendChild(nodoRelised);
+            //const linkAllaSchedaTec = document.createElement("a");
+            //linkAllaSchedaTec.setAttribute("href", "#");
+            //card.appendChild(linkAllaSchedaTec);
                 const imgPoster = document.createElement("img");
-                imgPoster.setAttribute("class", "filmImg");
-                imgPoster.setAttribute("title", "media.Title")
-                const nodo = document.createTextNode(media.Poster); //da ERRORE QUA
-                imgPoster.src=nodo;
-                linkAllaSchedaTec.appendChild(imgPoster);
+                imgPoster.className="filmImg";
+                //imgPoster.setAttribute("title", "media.Title");
+                //const nodoPoster = document.createTextNode(media.Poster);
+                //imgPoster.setAttribute("src", nodo); //da ERRORE QUA
+                imgPoster.src=media.Poster;
+                card.appendChild(imgPoster);
+                //linkAllaSchedaTec.appendChild(imgPoster);   //attacco al link
             const footer = document.createElement("ul");
-            footer.setAttribute("class", "list-group");
-            footer.setAttribute("class", "list-group-flush");
-            footer.setAttribute("class", "ulHide");
+            footer.className="list-group list-group-flush ulHide"
             card.appendChild(footer);
                 const elementoLista3 = document.createElement("li");
-                elementoLista3.setAttribute("class", "list-group-item");
-                elementoLista3.setAttribute("class", "bg-dark");
-                elementoLista3.setAttribute("class", "text-white");
-                elementoLista3.setAttribute("class", "text-center");
+                elementoLista3.className="list-group-item bg-dark text-white text-center";
                 footer.appendChild(elementoLista3);
                     const nodoRuntime = document.createTextNode(media.Runtime);
                     elementoLista3.appendChild(nodoRuntime);
                 const elementoLista4 = document.createElement("li");
-                elementoLista4.setAttribute("class", "list-group-item");
-                elementoLista4.setAttribute("class", "bg-dark");
-                elementoLista4.setAttribute("class", "text-white");
-                elementoLista4.setAttribute("class", "text-center");
+                elementoLista4.className="list-group-item bg-dark text-white text-center";
                 footer.appendChild(elementoLista4);
                     const nodoDirector = document.createTextNode(media.Director);
                     elementoLista4.appendChild(nodoDirector);
                 const elementoLista5 = document.createElement("li");
-                elementoLista5.setAttribute("class", "list-group-item");
-                elementoLista5.setAttribute("class", "bg-dark");
-                elementoLista5.setAttribute("class", "text-white");
-                elementoLista5.setAttribute("class", "text-center");
+                elementoLista5.className="list-group-item bg-dark text-white text-center";
                 footer.appendChild(elementoLista5);
-                    const nodoGenre = document.createTextNode(media.Genre);
-                    elementoLista5.appendChild(nodoGenre);
-                
-
-
+                    const paragrafo5 = document.createElement("p");
+                    elementoLista5.appendChild(paragrafo5);
+                    //elementoLista5.appendChild(nodoGenre);
+                        const nodoGenre = document.createTextNode(media.Genre);
+                        paragrafo5.appendChild(nodoGenre);
                     
-
-
+                    
     return colonna;
    }
 

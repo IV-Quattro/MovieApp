@@ -243,9 +243,10 @@
                
         </div>
 
-          
+         
     
         <div id="all" class="container-fluid ">
+            
             <h1 class="text-center white">all films</h1>
             
             <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4 ">
@@ -303,7 +304,7 @@
                     </div>
                 </div>
             
-                <!--termina riga 1-->
+                
          
                 <div class="col my-5">
                     <div class="card filmCard">
@@ -359,7 +360,7 @@
                     </div>
                 </div>
 
-            <!--termina riga 2-->
+            
             
                 <div class="col my-5">
                     <div class="card filmCard">
@@ -469,19 +470,25 @@
                     </div>
                 </div>
 
-            </div><!--termina riga 3-->
+            </div>
         
         </div> <!--termina all-->
+        
+        <div id="search">
+
+        </div> 
 
     </div><!--termina container-->
 
-      
 
 
-
-
-
-
+        <!--IMPORTANTE! 
+        SETTARE LA RICERCA-->
+    <script type="module">
+        import { CONTENT_TYPE } from "./config.js";
+        import { apiList } from "./index.js";
+        apiList("resident%20evil", CONTENT_TYPE.MOVIES);
+    </script>
 
 
 
@@ -490,7 +497,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-  
+
     <!--
     <script type="module">
       import { Toast } from 'bootstrap.esm.min.js'
