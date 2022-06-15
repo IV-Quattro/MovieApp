@@ -137,8 +137,9 @@ mediaQuery
 
 */
 #splash{
-    background-image:url("IV_stuff/img/2560x1600_umbrella-thorn-sunset-4k.jpg");
-    background-repeat:no-repeat;
+    background-image:url("IV_stuff/img/sfondo.jpg");
+    background-size: 100% 100%;
+    background-repeat:no-repeat ;
     /*background-color:#757575;*/
     background-color:#000000;
     color: #FFFFFF;

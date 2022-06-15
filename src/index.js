@@ -142,7 +142,6 @@ export const apiList = (s,type) => {
     //generazione url completo
     //deve passare come parametro I o T per ottenere dati completi
     const urlDetail = URL_BASE+`t=${t}`;
-    console.log(urlDetail);
     //fetch modalità sincrona
     const response = await fetch(urlDetail);
     const result = await response.json();

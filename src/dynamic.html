@@ -71,16 +71,11 @@
     <script type="module">
         import { CONTENT_TYPE } from "./config.js";
         import { apiList } from "./index.js";
-        console.log(document.URL);
         const urlRicerca = document.URL;
        // const urlString = decodeURI(urlRicerca);
-        console.log(urlRicerca);
-        console.log(typeof urlRicerca);
 
         const indiceSym = urlRicerca.lastIndexOf("=") + 1; 
-        console.log(indiceSym);
         const finalKeyword = urlRicerca.slice(indiceSym);
-        console.log(finalKeyword);
 
        
         apiList(finalKeyword, CONTENT_TYPE.MOVIES); // inserisci la variabile con la key
@@ -104,7 +99,6 @@
 
             const inputSearch1 = document.getElementById("research1");
             const keyWords1 = inputSearch1.value;
-            console.log(keyWords1);
             //encode ke
             apiList(keyWords1, CONTENT_TYPE.MOVIES);
             

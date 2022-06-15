@@ -73,11 +73,8 @@
         import{ URL_BASE } from "./config.js";
         import { apiDetail } from "./index.js";
         const urlRicerca3 = document.URL;
-        console.log(urlRicerca3);
         const indiceSym3 = urlRicerca3.lastIndexOf("=") + 1; 
-        console.log(indiceSym3);
         const finalKeyword3 = urlRicerca3.slice(indiceSym3);
-        console.log(finalKeyword3);
         apiDetail(finalKeyword3);
     </script>
 
