@@ -146,6 +146,13 @@ mediaQuery
     height:720px;
     
 }
+
+.logoApp{
+    
+    width:200px;
+    height:200px;
+}
+
 .bgimg1{
     /*position:absolute;
     position:relative;
