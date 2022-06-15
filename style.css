@@ -1,6 +1,38 @@
+
+/*-------------------------------------css globali-----------------------------------------*/
+
+/*
+CHE FARE CHE RIPARARE
+
+permettere la ricerca anche con il tasto invio
+
+fare pagina N/A
+
+logo quick cappuccino
+
+scritte
+
+href agli id
+
+manca ricerca generica da moreInfo
+
+
+
+in ordine di importanza:
+    1 moreInfo
+    2 logo
+    5 categorie
+    
+    7 scritte
+    8 pagina per contenuto inesistente
+    9 decode titolo
+
+*/
+
+
 /* BOOSTRAP MEDIA BREAKPOINTS */
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {  }
+@media (min-width: 576px) {}
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {}
 /* Large devices (desktops, 992px and up) */
@@ -8,23 +40,18 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}
 
-body{
-    background-color: #000000;
-}
-
-/* unvisited link */
-a:link {
-    color:#868686;
+  a:link {
+    color:#FFFFFF;
   }
   
   /* visited link */
   a:visited {
-    color: green;
+    color: lightgrey;
   }
   
   /* mouse over link */
   a:hover {
-    color: hotpink;
+    color: #ff9012;
   }
   
   /* selected link */
@@ -32,34 +59,123 @@ a:link {
     color: blue;
   }
 
-#splash{
-    background-color:#757575;
-    color: #FFFFFF;
+  body{
+    background-color: #000000;
+  }
+
+  /*------------------------------css multiuso-----------------------------------------------*/
+
+  .white{color:#FFFFFF !important;}
+.bgwhite{background-color: #FFFFFF;}
+.grey{color:#979797;}
+.bggray{background-color: rgba(134, 134, 134,0.6);}
+.black{color:#000000}
+.bgblack{background-color: black;}
+
+.bgtrasp{
+    background-color: transparent;
+    --bs-bg-opacity:9;
 }
-.bgimg1{
-    /*position:absolute;*/
-    position:relative;
-    z-index:-1;
-    width:100%;
+
+.strisciaColorata{
+    background-color:#ff9012;
+}
+
+/*-------------------------------------------Navbar---------------------------------------------*/
+
+
+
+.lunghezzaRicerca{ 
+    width: 100%;
+}
+#buttonSearch:hover{
+    background-color:#ff9012;
+
+}
+
+.hamburger:hover{
+    background-color:#ff9012;
+}
+
+.scritteMenu{
+    color:#000000 !important;
+}
+.scritteMenu:hover{
+    color:#ff9012 !important;
+}
+
+
+
+
+/* unvisited link */
+
+/*-------------------------------------------home.html---------------------------------------------*/
+/*come migliorare home.html
+
+rifai completamente splashpage
+    
+    descrizione
+    sfondo
+    font
+inserisci il video nel carousel come primo media e mantienilo fisso
+
+categorie
+    metti link alle categorie --> cerca se si puo fare la ricerca per genere
+
+all
+    metti il div a espansione per il div all bloccato su ridotto  con il bottone espandi
+    fai media query per le card
+    posso mettere che da all ci sia un onScroll che faccia comparire il footer
+
+mediaQuery
+    splashpage
+        fai background-image piuttosto
+        le scritte vanno a puttane in modalità tel
+    all
+        eventualmente
+
+
+*/
+#splash{
+    background-image:url("IV_stuff/img/2560x1600_umbrella-thorn-sunset-4k.jpg");
+    background-repeat:no-repeat;
+    /*background-color:#757575;*/
+    background-color:#000000;
+    color: #FFFFFF;
+    height:720px;
     
 }
-.scritta-sopra{
+.bgimg1{
+    /*position:absolute;
+    position:relative;
+    z-index:-1;*/
+    width:100%;
+    height:100%;
+    
+}
+/*.scritta-sopra{
     position:absolute;
     z-index:99;
-    top:20%;
-}
+}*/
 
 .mUpNav{
     margin-top: 56px;
 }
 
 #attuale{
-    background-color:#646464 !important;
+   /* background-color:#646464 !important;*/
+   background-color:#000000;
     color: #FFFFFF !important;
 }
 
+
+/*.sfondoCarousel{
+    background-color: #000000;
+}*/
+
 .immagineCarousel{
     height: 750px;
+    
 }
 
 @media (max-width: 576px) { 
@@ -95,10 +211,33 @@ a:link {
 
 
 #categorie{
-    background-color:#535353;
+    /*background-color:#535353;*/
+    background-color:#333333;
     color:#FFFFFF !important;
     text-align: center;
+
 }
+
+
+/*
+adesso mi suco la pagina dedicata al link di categorie
+ricerca per genere
+ma è una cagata basta che cambio il nome nell url in base alla card
+ma mi sa che non si puo fare perchè il parametro t o s è obbligatorio
+si puo fare cosi
+    film del mese
+    scegli la categoria
+    e ti consigliamo una triologia adatta al tuo genere preferito, ... scelto da ...
+    e qui posso sparare un modale 
+    con il link sull immagine del primo film della triologia
+    oppure
+        quando passo sopra col mouse mi mostra l immagine del film(tanto posso pigliarla da google)
+    e rimando al click a una pagina scorrevole con a sinistra l immagine a destra le 4 info piu importanti
+    in ordine di anno dal primo all ultimo(tanto lo posso fare in statico)
+    riga dopo riga a copia e incolla taaak però posso pigliare le info tramite API
+    
+
+*/
 
 .cardCat{
     width:18rem !important;
@@ -118,6 +257,8 @@ a:link {
 
 .cardHov:hover{    
     transform:scale(1.2);
+    border-color: #ff9012;
+    border-width: 2px;
 }
 
 
@@ -136,11 +277,32 @@ a:link {
     height:100%;
     width: 301.5px !important;
     margin:0 auto;
+    background-color: #212529;
 }
 .filmCard:hover{
     transform:scale(1.1);
+    border-color: #ff9012;
+    border-width: 1px;
+
 }
 
+.bgcard{
+    background-color: #212529;
+}
+
+.lineeColorate:hover{
+    border: 1px solid #ff9012;
+    
+}
+
+.btn-secondary:hover{
+    background-color:#ff9012;
+}
+.iconaEsplodi{
+    width:15px;
+    height:15px;
+    color:white;
+}
 /*
 .ulHide{
     visibility: collapse;
@@ -149,16 +311,208 @@ a:link {
     visibility:visible;
 }*/
 
+.provacolore1{
+    width:100px; height:100px;
+    background-color:#ff9900 ;}
+.provacolore2{
+    width:100px;
+    height:100px;
+    background-color:#e66515 ;
+    margin-left:1%;
+}
+.provacolore3{
+    width:100px;
+    height:100px;
+    background-color:#df7b0f ;
+    margin-left:1%;
+}
+.provacolore4{
+    width:100px;
+    height:100px;
+    background-color:#ff9012 ;
+    margin-left:1%;
+}
+.provacolore5{
+    width:100px;
+    height:100px;
+    background-color:#fc9700 ;
+    margin-left:1%;
+}
+.provacolore6{
+    width:100px;
+    height:100px;
+    background-color:#ff9900 ;
+    margin-left:1%;
+}
+.provacolore7{
+    width:100px;
+    height:100px;
+    background-color:#f98638 ;
+    margin-left:1%;
+}
+.provacolore8{
+    width:100px;
+    height:100px;
+    background-color:#ffa947 ;
+    margin-left:1%;
+}
+
+.provacolore9{
+    width:100px;
+    height:100px;
+    background-color:#ff8400 ;
+    margin-left:1%;
+}
+.provacolore10{
+    width:100px; height:100px;
+    background-color:#ff9900 ;}
+.provacolore11{
+    width:100px; height:100px;
+    background-color:#ff9900 ;}
+.provacolore12{
+    width:100px; height:100px;
+    background-color:#ff9900 ;}
+.provacolore13{
+    width:100px; height:100px;
+    background-color:#ff9900 ;}
+.provacolore14{
+    width:100px; height:100px;
+    background-color:#ff9900 ;}
+.provacolore15{
+    width:100px; height:100px;
+    background-color:#ff9900 ;}
+.provacolore16{
+    width:100px; height:100px;
+    background-color:#ff9900 ;}
+
+
+#foot{}
+/*.piede{}*/
+.logo{
+    width:75px;
+    height:100px;
+}
+
+
+
+
+/*-----------------------------------------dynamic.html---------------------------------------*/
+
+/*
+come la voglio fare?
+ovviamente spara le copertine dei film
+    con titolo e anno
+    title:"more info"
+oppure
+    fai una ricerca dettagliata con parametro t
+        e se compatibile compare una sola card in mezzo come riga principale
+            e in linea secondaria tutti gli altri
+        altrimenti
+            normale
+eventualmente stringa di netflix
+*/
+
 #search{
     background-color:#333333;
+   /* background-color:#df7b0f;*/
+}
+
+.titoloDynamic{margin-top:55px}
+
+.colCard{
+    border: 1px solid black;
+}
+
+.colCard:hover{
+    border: 1px solid #ff9012;
 }
 
 
-.white{color:#FFFFFF !important;}
-.bgwhite{background-color: #FFFFFF;}
-.grey{color:#979797;}
-.bggray{background-color: rgba(134, 134, 134,0.6);}
-.bgtrasp{
-    background-color: transparent;
-    --bs-bg-opacity:9;
+
+
+/*
+th, td{
+    padding:20%;
+    border-color:#FFFFFF;
+    border: 4% solid black;
 }
+td {
+    margin-left: 20px !important;
+    padding:20%;
+}*/
+
+/*-----------------------------------------moreInfo.html----------------------------------------------------------*/
+/*
+come voglio fare la pagina:
+immagine poster : centrale o a sinistra 
+    se a sinistra tengo a destra lo space per le info impo
+bottoni:
+    attaccati all immagine
+        o a destra o sotto l immagine
+        oppure
+        solo bottone torrent
+    piu da pagina seria
+    div con 5 link streaming --> theuselessweb
+    div con link download --> theuselessweb
+tabelle dati
+    o sotto o sopra i link
+
+div suggerimenti
+    movies
+
+    series
+
+    episodes
+
+    games
+
+
+    IDEAA
+    quando passo sopra con il mouse su l immagine, l immagine va in hover con il bordo arancio,
+    e insieme voglio che si cambi il colore del titolo, dei bottoni, e altre 2 info
+*/
+
+/*.cardConSeD-tr{
+    width: 150.75px;
+}
+
+.cardConSeD-td{
+    width: 150.75px;
+}*/
+#details{
+    background-color:#404040;
+}
+
+.marLeft{
+    margin-left:15%;
+}
+
+.posterInfoCard{
+    border: 1px solid black;
+}
+.posterInfoCard:hover{
+    border: 1px solid #ff9012 ;
+}
+
+.btnStreaming{
+    float:right !important;
+    background-color:#FFFFFF;
+    /*--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; 
+    --bs-btn-font-size: .75rem; width: 150px; height: 150px;*/
+}
+.btnStreaming:hover {
+    background-color: #ff9012 !important;
+}
+.btnMagnet{
+    background-color:#FFFFFF;
+}
+.btnMagnet:hover {
+    background-color: #ff9012 !important;
+  }
+
+/*.diventaArancio{}*/
+.diventaArancio:hover{
+    color: #ff9012;
+}
+
+

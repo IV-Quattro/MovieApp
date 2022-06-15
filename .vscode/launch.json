@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:5500/dynamic.html",
+            "url": "http://localhost:5500/moreInfo.html?keywords=the%20onion%20movie",
             "webRoot": "${workspaceFolder}"
         }
     ]

@@ -1,0 +1,9 @@
+dall'ultima push:
+
+-rifinita la home
+-fatta navbar con barra di ricerca funzionante
+-fatto il footer
+
+-completato dynamic.html
+
+-moreInfo.html quasi pronto

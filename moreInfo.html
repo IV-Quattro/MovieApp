@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>more info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    
+    <nav class="navbar fixed-top bggray">
+        <div class="container-fluid">
+            <div class="d-flex">
+                <button id="buttonSearch" class="btn btn-outline-light" onclick="window.ricercaGenerica()">Search</button>
+                <input id="research3" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
+            </div>
+
+
+            <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon white "></span>
+<!--<img src="https://img.icons8.com/external-gradak-royyan-wijaya/24/undefined/external-hamburger-menu-basic-interface-iii-gradak-royyan-wijaya.png"/>
+<a target="_blank" href="https://icons8.com/icon/vNkcTvQx93Sj/hamburger-menu">Hamburger menu icon by Icons8</a>-->
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+                    <button type="button" class="btn-close bgwhite" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item ">
+                            <a class="scritteMenu" aria-current="page" href="/home.html">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="scritteMenu" href="/home.html/#categorie">categorie</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="scritteMenu" href="/home.html/#all">all</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle scritteMenu" href="#" id="offcanvasNavbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Impostazioni
+                            </a>
+                            <ul class="dropdown-menu scritteMenu" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a class="dropdown-item" href="#">account</a></li>
+                                <li><a class="dropdown-item" href="#">accessibilità</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">qualcos altro qui</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                <!-- <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--importazione url dal bottone sulle immagini-->
+    <script type="module">
+
+        import{ URL_BASE } from "./config.js";
+        import { apiDetail } from "./index.js";
+        const urlRicerca3 = document.URL;
+        console.log(urlRicerca3);
+        const indiceSym3 = urlRicerca3.lastIndexOf("=") + 1; 
+        console.log(indiceSym3);
+        const finalKeyword3 = urlRicerca3.slice(indiceSym3);
+        console.log(finalKeyword3);
+        apiDetail(finalKeyword3);
+    </script>
+
+    
+
+    <div id="details" class="container-fluid">
+
+
+        
+    </div>
+
+
+    
+    
+
+    <div id="foot2" class="piede white text-center">
+                
+        <div class="row row-cols-1 row-cols-sm-3">
+            <div class="col">
+                <h5>CONTATTACI</h5>
+                <a href="#"><p>tel: +39 342 666 792</p></a>
+                <a href="#"><p>e-mail: scarto@gmail.org</p></a>
+                <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
+                    <p>indirizzo: montesiro(MB), 20842</p>
+                </a>
+            </div>
+            <div class="col">
+                <h5>SPONSOR</h5>
+                <img src="/IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
+                onmouseover="scarto.src='/IV_stuff/img/LOGO_ARANCIO.png';"
+                onmouseout="scarto.src='/IV_stuff/img/LOGO_BIANCO.png';">
+            </div>
+            <div class="col">
+                <h5>TORNA SU</h5>
+                <a href="#splash"><p>splash page</p></a>
+                <a href="#attuale"><p>film dell' anno</p></a>
+                <a href="#categorie"><p>film del mese</p></a>
+            <!--    <a href="#all"><p>tutto</p></a>-->
+
+            </div>
+
+        </div>
+    </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    
+</body>
+</html>
+
+
+
+
+    <!--------------------------------------prova statica---------------------------------------------->
+    <!--
+    <div id="prova" class="container">
+        
+
+        <div class="row row-cols-1 row-cols-sm-2 ">
+            <div class="col my-5 ">
+                <div class="filmCard posterInfoCard">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_SX300.jpg"
+                    alt="" class="filmImg" title="dagon" >
+                </div>
+                
+            </div>
+            
+            <div class="col my-5 white">
+                <h1 class="diventaArancio">The Big Lebowski</h1>
+                <h3>Comedy, Crime</h3>
+                <h6>1998</h6>
+                <h4>Plot: </h4><p>Ultimate L.A. slacker Jeff \"The Dude\" Lebowski, mistaken for a millionaire of the same name, seeks restitution for a rug ruined by debt collectors, enlisting his bowling buddies for help while trying to find the millionaire's miss...</p>
+                <h5>awards: </h5><p>5 wins & 18 nominations</p>
+
+                <div class="row row-cols-sm-2 ">  
+                    <div class="col"> 
+                        <a>
+                            <button type="button" class="btn btn-primary btnStreaming ">
+                            <img src="https://img.icons8.com/ios/100/undefined/magnet.png"/>
+                                
+                            </button>
+                        </a>
+                        
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary btnMagnet">
+                            <img src="https://img.icons8.com/ios/100/undefined/circled-play--v1.png"/>
+                           
+                        </button>
+                    </div>
+        
+                </div>
+            </div>
+            
+            <div class="col my-5 white">
+                <h3>GENERALE</h3><br>-->
+                <!--3 campi-->
+               <!-- <h6>director: </h6> <p>media.director.get(0)</p>
+                <h6>Writer: </h6> <p>media.writers.get(0)</p>
+                <h6>Actors: </h6> <p>media.actors.get(0)</p>
+                <h6>country: </h6> <p>media.country.get(0)</p>-->
+                <!--1 campo-->
+                <!--<h6>Production :</h6> <p></p>
+                <h6>Website :</h6> <p>https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_SX300.jpg</p>
+            </div>
+            
+            <!--DATI FILM
+            <div class="col my-5 white">
+                <h3>DATI FILM</h3><br>
+                <h6>Boxoffice :</h6> <p></p>
+                <h6>relised :</h6> <p></p>
+                <h6>DVD :</h6> <p></p>
+                <h6>Language: </h6> <p>media.language.get(0)</p>
+                <h6>Runtime :</h6> <p></p>
+            </div>
+
+            
+            
+
+
+        </div>
+
+        <!--VOTI 
+        <table class="table table-dark table-striped-columns">
+            <tr class="bgblack white">
+                <h6>RATINGS</h6>
+            </tr>
+            <tr>
+                <th>Internet Movie Database</th>
+                <th>Rotten Tomatoes</th>
+                <th>Metacritic</th>
+            </tr>
+            <tr>
+                <td>8.1/10</td>
+                <td>83%</td>
+                <td>71/100</td>
+            </tr>
+            <tr>
+                <h6>IMDB RATINGS</h6>
+            </tr>
+            <tr>
+                <th>imdbVotes</th>
+                <th>imdbRating</th>
+                <th>Metascore</th>
+            </tr>
+            <tr>
+                <td>790,726</td>
+                <td>8.1</td>
+                <td>71</td>
+            </tr>
+            
+
+        </table> 
+
+    </div>-->

@@ -1,0 +1,37 @@
+LOGO
+nome:
+colore: nero arancio
+
+
+INTRO
+noi di ...
+il nostro scopo è di disporre gratuitamente uno strumento definitivo il piu semplice e funzionale possibile per
+ ridurre i tempi di ricerca dello streaming e download di film e serie cinematografiche. 
+I media messi a disposizione sono selezionati da un team di esperti in materia,
+ così da evitare all’utente di perdere tempo in frequenti e deludenti esperienze. 
+Il team manutenzione assicura l utente di trovare link funzionanti e di non avere pubblicità aggressiva Inoltre, 
+siamo attenti alla tua privacy, sfruttiamo solo i cookies necessari alle funzionalità del sito ;)
+
+FILM DELL ANNO
+in questa sezione vengono inseriti i film usciti quest'anno che hanno superato i criteri di accettazione di tutti i nostri teams, 
+
+COLLEZIONE PER CATEGORIA
+questa nuova iniziativa consiste in un evento settimanale, 
+dove un team di esperti propone una collezione di film per ogni categoria, 
+velocizzando il processo di scelta dei film per la tua serata.
+
+ALL
+consiste in una rigida selezione di film solo per te!
+solo i migliori sono ammessi!
+
+
+
+
+
+
+
+
+
+
+
+
