@@ -82,7 +82,7 @@ export const apiList = (s,type) => {
 
             const linkAllaSchedaTec = document.createElement("a");
                 //const urlMoreInfo = create
-            linkAllaSchedaTec.href="/moreInfo.html?keywords=" + media.Title;
+            linkAllaSchedaTec.href="./moreInfo.html?keywords=" + media.Title;
                 const imgPoster = document.createElement("img");
                 imgPoster.className="filmImg";
                 imgPoster.src=media.Poster;
@@ -132,7 +132,7 @@ export const apiList = (s,type) => {
     //sostituisci spazio con %20
 
     //lo applico all url e mi manda alla pagina moreInfo il valore richiesto
-    location.href = "/moreInfo.html?keywords=" + nomeFilm;
+    location.href = "./moreInfo.html?keywords=" + nomeFilm;
    }
 
 /*-------------------------------------MOREINFO.HTML----------------------------------------*/
