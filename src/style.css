@@ -16,6 +16,8 @@ href agli id
 
 manca ricerca generica da moreInfo
 
+non funzionano i link dalla pagina pubblicata ma funziona in locale
+
 
 
 in ordine di importanza:
@@ -148,7 +150,7 @@ mediaQuery
 }
 
 .logoApp{
-    
+    margin-top:5%;
     width:200px;
     height:200px;
 }

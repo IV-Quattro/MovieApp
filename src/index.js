@@ -29,7 +29,7 @@ export const apiList = (s,type) => {
             //inserisco in items l' array Search ritornato con chiamata ajax
             const items = objResult.Search;
             //questa funzione genera l'insieme delle cards chiamate con parametro s
-            viewItems(items);
+            viewItems(items); 
            
         });
    }
