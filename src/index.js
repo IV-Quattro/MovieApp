@@ -1,6 +1,5 @@
 
 import {URL_BASE} from "./config.js"
-
 /*-------------------------------------HOME.HTML----------------------------------------*/
 
 
@@ -17,8 +16,34 @@ export const apiList = (s,type) => {
         .then(jsonResponse => jsonResponse.json())
         //utilizzo del ritorno di jsonResponse
         .then(objResult => {
-           
+           console.log(objResult);
+            if(objResult.Response == "True")
+            {
+                const everything = document.getElementById("search");
+                const argomentoDiv = document.createElement("h1");
+                argomentoDiv.className = "text-white text-center strisciaColorata titoloDynamic";
+                    //parametro ricerca come titolo pagina -->              decodificalo!
+                    const nodo1 = document.createTextNode("search: " + s);
+                    argomentoDiv.appendChild(nodo1);
+                everything.appendChild(argomentoDiv);
 
+                //inserisco in items l' array Search ritornato con chiamata ajax
+                const items = objResult.Search;
+                //questa funzione genera l'insieme delle cards chiamate con parametro s
+                viewItems(items); 
+            }
+            else if(objResult.Response == "False")
+            {
+                location.href = "./titleNotFound.html?keywords=" + s;
+                
+                
+            }
+            
+           
+        });
+
+       
+        /*.catch(objResult => {
             const everything = document.getElementById("search");
             const argomentoDiv = document.createElement("h1");
             argomentoDiv.className = "text-white text-center strisciaColorata titoloDynamic";
@@ -26,12 +51,7 @@ export const apiList = (s,type) => {
                 const nodo1 = document.createTextNode("search: " + s);
                 argomentoDiv.appendChild(nodo1);
             everything.appendChild(argomentoDiv);
-            //inserisco in items l' array Search ritornato con chiamata ajax
-            const items = objResult.Search;
-            //questa funzione genera l'insieme delle cards chiamate con parametro s
-            viewItems(items); 
-           
-        });
+        }*/
    }
 
    //richiamata da quella sopra
@@ -53,7 +73,7 @@ export const apiList = (s,type) => {
         //chiamata da quella sopra
       //funzione per chiamare films con parametro S
       //richiama anche creazioneFooter ma alla fine ritorna la colonna con la card che si applica alla row
-      const mediaCardGenerator = (media) =>{
+      const mediaCardGenerator = (media) => {
         //creazione colonna da applicare alla row
         const colonna = document.createElement("div");
         colonna.className="col my-5" 
@@ -136,6 +156,7 @@ export const apiList = (s,type) => {
    }
 
 /*-------------------------------------MOREINFO.HTML----------------------------------------*/
+
 
    //per generare pagina dinamica moreInfo relative ad 1 solo film (in modalità sincrona)
    export const apiDetail = async (t) =>{  
@@ -253,7 +274,7 @@ const genColEvidenza = (dettagli) =>{
             const col6II= document.createElement("div");
             col6II.className = "col";
                 const linkBtnMagnet = document.createElement("a");
-                linkBtnMagnet.href = "#";
+                linkBtnMagnet.href = "https://www.1337xx.to/search/" + dettagli.Title + "/1/";
                     const btn2 = document.createElement("button");
                     btn2.type = "button";
                     btn2.className = "btn btn-primary btnMagnet";
@@ -272,6 +293,9 @@ const genColEvidenza = (dettagli) =>{
 
     return colonna2B;
 }
+
+
+
 
 const aCapo = document.createElement("br");
 //generazione colonna 3
@@ -420,4 +444,100 @@ const genTabellaVoti = (dettagli) =>{
 
 
     return tagTable;
+}
+
+
+
+/*-----------------------------------titleNotFound-----------------------------------------*/
+
+export const pageNotFound = async (s) => {
+            
+    const findId = document.getElementById("redirect");
+    const h1Errore = document.createElement("h1");
+    h1Errore.className = "text-center white ";
+    findId.appendChild(h1Errore);
+        const breakLine = document.createElement("br");
+        const breakLine1 = document.createElement("br");
+
+        const testoErrore = document.createTextNode("404");
+        const testoErrore1 = document.createTextNode("THE TITLE " + s);
+        const testoErrore2 = document.createTextNode("IS NOT FOUND");
+
+        h1Errore.append(testoErrore);
+        h1Errore.append(breakLine);
+        h1Errore.append(testoErrore1);
+        h1Errore.append(breakLine1);
+        h1Errore.append(testoErrore2);
+
+
+    await delay(4000);
+    findId.removeChild(h1Errore);
+    await delay(500);
+    soluzione(s);
+
+}
+
+const delay = async (time) => {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+
+const soluzione = async (s) => {
+    const findId2 = document.getElementById("redirect");
+    const h1Errore2 = document.createElement("h1");
+    h1Errore2.className = "text-center white ";
+    findId2.appendChild(h1Errore2);
+
+        const breakLine2 = document.createElement("br");
+        const breakLine3 = document.createElement("br");
+        const breakLine4 = document.createElement("br");
+        
+
+
+        const testoErrore3 = document.createTextNode("BUT THE 34");
+        h1Errore2.appendChild(testoErrore3);
+            const superTest = document.createElement("sup");
+            const testoErrore4 = document.createTextNode("TH");
+            superTest.appendChild(testoErrore4);
+            h1Errore2.append(superTest);
+            //h1Errore2.append(breakLine2);
+                const h1Errore2A = document.createElement("h1");
+                h1Errore2A.className = "text-center white";
+                    const testoErrore5 = document.createTextNode("INTERNET RULE SAYS:");
+                    h1Errore2A.appendChild(testoErrore5);
+                    h1Errore2A.append(breakLine3);
+                    h1Errore2A.append(breakLine4);
+
+                        const testoErrore6 = document.createTextNode("IF IT EXISTS, THERE'S A ");
+                        h1Errore2A.appendChild(testoErrore6);
+
+                    const spanErrore2B = document.createElement("span");
+                    spanErrore2B.className = "hiddenText";
+                        const hiddenwords1 = document.createTextNode("PORN");
+                        spanErrore2B.appendChild(hiddenwords1);
+                    h1Errore2A.append(spanErrore2B);
+
+                    const spanErrore2C = document.createElement("span");
+                    
+                        const footphrase = document.createTextNode(" OF IT. ");
+                        spanErrore2C.appendChild(footphrase);
+                    h1Errore2A.append(spanErrore2C);
+
+                    
+                    const h1Errore2D = document.createElement("h1");
+                        h1Errore2D.className = "hiddenText";
+                            const testoErrore7 = document.createTextNode("NO EXCEPTION.");
+                            h1Errore2D.appendChild(testoErrore7);
+                    
+                    h1Errore2A.appendChild(h1Errore2D);
+
+                h1Errore2.append(h1Errore2A);
+
+   await delay(5000);
+   ricercaAlternativa(s);
+
+}
+
+
+const ricercaAlternativa = async (testoRicerca) => {
+    location.href = "https://it.pornhub.com/video/search?search=" + testoRicerca;
 }

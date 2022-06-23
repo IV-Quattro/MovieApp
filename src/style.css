@@ -396,7 +396,7 @@ si puo fare cosi
     background-color:#ff9900 ;}
 
 
-#foot{}
+/*#foot{}*/
 /*.piede{}*/
 .logo{
     width:75px;
@@ -524,5 +524,31 @@ div suggerimenti
 .diventaArancio:hover{
     color: #ff9012;
 }
+
+
+/*-----------------------------------------moreInfo.html----------------------------------------------------------*/
+/*#redirect{}*/
+
+.hiddenText{
+    color:#000000;
+}
+.hiddenText:hover{
+    color:#FFFFFF;    
+}
+
+.rivelaCose:hover{
+    color:#FFFFFF !important;
+}
+/*
+.hiddenText{
+    visibility: hidden;
+}
+.hiddenText:hover{
+    visibility:visible;
+}
+
+.rivelaCose:hover{
+    visibility:visible !important;
+}*/
 
 

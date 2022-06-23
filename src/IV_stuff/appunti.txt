@@ -1,0 +1,24 @@
+url sito
+https://nice-tree-061af1803.1.azurestaticapps.net
+
+nome progetto: DumbTurkeyTelevision
+logo: turkey con la birretta ubriaco spalmato male sul divano 
+
+nome progetto: 0 idee
+
+fai nuovo url in config x 1337x
+inporta in index.js
+
+al click in moreInfo del magnet
+devo recuperare il titolo 
+e attaccarlo al link di 1337
+
+per streaming 
+https://ilgeniodellostreaming.quest/?s=hellboy
+
+
+
+SISTEMA LINK NAVBAR E FOOTER
+SISTEMA RICERCA SENZA TESTO 
+RICERCA DA MOREINFO E NOTFOUND
+SISTEMA CARD SENZA IMMAGINI

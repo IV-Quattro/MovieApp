@@ -1,4 +1,4 @@
-GET https://www.omdbapi.com/?apikey=450e73c0&s=frits+the+cat HTTP/1.1
+GET https://www.omdbapi.com/?apikey=450e73c0&s=fritz%20the%20cat HTTP/1.1
 ###
 
 GET https://www.omdbapi.com/?apikey=450e73c0&s=watchman&type=series HTTP/1.1

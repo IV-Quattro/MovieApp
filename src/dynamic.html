@@ -88,9 +88,9 @@
     <script type="module">
         import { CONTENT_TYPE } from "./config.js";
         import { apiList } from "./index.js";
-        const ricercaGenerica1 = () =>{
+        const ricercaGenerica1 = () => {
             //rimuovo il blocco e lo ricostruisco per non accodare i risultati (ci si arrangia)
-            const containerBloccato = document.getElementById("blockedCntr")
+            const containerBloccato = document.getElementById("blockedCntr");
             const divPrincipale = document.getElementById("search");
             containerBloccato.removeChild(divPrincipale);
             const ricreazioneDiv = document.createElement("div");

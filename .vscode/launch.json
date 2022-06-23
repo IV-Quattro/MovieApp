@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:5500/moreInfo.html?keywords=the%20onion%20movie",
+            "url": "http://127.0.0.1:5500/src/titleNotFound.html?keywords=frits%20the%20cat",
             "webRoot": "${workspaceFolder}"
         }
     ]
