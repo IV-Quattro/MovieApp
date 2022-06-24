@@ -6,19 +6,16 @@ logo: turkey con la birretta ubriaco spalmato male sul divano
 
 nome progetto: 0 idee
 
-fai nuovo url in config x 1337x
-inporta in index.js
-
-al click in moreInfo del magnet
-devo recuperare il titolo 
-e attaccarlo al link di 1337
-
-per streaming 
-https://ilgeniodellostreaming.quest/?s=hellboy
 
 
 
-SISTEMA LINK NAVBAR E FOOTER
-SISTEMA RICERCA SENZA TESTO 
-RICERCA DA MOREINFO E NOTFOUND
+SISTEMA LINK NAVBAR E FOOTER    fatto
+SISTEMA RICERCA SENZA TESTO     fanculo? fa gia ridirect
+RICERCA DA MOREINFO E NOTFOUND fatto
 SISTEMA CARD SENZA IMMAGINI
+NAVBAR NOTFOUND NON FUNZIONA
+
+SCEGLI I CAZZO DI COLORIIIIII
+METTERE LOGO DA INDEX.JS --> sinistra o centro?
+
+INSERISCI FILM

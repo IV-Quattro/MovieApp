@@ -9,116 +9,136 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="container-fluid">
 
+        <script type="module"> //per linkare al search la pagina dynamic.html            
     
-    <nav class="navbar fixed-top bggray">
-        <div class="container-fluid">
-            <div class="d-flex">
-                <button id="buttonSearch" class="btn btn-outline-light" onclick="window.ricercaGenerica()">Search</button>
-                <input id="research3" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
-            </div>
+            /*scrivo il titolo nella barra di ricerca e faccio invio
+                mi manda in dynamic.html 
+                mi passo come parametro il nome della ricerca 
+                creo dinamicamente la pagina dynamic.html 
+                con all interno tutti i film relativi*/
+            const ricercaGenerica3 = () => {
+                //const but = document.getElementById("buttonSearch");
+                const inputSearch = document.getElementById("research3");
+                //piglio il contenuto testuale dalla barra di ricerca
+                const keywords = inputSearch.value;
+                //lo applico all url e mi manda alla pagina in automatico
+                location.href = "./dynamic.html?keywords=" + keywords;
+    
+            }
+            //rende globale la funzione
+            window.ricercaGenerica3 = ricercaGenerica3;
+        </script>
+    
+        <nav class="navbar fixed-top bggray">
+            <div class="container-fluid">
+                <div class="d-flex">
+                    <button id="buttonSearch3" class="btn btn-outline-light" onclick="window.ricercaGenerica3()">Search</button>
+                    <input id="research3" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
+                </div>
 
 
-            <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon white "></span>
-<!--<img src="https://img.icons8.com/external-gradak-royyan-wijaya/24/undefined/external-hamburger-menu-basic-interface-iii-gradak-royyan-wijaya.png"/>
-<a target="_blank" href="https://icons8.com/icon/vNkcTvQx93Sj/hamburger-menu">Hamburger menu icon by Icons8</a>-->
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
-                    <button type="button" class="btn-close bgwhite" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item ">
-                            <a class="scritteMenu" aria-current="page" href="./home.html">Home</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="scritteMenu" href="./home.html/#categorie">categorie</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="scritteMenu" href="./home.html/#all">all</a>
-                        </li>
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle scritteMenu" href="#" id="offcanvasNavbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Impostazioni
-                            </a>
-                            <ul class="dropdown-menu scritteMenu" aria-labelledby="offcanvasNavbarDropdown">
-                                <li><a class="dropdown-item" href="#">account</a></li>
-                                <li><a class="dropdown-item" href="#">accessibilità</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">qualcos altro qui</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                <!-- <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>-->
+                <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon white "></span>
+    <!--<img src="https://img.icons8.com/external-gradak-royyan-wijaya/24/undefined/external-hamburger-menu-basic-interface-iii-gradak-royyan-wijaya.png"/>
+    <a target="_blank" href="https://icons8.com/icon/vNkcTvQx93Sj/hamburger-menu">Hamburger menu icon by Icons8</a>-->
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+                        <button type="button" class="btn-close bgwhite" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item ">
+                                <a class="scritteMenu" aria-current="page" href="./home.html">Home</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="scritteMenu" href="./home.html#categorie">categorie</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="scritteMenu" href="./home.html#all">all</a>
+                            </li>
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle scritteMenu" href="#" id="offcanvasNavbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Impostazioni
+                                </a>
+                                <ul class="dropdown-menu scritteMenu" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li><a class="dropdown-item" href="#">account</a></li>
+                                    <li><a class="dropdown-item" href="#">accessibilità</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">qualcos altro qui</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    <!-- <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>-->
+                    </div>
                 </div>
             </div>
+        </nav>
+
+        <!--importazione url dal bottone sulle immagini-->
+        <script type="module">
+
+            import{ URL_BASE } from "./config.js";
+            import { apiDetail } from "./index.js";
+            const urlRicerca3 = document.URL;
+            const indiceSym3 = urlRicerca3.lastIndexOf("=") + 1; 
+            const finalKeyword3 = urlRicerca3.slice(indiceSym3);
+            apiDetail(finalKeyword3);
+        </script>
+
+        <img src="./IV_stuff/img/logo1.svg" class="logoApp"> 
+
+        <div id="details" >
+
+
+            
         </div>
-    </nav>
-
-    <!--importazione url dal bottone sulle immagini-->
-    <script type="module">
-
-        import{ URL_BASE } from "./config.js";
-        import { apiDetail } from "./index.js";
-        const urlRicerca3 = document.URL;
-        const indiceSym3 = urlRicerca3.lastIndexOf("=") + 1; 
-        const finalKeyword3 = urlRicerca3.slice(indiceSym3);
-        apiDetail(finalKeyword3);
-    </script>
-
-    
-
-    <div id="details" class="container-fluid">
 
 
         
-    </div>
+        
 
+        <div id="foot3" class="piede white text-center">
+                    
+            <div class="row row-cols-1 row-cols-sm-3">
+                <div class="col">
+                    <h5>CONTATTACI</h5>
+                    <a href="#"><p>tel: +39 342 666 792</p></a>
+                    <a href="#"><p>e-mail: scarto@gmail.org</p></a>
+                    <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
+                        <p>indirizzo: montesiro(MB), 20842</p>
+                    </a>
+                </div>
+                <div class="col">
+                    <h5>SPONSOR</h5>
+                    <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
+                    onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
+                    onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
+                </div>
+                <div class="col">
+                    <h5>TORNA SU</h5>
+                    <a href="./home.html#splash"><p>home</p></a>
+                    <a href="./home.html#attuale"><p>film dell' anno</p></a>
+                    <a href="./home.html#categorie"><p>film del mese</p></a>
+                <!--    <a href="#all"><p>tutto</p></a>-->
 
-    
-    
-
-    <div id="foot2" class="piede white text-center">
-                
-        <div class="row row-cols-1 row-cols-sm-3">
-            <div class="col">
-                <h5>CONTATTACI</h5>
-                <a href="#"><p>tel: +39 342 666 792</p></a>
-                <a href="#"><p>e-mail: scarto@gmail.org</p></a>
-                <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
-                    <p>indirizzo: montesiro(MB), 20842</p>
-                </a>
-            </div>
-            <div class="col">
-                <h5>SPONSOR</h5>
-                <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
-                onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
-                onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
-            </div>
-            <div class="col">
-                <h5>TORNA SU</h5>
-                <a href="#splash"><p>splash page</p></a>
-                <a href="#attuale"><p>film dell' anno</p></a>
-                <a href="#categorie"><p>film del mese</p></a>
-            <!--    <a href="#all"><p>tutto</p></a>-->
+                </div>
 
             </div>
-
         </div>
-    </div>
-    
+    </div><!--chiusura container-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
@@ -131,7 +151,7 @@
 
     <!--------------------------------------prova statica---------------------------------------------->
     <!--
-    <div id="prova" class="container">
+    <div id="prova" >
         
 
         <div class="row row-cols-1 row-cols-sm-2 ">

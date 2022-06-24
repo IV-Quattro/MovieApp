@@ -9,12 +9,33 @@
     <title>Document</title>
 </head>
 <body>
+
+    <script type="module"> //per linkare al search la pagina dynamic.html
+        
+        /*scrivo il titolo nella barra di ricerca e faccio invio
+            mi manda in dynamic.html 
+            mi passo come parametro il nome della ricerca 
+            creo dinamicamente la pagina dynamic.html 
+            con all interno tutti i film relativi*/
+        const ricercaGenerica2 = () => {
+            //const but = document.getElementById("buttonSearch");
+            const inputSearch = document.getElementById("research2");
+            //piglio il contenuto testuale dalla barra di ricerca
+            const keywords = inputSearch.value;
+            //lo applico all url e mi manda alla pagina in automatico
+            location.href = "./dynamic.html?keywords=" + keywords;
+
+        }
+        //rende globale la funzione
+        window.ricercaGenerica2 = ricercaGenerica2;
+    </script>
+
     <div class="container">
         <nav class="navbar fixed-top bggray">
             <div class="container-fluid">
                 <div class="d-flex">
-                    <button id="buttonSearch4" class="btn btn-outline-light" /*onclick="window.ricercaGenerica4()*/">Search</button>
-                    <input id="research4" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
+                    <button id="buttonSearch2" class="btn btn-outline-light" onclick="window.ricercaGenerica2()">Search</button>
+                    <input id="research2" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
                 </div>
     
     
@@ -37,10 +58,10 @@
                                 <a class="scritteMenu" aria-current="page" href="./home.html">Home</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="scritteMenu" href="./home.html/#categorie">categorie</a>
+                                <a class="scritteMenu" href="./home.html#categorie">categorie</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="scritteMenu" href="./home.html/#all">all</a>
+                                <a class="scritteMenu" href="./home.html#all">all</a>
                             </li>
                             <li class="nav-item dropdown ">
                                 <a class="nav-link dropdown-toggle scritteMenu" href="#" id="offcanvasNavbarDropdown" role="button"
@@ -67,17 +88,17 @@
         </nav>
 
 
-        <img src="./IV_stuff/img/Cappuccino.png" class="logoApp">
+        <img src="./IV_stuff/img/logo1.svg" class="logoApp">
 
 
         <script type="module">
             import { pageNotFound } from "./index.js";
              const urlRicerca4 = document.URL;
        // const urlString = decodeURI(urlRicerca);
-            console.log(document.URL);
+            
             const indiceSym4 = urlRicerca4.lastIndexOf("=") + 1; 
             const finalKeyword4 = urlRicerca4.slice(indiceSym4);
-            console.log("sono nell else if");
+            
             pageNotFound(finalKeyword4);
         </script>
 
@@ -106,9 +127,9 @@
                     </div>
                     <div class="col">
                         <h5>TORNA SU</h5>
-                        <a href="#splash"><p>splash page</p></a>
-                        <a href="#attuale"><p>film dell' anno</p></a>
-                        <a href="#categorie"><p>film del mese</p></a>
+                        <a href="./home.html#splash"><p>home</p></a>
+                        <a href="./home.html#attuale"><p>film dell' anno</p></a>
+                        <a href="./home.html#categorie"><p>film del mese</p></a>
                     <!--    <a href="#all"><p>tutto</p></a>-->
         
                     </div>

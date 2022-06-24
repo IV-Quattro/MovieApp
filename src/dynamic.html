@@ -11,141 +11,142 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top bggray">
-        <div class="container-fluid">
-            <div class="d-flex">
-                <button id="buttonSearch" class="btn btn-outline-light" onclick="window.ricercaGenerica1()">Search</button>
-                <input id="research1" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
-            </div>
-
-
-            <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon white "></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
-                    <button type="button" class="btn-close bgwhite" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
+    <div class="container-fluid">
+        <nav class="navbar fixed-top bggray">
+            <div class="container-fluid">
+                <div class="d-flex">
+                    <button id="buttonSearch1" class="btn btn-outline-light" onclick="window.ricercaGenerica1()">Search</button>
+                    <input id="research1" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
                 </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item ">
-                            <a class="scritteMenu" aria-current="page" href="./home.html">Home</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="scritteMenu" href="./home.html/#categorie">categorie</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="scritteMenu" href="./home.html/#all">all</a>
-                        </li>
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle scritteMenu" href="#" id="offcanvasNavbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Impostazioni
-                            </a>
-                            <ul class="dropdown-menu scritteMenu" aria-labelledby="offcanvasNavbarDropdown">
-                                <li><a class="dropdown-item" href="#">account</a></li>
-                                <li><a class="dropdown-item" href="#">accessibilità</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">qualcos altro qui</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                <!-- <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>-->
+
+
+                <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon white "></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+                        <button type="button" class="btn-close bgwhite" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item ">
+                                <a class="scritteMenu" aria-current="page" href="./home.html">Home</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="scritteMenu" href="./home.html#categorie">categorie</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="scritteMenu" href="./home.html#all">all</a>
+                            </li>
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle scritteMenu" href="#" id="offcanvasNavbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Impostazioni
+                                </a>
+                                <ul class="dropdown-menu scritteMenu" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li><a class="dropdown-item" href="#">account</a></li>
+                                    <li><a class="dropdown-item" href="#">accessibilità</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">qualcos altro qui</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    <!-- <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>-->
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!--riprende l'url con parametro s proveniente dalla barra di ricerca di home.html
-    e ci tira fuori il titolo completo del film
-    e da questo richiama la funzione apilist che popola la pagina dynamic.html-->
-    <script type="module">
-        import { CONTENT_TYPE } from "./config.js";
-        import { apiList } from "./index.js";
-        const urlRicerca = document.URL;
-       // const urlString = decodeURI(urlRicerca);
+        <!--riprende l'url con parametro s proveniente dalla barra di ricerca di home.html
+        e ci tira fuori il titolo completo del film
+        e da questo richiama la funzione apilist che popola la pagina dynamic.html-->
+        <script type="module">
+            import { CONTENT_TYPE } from "./config.js";
+            import { apiList } from "./index.js";
+            const urlRicerca = document.URL;
+        // const urlString = decodeURI(urlRicerca);
 
-        const indiceSym = urlRicerca.lastIndexOf("=") + 1; 
-        const finalKeyword = urlRicerca.slice(indiceSym);
+            const indiceSym = urlRicerca.lastIndexOf("=") + 1; 
+            const finalKeyword = urlRicerca.slice(indiceSym);
 
-       
-        apiList(finalKeyword, CONTENT_TYPE.MOVIES); // inserisci la variabile con la key
-
-        //const bottone = document.getElementById()
-    </script>
-
-    <!--questo invece serve per la ricerca sempre generica dalla barra di ricerca
-    che però parte da dynamic.html e richiama apilist che sostituisce il contenuto nella stessa pagina-->
-    <script type="module">
-        import { CONTENT_TYPE } from "./config.js";
-        import { apiList } from "./index.js";
-        const ricercaGenerica1 = () => {
-            //rimuovo il blocco e lo ricostruisco per non accodare i risultati (ci si arrangia)
-            const containerBloccato = document.getElementById("blockedCntr");
-            const divPrincipale = document.getElementById("search");
-            containerBloccato.removeChild(divPrincipale);
-            const ricreazioneDiv = document.createElement("div");
-            ricreazioneDiv.id = "search";
-            containerBloccato.appendChild(ricreazioneDiv);
-
-            const inputSearch1 = document.getElementById("research1");
-            const keyWords1 = inputSearch1.value;
-            //encode key
-            apiList(keyWords1, CONTENT_TYPE.MOVIES);
-            
-        }
-        window.ricercaGenerica1 = ricercaGenerica1;
-    </script>
-
-
-    
-
-
-
-
-    <div id="blockedCntr" class="container-fluid">
-        <div id="search" >
-
-        </div>
         
-    </div>
+            apiList(finalKeyword, CONTENT_TYPE.MOVIES); // inserisci la variabile con la key
 
-    <div id="foot" class="piede ">      
-        <div class="row row-cols-1 row-cols-sm-3 text-center">
-            <div class="col">
-                <h5 class="white">CONTATTACI</h5>
-                <a href="#"><p>tel: +39 342 666 792</p></a>
-                <a href="#"><p>e-mail: scarto@gmail.org</p></a>
-                <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
-                    <p>indirizzo: montesiro(MB), 20842</p>
-                </a>
-            </div>
-            <div class="col">
-                <h5 class="white">SPONSOR</h5>
-                <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
-                        onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
-                        onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
-            </div>
-            <div class="col">
-                <h5 class="white">TORNA SU</h5>
-                <a href="#splash"><p>splash page</p></a>
-                <a href="#attuale"><p>film dell' anno</p></a>
-                <a href="#categorie"><p>film del mese</p></a>
-            <!--    <a href="#all"><p>tutto</p></a>-->
+            //const bottone = document.getElementById()
+        </script>
 
+        <!--questo invece serve per la ricerca sempre generica dalla barra di ricerca
+        che però parte da dynamic.html e richiama apilist che sostituisce il contenuto nella stessa pagina-->
+        <script type="module">
+            import { CONTENT_TYPE } from "./config.js";
+            import { apiList } from "./index.js";
+            const ricercaGenerica1 = () => {
+                //rimuovo il blocco e lo ricostruisco per non accodare i risultati (ci si arrangia)
+                const containerBloccato = document.getElementById("blockedCntr");
+                const divPrincipale = document.getElementById("search");
+                containerBloccato.removeChild(divPrincipale);
+                const ricreazioneDiv = document.createElement("div");
+                ricreazioneDiv.id = "search";
+                containerBloccato.appendChild(ricreazioneDiv);
+
+                const inputSearch1 = document.getElementById("research1");
+                const keyWords1 = inputSearch1.value;
+                //encode key
+                apiList(keyWords1, CONTENT_TYPE.MOVIES);
+                
+            }
+            window.ricercaGenerica1 = ricercaGenerica1;
+        </script>
+
+
+        
+
+
+<img src="./IV_stuff/img/logo1.svg" class="logoApp">
+
+        <div id="blockedCntr">
+            <div id="search" >
+
+            </div>
+            
+        </div>
+
+        <div id="foot" class="piede ">      
+            <div class="row row-cols-1 row-cols-sm-3 text-center">
+                <div class="col">
+                    <h5 class="white">CONTATTACI</h5>
+                    <a href="#"><p>tel: +39 342 666 792</p></a>
+                    <a href="#"><p>e-mail: scarto@gmail.org</p></a>
+                    <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
+                        <p>indirizzo: montesiro(MB), 20842</p>
+                    </a>
+                </div>
+                <div class="col">
+                    <h5 class="white">SPONSOR</h5>
+                    <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
+                            onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
+                            onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
+                </div>
+                <div class="col">
+                    <h5 class="white">TORNA SU</h5>
+                    <a href="./home.html#splash"><p>home</p></a>
+                    <a href="./home.html#attuale"><p>film dell' anno</p></a>
+                    <a href="./home.html#categorie"><p>film del mese</p></a>
+                <!--    <a href="#all"><p>tutto</p></a>-->
+
+                </div>
             </div>
         </div>
-    </div>
-
+    </div><!--chiusura container-->    
     
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

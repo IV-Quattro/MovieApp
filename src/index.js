@@ -35,8 +35,6 @@ export const apiList = (s,type) => {
             else if(objResult.Response == "False")
             {
                 location.href = "./titleNotFound.html?keywords=" + s;
-                
-                
             }
             
            
@@ -54,7 +52,7 @@ export const apiList = (s,type) => {
         }*/
    }
 
-   //richiamata da quella sopra
+   //richiamata da quella sopra (se c ' è contenuto nell array search)
    const viewItems = (items) => {
     const place = document.getElementById("search");
     //creazione riga alla quale applicare un for di colonne
@@ -105,7 +103,14 @@ export const apiList = (s,type) => {
             linkAllaSchedaTec.href="./moreInfo.html?keywords=" + media.Title;
                 const imgPoster = document.createElement("img");
                 imgPoster.className="filmImg";
-                imgPoster.src=media.Poster;
+                //meccanica per mettere un placeholder in caso non ci sia l immagine
+                if(media.Poster == "N/A")
+                {
+                    imgPoster.src= "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000";
+                }
+                else
+                {imgPoster.src=media.Poster;}
+                
                     //imgPoster.addEventListener("click",genMoreInfo(media.Title));
 //SISTEMA QUA CHE NON ATTENDE IL CLICK PER RIMANDARE A MOREINFO.HTML
 //manda in link l ultimo film della lista
@@ -178,6 +183,7 @@ export const apiList = (s,type) => {
 //genera contenuto pagina moreInfo
 const viewDetails = (dettagli) => {
     const scheda = document.getElementById("details");
+//-------------------------------------LOGOOOOOOO----------------------
         const rigaSplash = document.createElement("div");
         rigaSplash.className = "row row-cols-1 row-cols-md-2";
         scheda.appendChild(rigaSplash);
@@ -258,13 +264,13 @@ const genColEvidenza = (dettagli) =>{
             const col6I= document.createElement("div");
             col6I.className = "col";
                 const linkBtnStream = document.createElement("a");
-                linkBtnStream.href = "#";
+                linkBtnStream.href = "https://ilgeniodellostreaming.quest/?s=" + dettagli.Title;
                     const btn1 = document.createElement("button");
                     btn1.type = "button";
                     btn1.className = "btn btn-primary btnStreaming";
                         const imgStreaming = document.createElement("img");
                         imgStreaming.src = "https://img.icons8.com/ios/100/undefined/circled-play--v1.png";
-                        imgStreaming.title = "Free download";
+                        imgStreaming.title = "Streaming";
                         //<!--<a target="_blank" href="https://icons8.com/icon/3017/calamita">Calamita icon by Icons8</a>-->
                         btn1.appendChild(imgStreaming);
                     linkBtnStream.appendChild(btn1);
@@ -274,7 +280,7 @@ const genColEvidenza = (dettagli) =>{
             const col6II= document.createElement("div");
             col6II.className = "col";
                 const linkBtnMagnet = document.createElement("a");
-                linkBtnMagnet.href = "https://www.1337xx.to/search/" + dettagli.Title + "/1/";
+                linkBtnMagnet.href = "https://www.1337xx.to/category-search/" + dettagli.Title + "/Movies/1/";
                     const btn2 = document.createElement("button");
                     btn2.type = "button";
                     btn2.className = "btn btn-primary btnMagnet";
@@ -524,7 +530,7 @@ const soluzione = async (s) => {
 
                     
                     const h1Errore2D = document.createElement("h1");
-                        h1Errore2D.className = "hiddenText";
+                        //h1Errore2D.className = "hiddenText";
                             const testoErrore7 = document.createTextNode("NO EXCEPTION.");
                             h1Errore2D.appendChild(testoErrore7);
                     
