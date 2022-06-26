@@ -106,7 +106,7 @@ export const apiList = (s,type) => {
                 //meccanica per mettere un placeholder in caso non ci sia l immagine
                 if(media.Poster == "N/A")
                 {
-                    imgPoster.src= "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000";
+                    imgPoster.src= "./IV_STUFF/img/imageNotFound.svg";
                 }
                 else
                 {imgPoster.src=media.Poster;}
@@ -185,7 +185,7 @@ const viewDetails = (dettagli) => {
     const scheda = document.getElementById("details");
 //-------------------------------------LOGOOOOOOO----------------------
         const rigaSplash = document.createElement("div");
-        rigaSplash.className = "row row-cols-1 row-cols-md-2";
+        rigaSplash.className = "row row-cols-1 row-cols-lg-2 blckCentrale white";
         scheda.appendChild(rigaSplash);
         
             const colonna1A = genColImg(dettagli); 
@@ -201,8 +201,8 @@ const viewDetails = (dettagli) => {
             const colonna4A = genColDati(dettagli);
             rigaSplash.appendChild(colonna4A);
 
-        const tabellaVoti = genTabellaVoti(dettagli);
-        scheda.appendChild(tabellaVoti); 
+        /*const tabellaVoti = genTabellaVoti(dettagli);
+        scheda.appendChild(tabellaVoti);*/ 
 
     return scheda;
 }
@@ -214,7 +214,10 @@ colonna1B.className = "col my-5";
     filmCardImmagine.className = "filmCard posterInfoCard";
     colonna1B.appendChild(filmCardImmagine);
         const filmImmagine = document.createElement("img");
-        filmImmagine.src=dettagli.Poster;
+        if(dettagli.Poster == "N/A")
+            filmImmagine.src = "./IV_STUFF/img/imageNotFound.svg";
+        else
+            filmImmagine.src=dettagli.Poster;
         filmImmagine.className="filmImg";
         filmImmagine.title=dettagli.Title;
         filmCardImmagine.appendChild(filmImmagine);
@@ -235,16 +238,19 @@ const genColEvidenza = (dettagli) =>{
         colonna2B.appendChild(campoA1);
 
         const campoA2 = document.createElement("h3");
+        campoA2.className = "scrittaMoreInfo";
             const dettGenre = document.createTextNode(dettagli.Genre);
             campoA2.appendChild(dettGenre);
         colonna2B.appendChild(campoA2);
 
         const campoA3 = document.createElement("h6");
+        campoA3.className = "scrittaMoreInfo";
             const dettYear = document.createTextNode(dettagli.Year);
             campoA3.appendChild(dettYear);
         colonna2B.appendChild(campoA3);
 
         const campoA4 = document.createElement("h4");
+        campoA4.className = "scrittaMoreInfo";
             const dettPlot = document.createTextNode("Plot: ");
             campoA4.appendChild(dettPlot);
             dettPlot.appendData(dettagli.Plot); 
@@ -252,6 +258,7 @@ const genColEvidenza = (dettagli) =>{
         colonna2B.appendChild(campoA4);
 
         const campoA5 = document.createElement("h5");
+        campoA5.className = "scrittaMoreInfo";
             const dettAwards = document.createTextNode("Awards: ");
             campoA5.appendChild(dettAwards);
             dettAwards.appendData(dettagli.Awards); 
@@ -307,15 +314,17 @@ const aCapo = document.createElement("br");
 //generazione colonna 3
 const genColGenerale = (dettagli) =>{
     const colonna3B = document.createElement("div");
-    colonna3B.className = "col my-5 white";
+    colonna3B.className = "col my-5 white colonneDati";
 
         const campoB1 = document.createElement("h3");
+        campoB1.className = "scrittaMoreInfo1";
             const dettGenerale = document.createTextNode("GENERALE");
             //dettGenerale.appendData(aCapo); non funziona aCapo
             campoB1.appendChild(dettGenerale);
         colonna3B.appendChild(campoB1);
 
         const campoB2 = document.createElement("h6");
+        campoB2.className = "scrittaMoreInfo2";
             const dettDirector = document.createTextNode("Director: ");
             campoB2.appendChild(dettDirector);
                 const dettDirPar = document.createElement("p");
@@ -327,6 +336,7 @@ const genColGenerale = (dettagli) =>{
         colonna3B.appendChild(campoB2);
 
         const campoB3 = document.createElement("h6");
+        campoB3.className = "scrittaMoreInfo2";
             const dettWriter = document.createTextNode("Writers: ");
             campoB3.appendChild(dettWriter);
                 const dettWriPar = document.createElement("p");
@@ -336,6 +346,7 @@ const genColGenerale = (dettagli) =>{
         colonna3B.appendChild(campoB3);
 
         const campoB4 = document.createElement("h6");
+        campoB4.className = "scrittaMoreInfo2";
             const dettActor = document.createTextNode("Actors: ");
             campoB4.appendChild(dettActor);
                 const dettActPar = document.createElement("p");
@@ -345,6 +356,7 @@ const genColGenerale = (dettagli) =>{
         colonna3B.appendChild(campoB4);
 
         const campoB5 = document.createElement("h6");
+        campoB5.className = "scrittaMoreInfo2";
             const dettCountry = document.createTextNode("Country: ");
             campoB5.appendChild(dettCountry);
                 const dettCounPar = document.createElement("p");
@@ -354,6 +366,7 @@ const genColGenerale = (dettagli) =>{
         colonna3B.appendChild(campoB5);
 
         const campoB6 = document.createElement("h6");
+        campoB6.className = "scrittaMoreInfo2";
             const dettProduction = document.createTextNode("Production: ");
             campoB6.appendChild(dettProduction);
                 const dettProdPar = document.createElement("p");
@@ -363,20 +376,29 @@ const genColGenerale = (dettagli) =>{
         colonna3B.appendChild(campoB6);
 
         const campoB7 = document.createElement("h6");
+        campoB7.className = "scrittaMoreInfo2";
             const dettWebsite = document.createTextNode("Website: ");
             campoB7.appendChild(dettWebsite);
-                const dettWebAnc = document.createElement("a");
-                dettWebAnc.href = dettagli.Website;   
-            campoB7.appendChild(dettWebAnc);
+                if(dettagli.Website != "N/A")
+                {
+                    const dettWebAnc = document.createElement("a");
+                    dettWebAnc.href = dettagli.Website;   
+                    urlWebsite = document.createTextNode("url");
+                    dettWebAnc.appendChild(urlWebsite);
+                    campoB7.appendChild(dettWebAnc);
+                }
+                
+            
+
         colonna3B.appendChild(campoB7);
 
     return colonna3B;
 }
 
-//generazione colonna 4
+//generazione colonna 4 DATI FILM
 const genColDati = (dettagli) =>{
     const colonna4B = document.createElement("div");
-    colonna4B.className = "col my-5 white";
+    colonna4B.className = "col my-5 white colonneDati datiFilmCol";
 
         const campoC1 = document.createElement("h3");
             const dettDati = document.createTextNode("DATI FILM");
@@ -432,6 +454,7 @@ const genColDati = (dettagli) =>{
 }
 
 //generazione tabella voti
+/*  NON FUNZIONA    (riga 204 il relativo da scommentare)
 const genTabellaVoti = (dettagli) =>{
     const tagTable = document.createElement("table");
     tagTable.className = "table table-dark table-striped-columns";
@@ -443,14 +466,24 @@ const genTabellaVoti = (dettagli) =>{
     tagTable.appendChild(tagTr1);
         const tagTr2 = document.createElement("tr");
             const tagTh1 = document.createElement("th");
-                const rat1 = document.createTextNode(dettagli.Ratings);
+                const rat1 = document.createTextNode(dettagli.Ratings.[0]);
             tagTh1.appendChild(rat1);
         tagTr2.appendChild(tagTh1);
+    tagTable.appendChild(tagTr2);
+            
+            const rat2 = document.createTextNode(dettagli.Ratings[1]);
+            tagTh2.appendChild(rat2);
+        tagTr2.appendChild(tagTh2);
+     tagTable.appendChild(tagTr2);
+        const tagTh3 = document.createElement("th");
+        const rat3 = document.createTextNode(dettagli.Ratings[2]);
+        tagTh3.appendChild(rat3);
+    tagTr2.appendChild(tagTh3);
     tagTable.appendChild(tagTr2);
 
 
     return tagTable;
-}
+}*/
 
 
 
@@ -545,5 +578,5 @@ const soluzione = async (s) => {
 
 
 const ricercaAlternativa = async (testoRicerca) => {
-    location.href = "https://it.pornhub.com/video/search?search=" + testoRicerca;
+    location.href = "https://www.xnxx.com/search/" + testoRicerca;
 }

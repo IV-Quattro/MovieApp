@@ -73,7 +73,10 @@ in ordine di importanza:
 .bggray{background-color: rgba(134, 134, 134,0.6);}
 .black{color:#000000}
 .bgblack{background-color: black;}
-
+.verde {color: #39e600}
+.bgVerde {background-color: #39e600;}
+.viola { color: #9900cc }
+.bgViola{background-color: #9900cc ;}
 .bgtrasp{
     background-color: transparent;
     --bs-bg-opacity:9;
@@ -150,9 +153,16 @@ mediaQuery
 }
 
 .logoApp{
-    margin-top:5%;
+    /*margin-top: 6%;
+    margin-left: 15%; perfect ma va messo centrale*/
+    margin: 6.5% 40%;
+     
     width:200px;
     height:200px;
+}
+
+.logoApp1{
+
 }
 
 .bgimg1{
@@ -421,13 +431,23 @@ oppure
             normale
 eventualmente stringa di netflix
 */
+.introduzioneDynamic{
+    background-color:#333333;
+}
+
+.logoApp1{
+    
+    margin: 15px auto 0 auto; /* top | right | bottom | left */
+    width: 200px;
+    height: 200px;
+}
 
 #search{
     background-color:#333333;
    /* background-color:#df7b0f;*/
 }
 
-.titoloDynamic{margin-top:55px}
+/*.titoloDynamic{margin-top:55px}*/
 
 .colCard{
     border: 1px solid black;
@@ -489,8 +509,25 @@ div suggerimenti
 .cardConSeD-td{
     width: 150.75px;
 }*/
+/*
 #details{
     background-color:#404040;
+}*/
+
+.blckCentrale{
+    border: 1px solid #ff9012;
+    width: 70%;
+    height: 70%;
+    margin: 10px auto;
+}
+
+.colonneDati{
+
+    padding: 3%;
+}
+
+.datiFilmCol{
+    text-align:right;
 }
 
 .marLeft{
@@ -501,10 +538,11 @@ div suggerimenti
     border: 1px solid black;
 }
 .posterInfoCard:hover{
-    border: 1px solid #ff9012 ;
+    border: 0.5px solid #ff9012 ;
 }
 
 .btnStreaming{
+    border: 0.5px solid #ff9012 ;
     float:right !important;
     background-color:#FFFFFF;
     /*--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; 
@@ -512,17 +550,36 @@ div suggerimenti
 }
 .btnStreaming:hover {
     background-color: #ff9012 !important;
+    border: 0.5px solid #ff9012 ;
 }
 .btnMagnet{
+    border: 0.5px solid #ff9012 ;
     background-color:#FFFFFF;
 }
 .btnMagnet:hover {
     background-color: #ff9012 !important;
+    border: 0.5px solid #ff9012 ;
   }
+
+  /*colonna 2 info piu importanti*/
+.scrittaMoreInfo{
+    
+}
+/*colonne 3-4 nomi campi --> non funziona*/
+.scrittaMoreInfo2{
+    
+}
 
 /*.diventaArancio{}*/
 .diventaArancio:hover{
     color: #ff9012;
+}
+
+.tabellaVoti{
+    border: 0.5px solid #ff9012 ;
+    width: 90%;
+    margin: 5% auto;
+    
 }
 
 

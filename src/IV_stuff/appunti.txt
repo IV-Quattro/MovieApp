@@ -1,21 +1,47 @@
 url sito
 https://nice-tree-061af1803.1.azurestaticapps.net
 
-nome progetto: DumbTurkeyTelevision
-logo: turkey con la birretta ubriaco spalmato male sul divano 
+
 
 nome progetto: 0 idee
 
-
+SISTEMA LOGO CAZZO
 
 
 SISTEMA LINK NAVBAR E FOOTER    fatto
 SISTEMA RICERCA SENZA TESTO     fanculo? fa gia ridirect
 RICERCA DA MOREINFO E NOTFOUND fatto
-SISTEMA CARD SENZA IMMAGINI
+SISTEMA CARD SENZA IMMAGINI --> lu
 NAVBAR NOTFOUND NON FUNZIONA
 
-SCEGLI I CAZZO DI COLORIIIIII
-METTERE LOGO DA INDEX.JS --> sinistra o centro?
+LOGOOOOOOOOOOOOOO
 
+SCEGLI I CAZZO DI COLORIIIIII
+colore : sfondo scritte card viola borders verdi
+
+METTERE LOGO DA INDEX.JS --> sinistra o centro? centro
+
+home.html
 INSERISCI FILM
+FAI CATEGORIE
+SITEMA LA FRECCETTA
+VERSIONE TELEFONO HO UNO 
+    SPAZIO IN PIU A DESTRA A CASO (ANCHE IN DYNAMIC --> NAVBAR)
+
+RUNTIME FORMATO 1h30min
+
+
+moreInfo.html
+SISTEMA TABELLA 
+COLORA LE SCRITTE IN MOREINFO --> si impalla
+MEDIAQUERY
+        immagine 
+        bottoni
+
+dynamic.html
+VEDI COLORI
+
+pageNotFound.html
+SISTEMA SCRITTA MARGIN-BOTTOM
+SISTEMA L'HOVER
+MEDIA QUERY O CONTAINER-FLUID

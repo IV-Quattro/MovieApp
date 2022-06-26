@@ -1,5 +1,4 @@
-GET https://www.omdbapi.com/?apikey=450e73c0&s=fritz%20the%20cat HTTP/1.1
-###
+
 
 GET https://www.omdbapi.com/?apikey=450e73c0&s=watchman&type=series HTTP/1.1
 ###
@@ -63,59 +62,26 @@ GET https://www.omdbapi.com/?apikey=450e73c0&i=tt0102511 HTTP/1.1
 
 //sito
 
-//dagon
 
-GET https://www.omdbapi.com/?apikey=450e73c0&t=dagon&type=movie HTTP/1.1
-###
 
 //the onion movie
 
-GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20onion%20movie&type=movie HTTP/1.1
-###
 
-//superhero
-GET https://www.omdbapi.com/?apikey=450e73c0&s=superhero&type=movie HTTP/1.1
-###
-
-//SLC punk
-GET https://www.omdbapi.com/?apikey=450e73c0&t=slc%20punk&type=movie HTTP/1.1
-###
-
-//silent hill
-GET https://www.omdbapi.com/?apikey=450e73c0&t=silent%20hill&type=movie HTTP/1.1
-###
-
-//the warriors
-GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20warriors&type=movie HTTP/1.1
-###
 
 //
 GET https://www.omdbapi.com/?apikey=450e73c0&s=interstellar&type=movie HTTP/1.1
 ###
 
 //
-GET https://www.omdbapi.com/?apikey=450e73c0&t=naked%20lunch&type=movie HTTP/1.1
-###
+
 
 //
 GET https://www.omdbapi.com/?apikey=450e73c0&t=necronomicon&type=movie HTTP/1.1
 ###
 
-//The call of Cthulhu
-GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20call%20of%20cthulhu&type=movie HTTP/1.1
-###
 
-//watchmen
-GET https://www.omdbapi.com/?apikey=450e73c0&t=watchmen&type=movie HTTP/1.1
-###
 
-//
-GET https://www.omdbapi.com/?apikey=450e73c0&t=machete&type=movie HTTP/1.1
-###
 
-//Il mistero di sleepy hollow
-GET https://www.omdbapi.com/?apikey=450e73c0&t=sleepy%20hollow&type=movie HTTP/1.1
-###
 
 //il grande gatsby
 GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20big%20gatsby HTTP/1.1
@@ -129,21 +95,13 @@ GET https://www.omdbapi.com/?apikey=450e73c0&t=big%20Lebowski HTTP/1.1
 GET https://www.omdbapi.com/?apikey=450e73c0&t=jackass HTTP/1.1
 ###
 
-//
-GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20fly HTTP/1.1
-###
 
-//Fear and Loathing in Las Vegas
-GET https://www.omdbapi.com/?apikey=450e73c0&s=fear%20and%20loathing%20in%20las%20vegas&type=movie HTTP/1.1
-###
 
 //
 GET https://www.omdbapi.com/?apikey=450e73c0&s=jurassic%20world&type=movie HTTP/1.1
 ###
 
-//
-GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20onion%20movie HTTP/1.1
-###
+
 
 //
 GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
@@ -198,7 +156,285 @@ GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
 ###
 
 //
-GET https://www.omdbapi.com/?apikey=450e73c0&t=%20&type=movie HTTP/1.1
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
 ###
 
 
+
+//lista all
+
+//the onion movie
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20onion%20movie&type=movie HTTP/1.1
+###
+
+//the warriors
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20warriors&type=movie HTTP/1.1
+###
+
+//superhero
+GET https://www.omdbapi.com/?apikey=450e73c0&t=superhero HTTP/1.1
+###
+
+//SLC punk
+GET https://www.omdbapi.com/?apikey=450e73c0&t=slc%20punk&type=movie HTTP/1.1
+###
+
+//silent hill
+GET https://www.omdbapi.com/?apikey=450e73c0&t=silent%20hill&type=movie HTTP/1.1
+###
+
+GET https://www.omdbapi.com/?apikey=450e73c0&t=naked%20lunch&type=movie HTTP/1.1
+###
+
+//The call of Cthulhu
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20call%20of%20cthulhu&type=movie HTTP/1.1
+###
+
+//watchmen
+GET https://www.omdbapi.com/?apikey=450e73c0&t=watchmen&type=movie HTTP/1.1
+###
+
+//machete
+GET https://www.omdbapi.com/?apikey=450e73c0&t=machete&type=movie HTTP/1.1
+###
+
+//Il mistero di sleepy hollow
+GET https://www.omdbapi.com/?apikey=450e73c0&t=sleepy%20hollow&type=movie HTTP/1.1
+###
+
+//Fear and Loathing in Las Vegas
+GET https://www.omdbapi.com/?apikey=450e73c0&t=fear%20and%20loathing%20in%20las%20vegas&type=movie HTTP/1.1
+###
+
+//la mosca
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20fly HTTP/1.1
+###
+
+
+//fritz
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20nine%20lives%20of%20fritz%20the%20cat HTTP/1.1
+###
+
+//alien 4
+GET https://www.omdbapi.com/?apikey=450e73c0&t=alien:%20Resurrection HTTP/1.1
+###
+
+//amarcord
+GET https://www.omdbapi.com/?apikey=450e73c0&t=amarcord HTTP/1.1
+###
+
+//between two ferns
+GET https://www.omdbapi.com/?apikey=450e73c0&t=between%20two%20ferns HTTP/1.1
+###
+
+//snowpiercer
+GET https://www.omdbapi.com/?apikey=450e73c0&t=snowpiercer HTTP/1.1
+###
+
+//Pushpa: The Rise
+GET https://www.omdbapi.com/?apikey=450e73c0&t=Pushpa:%20the%20rise HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=inception HTTP/1.1
+###
+
+//interstellar
+GET https://www.omdbapi.com/?apikey=450e73c0&t=interstellar HTTP/1.1
+###
+
+//a history of violence
+GET https://www.omdbapi.com/?apikey=450e73c0&t=a%20history%20of%20violence HTTP/1.1
+###
+
+//daft punk electroma
+GET https://www.omdbapi.com/?apikey=450e73c0&t=daft%20punk%20electroma HTTP/1.1
+###
+
+//dagon
+GET https://www.omdbapi.com/?apikey=450e73c0&t=Dagon HTTP/1.1
+###
+
+//dogma
+GET https://www.omdbapi.com/?apikey=450e73c0&t=dogma HTTP/1.1
+###
+
+//profondo rosso
+GET https://www.omdbapi.com/?apikey=450e73c0&t=profondo%20rosso HTTP/1.1
+###
+
+//suspiria
+GET https://www.omdbapi.com/?apikey=450e73c0&t=suspiria HTTP/1.1
+###
+
+//this is the end
+GET https://www.omdbapi.com/?apikey=450e73c0&t=this%20is%20the%20end HTTP/1.1
+###
+
+//guida galattica per autostoppisti
+GET https://www.omdbapi.com/?apikey=450e73c0&t=The%20Hitchhiker's%20Guide%20to%20the%20Galaxy HTTP/1.1
+###
+
+//hellboy
+GET https://www.omdbapi.com/?apikey=450e73c0&t=hellboy HTTP/1.1
+###
+
+//the usual suspect
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20usual%20suspect HTTP/1.1
+###
+
+//the merchant of venice
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20merchant%20of%20venice HTTP/1.1
+###
+
+//in the mounth of madness
+GET https://www.omdbapi.com/?apikey=450e73c0&t=in%20the%20mounth%20of%20madness HTTP/1.1
+###
+
+//IT the clown
+GET https://www.omdbapi.com/?apikey=450e73c0&t=it%20il%20pagliaccio%20assassino&Year=1990 HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
+###
+
+//tenacious D 
+GET https://www.omdbapi.com/?apikey=450e73c0&t=tenacious%20D HTTP/1.1
+###
+jackass 
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=jackass  HTTP/1.1
+###
+
+//akira 
+GET https://www.omdbapi.com/?apikey=450e73c0&t=akira  HTTP/1.1
+###
+
+//ghost in the shell 
+GET https://www.omdbapi.com/?apikey=450e73c0&t=ghost%20in%20the%20shell HTTP/1.1
+###
+
+//laputa castle in the sky
+GET https://www.omdbapi.com/?apikey=450e73c0&t=laputa%20castle%20in%20the%20sky HTTP/1.1
+###
+
+//porco rosso
+GET https://www.omdbapi.com/?apikey=450e73c0&t=porco%20rosso HTTP/1.1
+###
+
+//la principessa mononoke
+GET https://www.omdbapi.com/?apikey=450e73c0&t=la%20principessa%20mononoke HTTP/1.1
+###
+
+//la città incantata
+GET https://www.omdbapi.com/?apikey=450e73c0&t=spirited%20away HTTP/1.1
+###
+
+//il castello errante di howl
+GET https://www.omdbapi.com/?apikey=450e73c0&t=il%20castello%20errante%20di%20howl HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=evangelion%203.0+1 HTTP/1.1
+###
+
+//Jay and Silent Bob Strike Back
+GET https://www.omdbapi.com/?apikey=450e73c0&t=Jay%20and%20Silent%20Bob%20Strike%20Back HTTP/1.1
+###
+
+//ace ventura
+GET https://www.omdbapi.com/?apikey=450e73c0&t=ace%20ventura HTTP/1.1
+###
+
+//number 23
+GET https://www.omdbapi.com/?apikey=450e73c0&t=number%2023 HTTP/1.1
+###
+
+//  the mask
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20mask HTTP/1.1
+###
+
+//una settimana da dio
+GET https://www.omdbapi.com/?apikey=450e73c0&t=una%20settimana%20da%20dio HTTP/1.1
+###
+
+//the grinch
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20grinch HTTP/1.1
+###
+
+//el topo
+GET https://www.omdbapi.com/?apikey=450e73c0&t=el%20topo HTTP/1.1
+###
+
+//the holy mountain
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20holy%20mountain HTTP/1.1
+###
+
+//il grande lebowsky
+GET https://www.omdbapi.com/?apikey=450e73c0&t=il%20grande%20lebowsky HTTP/1.1
+###
+
+//non è un paese per vecchi
+GET https://www.omdbapi.com/?apikey=450e73c0&t=non%20è%20un%20paese%20per%20vecchi HTTP/1.1
+###
+
+//jurassic galaxy
+GET https://www.omdbapi.com/?apikey=450e73c0&t=jurassic%20galaxy HTTP/1.1
+###
+
+//kung fusion
+GET https://www.omdbapi.com/?apikey=450e73c0&t=kung%20fusion HTTP/1.1
+###
+
+//l'armata delle tenebre
+GET https://www.omdbapi.com/?apikey=450e73c0&t=armata%20delle%20tenebre HTTP/1.1
+###
+
+//the city of lost children
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20city%20of%20lost%20children HTTP/1.1
+###
+
+//mad max fury road
+GET https://www.omdbapi.com/?apikey=450e73c0&t=madmax%20fury%20road HTTP/1.1
+###
+
+//cape fear
+GET https://www.omdbapi.com/?apikey=450e73c0&t=cape%20fear HTTP/1.1
+###
+
+//the wolf of wall street
+GET https://www.omdbapi.com/?apikey=450e73c0&t=the%20wolf%20of%20wall%20street HTTP/1.1
+###
+
+//men in black
+GET https://www.omdbapi.com/?apikey=450e73c0&t=men%20in%20black HTTP/1.1
+###
+
+//nightmare
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
+###
+
+//
+GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
+###

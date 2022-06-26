@@ -100,12 +100,42 @@
 
         <img src="./IV_stuff/img/logo1.svg" class="logoApp"> 
 
-        <div id="details" >
+       <div id="details" >   </div>
 
+        <div id="prova">
+            <!--VOTI -->
+            <table class="table table-dark table-striped-columns tabellaVoti">
+                <tr class="bgblack white">
+                    <h6>RATINGS</h6>
+                </tr>
+                <tr>
+                    <th>Internet Movie Database</th>
+                    <th>Rotten Tomatoes</th>
+                    <th>Metacritic</th>
+                </tr>
+                <tr>
+                    <td>8.1/10</td>
+                    <td>83%</td>
+                    <td>71/100</td>
+                </tr>
+                <tr>
+                    <h6>IMDB RATINGS</h6>
+                </tr>
+                <tr>
+                    <th>imdbVotes</th>
+                    <th>imdbRating</th>
+                    <th>Metascore</th>
+                </tr>
+                <tr>
+                    <td>790,726</td>
+                    <td>8.1</td>
+                    <td>71</td>
+                </tr>
+                
 
-            
-        </div>
+            </table>
 
+        </div> <!--chiusura div id=prova-->
 
         
         
@@ -152,71 +182,69 @@
     <!--------------------------------------prova statica---------------------------------------------->
     <!--
     <div id="prova" >
-        
-
-        <div class="row row-cols-1 row-cols-sm-2 ">
-            <div class="col my-5 ">
-                <div class="filmCard posterInfoCard">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_SX300.jpg"
-                    alt="" class="filmImg" title="dagon" >
+        <!--<div class="row row-cols-1 row-cols-sm-2 blckCentrale">
+                <div class="col my-5 ">
+                    <div class="filmCard posterInfoCard">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_SX300.jpg"
+                        alt="" class="filmImg" title="dagon" >
+                    </div>
+                    
                 </div>
                 
-            </div>
-            
-            <div class="col my-5 white">
-                <h1 class="diventaArancio">The Big Lebowski</h1>
-                <h3>Comedy, Crime</h3>
-                <h6>1998</h6>
-                <h4>Plot: </h4><p>Ultimate L.A. slacker Jeff \"The Dude\" Lebowski, mistaken for a millionaire of the same name, seeks restitution for a rug ruined by debt collectors, enlisting his bowling buddies for help while trying to find the millionaire's miss...</p>
-                <h5>awards: </h5><p>5 wins & 18 nominations</p>
+                <div class="col my-5 white">
+                    <h1 class="diventaArancio">The Big Lebowski</h1>
+                    <h3>Comedy, Crime</h3>
+                    <h6>1998</h6>
+                    <h4>Plot: </h4><p>Ultimate L.A. slacker Jeff \"The Dude\" Lebowski, mistaken for a millionaire of the same name, seeks restitution for a rug ruined by debt collectors, enlisting his bowling buddies for help while trying to find the millionaire's miss...</p>
+                    <h5>awards: </h5><p>5 wins & 18 nominations</p>
 
-                <div class="row row-cols-sm-2 ">  
-                    <div class="col"> 
-                        <a>
-                            <button type="button" class="btn btn-primary btnStreaming ">
-                            <img src="https://img.icons8.com/ios/100/undefined/magnet.png"/>
-                                
+                    <div class="row row-cols-sm-2 ">  
+                        <div class="col"> 
+                            <a>
+                                <button type="button" class="btn btn-primary btnStreaming ">
+                                <img src="https://img.icons8.com/ios/100/undefined/magnet.png"/>
+                                    
+                                </button>
+                            </a>
+                            
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btnMagnet">
+                                <img src="https://img.icons8.com/ios/100/undefined/circled-play--v1.png"/>
+                            
                             </button>
-                        </a>
-                        
+                        </div>
+            
                     </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-primary btnMagnet">
-                            <img src="https://img.icons8.com/ios/100/undefined/circled-play--v1.png"/>
-                           
-                        </button>
-                    </div>
-        
                 </div>
-            </div>
+                
+                <div class="col my-5 white colonneDati">
+                    <h3>GENERALE</h3><br>
+                    
+                <h6>director: </h6> <p>media.director.get(0)</p>
+                    <h6>Writer: </h6> <p>media.writers.get(0)</p>
+                    <h6>Actors: </h6> <p>media.actors.get(0)</p>
+                    <h6>country: </h6> <p>media.country.get(0)</p>
+                    
+                    <h6>Production :</h6> <p></p>
+                    <h6>Website :</h6> <a>url</a>
+                </div>
+                
             
-            <div class="col my-5 white">
-                <h3>GENERALE</h3><br>-->
-                <!--3 campi-->
-               <!-- <h6>director: </h6> <p>media.director.get(0)</p>
-                <h6>Writer: </h6> <p>media.writers.get(0)</p>
-                <h6>Actors: </h6> <p>media.actors.get(0)</p>
-                <h6>country: </h6> <p>media.country.get(0)</p>-->
-                <!--1 campo-->
-                <!--<h6>Production :</h6> <p></p>
-                <h6>Website :</h6> <p>https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_SX300.jpg</p>
-            </div>
-            
-            <!--DATI FILM
-            <div class="col my-5 white">
-                <h3>DATI FILM</h3><br>
-                <h6>Boxoffice :</h6> <p></p>
-                <h6>relised :</h6> <p></p>
-                <h6>DVD :</h6> <p></p>
-                <h6>Language: </h6> <p>media.language.get(0)</p>
-                <h6>Runtime :</h6> <p></p>
-            </div>
+                <div class="col my-5 white colonneDati">
+                    <h3>DATI FILM</h3><br>
+                    <h6>Boxoffice :</h6> <p></p>
+                    <h6>relised :</h6> <p></p>
+                    <h6>DVD :</h6> <p></p>
+                    <h6>Language: </h6> <p>media.language.get(0)</p>
+                    <h6>Runtime :</h6> <p></p>
+                </div>
 
-            
-            
+                
+                
 
 
-        </div>
+            </div> -->
 
         <!--VOTI 
         <table class="table table-dark table-striped-columns">
