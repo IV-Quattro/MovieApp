@@ -8,15 +8,9 @@ permettere la ricerca anche con il tasto invio
 
 fare pagina N/A
 
-logo quick cappuccino
-
 scritte
 
-href agli id
-
-manca ricerca generica da moreInfo
-
-non funzionano i link dalla pagina pubblicata ma funziona in locale
+non funzionano i 404 dalla pagina pubblicata ma funziona in locale
 
 
 
@@ -67,7 +61,7 @@ in ordine di importanza:
 
   /*------------------------------css multiuso-----------------------------------------------*/
 
-  .white{color:#FFFFFF !important;}
+.white{color:#FFFFFF !important;}
 .bgwhite{background-color: #FFFFFF;}
 .grey{color:#979797;}
 .bggray{background-color: rgba(134, 134, 134,0.6);}
@@ -142,27 +136,38 @@ mediaQuery
 
 */
 #splash{
-    background-image:url("IV_stuff/img/sfondo.jpg");
+    background-image:url("./IV_stuff/img/sfondo.jpg");
     background-size: 100% 100%;
-    background-repeat:no-repeat ;
+    background-repeat: no-repeat ;
     /*background-color:#757575;*/
     background-color:#000000;
     color: #FFFFFF;
     height:720px;
+    margin-top: 7px;
     
 }
 
-.logoApp{
-    /*margin-top: 6%;
-    margin-left: 15%; perfect ma va messo centrale*/
-    margin: 6.5% 40%;
+.logoPos{
+    margin: 15% auto 5%; 
      
     width:200px;
     height:200px;
 }
 
-.logoApp1{
+.logoPos1{
+    margin: 0 auto;
+    padding-top: 15%;
+    width:200px;
+    height:200px;
+}
 
+.scrittaSplash{
+    margin-top:20%;
+}
+
+.logoApp{
+    width:200px;
+    height:200px;
 }
 
 .bgimg1{
@@ -178,9 +183,7 @@ mediaQuery
     z-index:99;
 }*/
 
-.mUpNav{
-    margin-top: 56px;
-}
+
 
 #attuale{
    /* background-color:#646464 !important;*/
@@ -331,79 +334,6 @@ si puo fare cosi
     visibility:visible;
 }*/
 
-.provacolore1{
-    width:100px; height:100px;
-    background-color:#ff9900 ;}
-.provacolore2{
-    width:100px;
-    height:100px;
-    background-color:#e66515 ;
-    margin-left:1%;
-}
-.provacolore3{
-    width:100px;
-    height:100px;
-    background-color:#df7b0f ;
-    margin-left:1%;
-}
-.provacolore4{
-    width:100px;
-    height:100px;
-    background-color:#ff9012 ;
-    margin-left:1%;
-}
-.provacolore5{
-    width:100px;
-    height:100px;
-    background-color:#fc9700 ;
-    margin-left:1%;
-}
-.provacolore6{
-    width:100px;
-    height:100px;
-    background-color:#ff9900 ;
-    margin-left:1%;
-}
-.provacolore7{
-    width:100px;
-    height:100px;
-    background-color:#f98638 ;
-    margin-left:1%;
-}
-.provacolore8{
-    width:100px;
-    height:100px;
-    background-color:#ffa947 ;
-    margin-left:1%;
-}
-
-.provacolore9{
-    width:100px;
-    height:100px;
-    background-color:#ff8400 ;
-    margin-left:1%;
-}
-.provacolore10{
-    width:100px; height:100px;
-    background-color:#ff9900 ;}
-.provacolore11{
-    width:100px; height:100px;
-    background-color:#ff9900 ;}
-.provacolore12{
-    width:100px; height:100px;
-    background-color:#ff9900 ;}
-.provacolore13{
-    width:100px; height:100px;
-    background-color:#ff9900 ;}
-.provacolore14{
-    width:100px; height:100px;
-    background-color:#ff9900 ;}
-.provacolore15{
-    width:100px; height:100px;
-    background-color:#ff9900 ;}
-.provacolore16{
-    width:100px; height:100px;
-    background-color:#ff9900 ;}
 
 
 /*#foot{}*/
@@ -514,31 +444,27 @@ div suggerimenti
     background-color:#404040;
 }*/
 
-.blckCentrale{
-    border: 1px solid #ff9012;
-    width: 70%;
-    height: 70%;
-    margin: 10px auto;
-}
+
 
 .colonneDati{
 
     padding: 3%;
 }
 
-.datiFilmCol{
-    text-align:right;
-}
+
 
 .marLeft{
     margin-left:15%;
 }
 
-.posterInfoCard{
+.posterInfoCard {
     border: 1px solid black;
+    
 }
+
 .posterInfoCard:hover{
     border: 0.5px solid #ff9012 ;
+    
 }
 
 .btnStreaming{
@@ -561,11 +487,11 @@ div suggerimenti
     border: 0.5px solid #ff9012 ;
   }
 
-  /*colonna 2 info piu importanti*/
+  /*colonna 2 _ info piu importanti*/
 .scrittaMoreInfo{
     
 }
-/*colonne 3-4 nomi campi --> non funziona*/
+/*colonne 3-4 _ nomi campi --> non funziona*/
 .scrittaMoreInfo2{
     
 }
@@ -583,7 +509,93 @@ div suggerimenti
 }
 
 
-/*-----------------------------------------moreInfo.html----------------------------------------------------------*/
+
+/* BOOSTRAP MEDIA BREAKPOINTS */
+/* 487px dove si impallano i bottoni */
+@media (max-width: 487px) {
+     /*scritte a sinistra*/
+    .datiFilmCol{
+        text-align:left;
+    }
+    /*bordo arancione esterno*/
+    .blckCentrale{
+        border: 1px solid #ff9012;
+        width: 95%;
+        height: 70%;
+        margin: 10px auto;
+    }
+    
+    .moreInfoImg{
+        width: 50%;
+    }
+    /*CAZZO GUARDA FilmCard     --> in modalità telefono FUNZIONA !!!!
+    .filmCard{
+        width: 50%;
+    }*/
+
+    /*SISTEMA IMMAGINE  (anche di dynamic   --> NON E' VERO LI FUNZIONA !!!!!)
+     E BOTTONE*/
+
+
+
+}
+
+/*da minimo 487px in poi*/
+@media (min-width: 487px ) {
+    /*scritte a sinistra*/
+    .datiFilmCol{
+        text-align: left;
+    }
+    /*bordo arancione esterno*/
+    .blckCentrale{
+        border: 1px solid #ff9012;
+        width: 80%;
+        height: 70%;
+        margin: 10px auto;
+    }
+    
+}
+
+/* 768 px dove si dimezza il num di colonne 1000px */
+@media (min-width: 768px ) {
+    /*scritte a sinistra*/
+    .datiFilmCol{
+        text-align: left;
+    }
+    /*bordo arancione esterno*/
+    .blckCentrale{
+        border: 1px solid #ff9012;
+        width: 75%;
+        height: 70%;
+        margin: 10px auto;
+    }
+
+    
+
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { /*                  ORA CREA SPESSORE SOTTO*/  
+    /*scritta a destra*/
+    .datiFilmCol{
+        text-align: right;
+    }
+    /*bordo arancione esterno*/
+    .blckCentrale{
+        border: 1px solid #ff9012;
+        width: 70%;
+        height: 70%;
+        margin: 10px auto;
+    }
+    
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) 
+@media (min-width: 1200px) {}*/
+
+/*-----------------------------------------titleNotFound.html----------------------------------------------------------*/
 /*#redirect{}*/
 
 .hiddenText{

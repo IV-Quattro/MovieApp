@@ -210,16 +210,24 @@ const viewDetails = (dettagli) => {
 const genColImg = (dettagli) =>{
 const colonna1B = document.createElement("div");
 colonna1B.className = "col my-5";
+
     const filmCardImmagine = document.createElement("div");
     filmCardImmagine.className = "filmCard posterInfoCard";
     colonna1B.appendChild(filmCardImmagine);
         const filmImmagine = document.createElement("img");
+        filmImmagine.className = "posterInfoCard moreInfoImg";
         if(dettagli.Poster == "N/A")
+        {
             filmImmagine.src = "./IV_STUFF/img/imageNotFound.svg";
+            filmImmagine.title=dettagli.Title;
+        }
         else
+        {
             filmImmagine.src=dettagli.Poster;
-        filmImmagine.className="filmImg";
-        filmImmagine.title=dettagli.Title;
+            filmImmagine.className="filmImg";
+            filmImmagine.title=dettagli.Title;
+        }
+            
         filmCardImmagine.appendChild(filmImmagine);
 
 return colonna1B;
