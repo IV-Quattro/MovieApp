@@ -136,19 +136,27 @@ mediaQuery
 
 */
 #splash{
-    background-image:url("./IV_stuff/img/sfondo.jpg");
+    background-image:url("./IV_stuff/img/no-logo.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat ;
     /*background-color:#757575;*/
     background-color:#000000;
     color: #FFFFFF;
-    height:720px;
-    margin-top: 7px;
+    
+    
     
 }
 
+.sfondoIV{
+    background-image:url("./IV_stuff/img/no-logo.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat ;
+    height:768px;
+    margin-top: 0px;
+}
+
 .logoPos{
-    margin: 15% auto 5%; 
+    margin: 18.5% auto 5%; 
      
     width:200px;
     height:200px;
@@ -156,19 +164,37 @@ mediaQuery
 
 .logoPos1{
     margin: 0 auto;
-    padding-top: 15%;
+    padding-top: 18.5%;
     width:200px;
     height:200px;
-}
-
-.scrittaSplash{
-    margin-top:20%;
 }
 
 .logoApp{
     width:200px;
     height:200px;
+    opacity: 0;
+    
 }
+
+.logoApp:hover{
+    opacity: 1; 
+}
+
+.logoApp1{
+    
+    margin: 15px auto 0 auto; /* top | right | bottom | left */
+    width: 200px;
+    height: 200px;
+}
+
+.scrittaSplash{
+    /*margin-top:40%;*/
+}
+.divPresentazione{
+    height: 100%; 
+}
+
+
 
 .bgimg1{
     /*position:absolute;
@@ -337,7 +363,12 @@ si puo fare cosi
 
 
 /*#foot{}*/
-/*.piede{}*/
+ .piede{
+    background-color: #000000;
+    
+ }
+
+/*logo scarto*/
 .logo{
     width:75px;
     height:100px;
@@ -361,16 +392,9 @@ oppure
             normale
 eventualmente stringa di netflix
 */
-.introduzioneDynamic{
-    background-color:#333333;
-}
 
-.logoApp1{
-    
-    margin: 15px auto 0 auto; /* top | right | bottom | left */
-    width: 200px;
-    height: 200px;
-}
+
+
 
 #search{
     background-color:#333333;
@@ -596,13 +620,18 @@ div suggerimenti
 @media (min-width: 1200px) {}*/
 
 /*-----------------------------------------titleNotFound.html----------------------------------------------------------*/
-/*#redirect{}*/
+#redirect{
+    padding-top: 18.5%;
+}
+
 
 .hiddenText{
-    color:#000000;
+    opacity: 0;
+    transform: scale(0);
 }
 .hiddenText:hover{
-    color:#FFFFFF;    
+    opacity: 1; 
+    transform:scale(1);   
 }
 
 .rivelaCose:hover{

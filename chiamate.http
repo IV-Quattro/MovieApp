@@ -64,7 +64,6 @@ GET https://www.omdbapi.com/?apikey=450e73c0&i=tt0102511 HTTP/1.1
 
 
 
-//the onion movie
 
 
 
@@ -160,6 +159,9 @@ GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
 ###
 
 
+// lista carousel
+GET https://www.omdbapi.com/?apikey=450e73c0&t=scream&y=2022 HTTP/1.1
+###
 
 //lista all
 
@@ -300,11 +302,15 @@ GET https://www.omdbapi.com/?apikey=450e73c0&t=%20 HTTP/1.1
 ###
 
 //tenacious D 
-GET https://www.omdbapi.com/?apikey=450e73c0&t=tenacious%20D HTTP/1.1
+GET https://www.omdbapi.com/?apikey=450e73c0&t=tenacious%20D%20in%20the%20Pick%20of%20Destiny HTTP/1.1
 ###
-jackass 
-//
-GET https://www.omdbapi.com/?apikey=450e73c0&t=jackass  HTTP/1.1
+
+//Jackass: The Movie
+GET https://www.omdbapi.com/?apikey=450e73c0&t=jackass:%20The%20Movie  HTTP/1.1
+###
+
+//Tropic Thunder
+GET https://www.omdbapi.com/?apikey=450e73c0&t=Tropic%20Thunder  HTTP/1.1
 ###
 
 //akira 

@@ -101,7 +101,19 @@ export const apiList = (s,type) => {
             const linkAllaSchedaTec = document.createElement("a");
                 //const urlMoreInfo = create
             linkAllaSchedaTec.href="./moreInfo.html?keywords=" + media.Title;
+                
                 const imgPoster = document.createElement("img");
+                imgPoster.className="filmImg";
+                imgPoster.src = imgMediaCardGenerator(media)
+                //meccanica per mettere un placeholder in caso non ci sia l immagine
+               /* if(media.Poster == "N/A")
+                {
+                    imgPoster.src = "./IV_STUFF/img/imageNotFound.svg";
+                }
+                else
+                {imgPoster.src = media.Poster;}*/
+
+                /*const imgPoster = document.createElement("img");
                 imgPoster.className="filmImg";
                 //meccanica per mettere un placeholder in caso non ci sia l immagine
                 if(media.Poster == "N/A")
@@ -109,7 +121,7 @@ export const apiList = (s,type) => {
                     imgPoster.src= "./IV_STUFF/img/imageNotFound.svg";
                 }
                 else
-                {imgPoster.src=media.Poster;}
+                {imgPoster.src=media.Poster;}*/
                 
                     //imgPoster.addEventListener("click",genMoreInfo(media.Title));
 //SISTEMA QUA CHE NON ATTENDE IL CLICK PER RIMANDARE A MOREINFO.HTML
@@ -125,8 +137,23 @@ export const apiList = (s,type) => {
                 card.appendChild(creazioneFooter(media)); //mi ritorna il footer e lo attacco sotto l immagine
                         
         return colonna;
+
        }
-       //chiamata da quella sopra
+
+       //chiamata da MediaCardGenerator
+       const imgMediaCardGenerator = (media) => {
+            
+            //meccanica per mettere un placeholder in caso non ci sia l immagine
+            if(media.Poster == "N/A")
+            {
+                return "./IV_STUFF/img/imageNotFound.svg";
+            }
+            else
+            {return media.Poster;}
+        
+    }
+
+       //chiamata da MediaCardGenerator
     const creazioneFooter = (media) =>{
         //creo tag ul
         const footer = document.createElement("ul");
@@ -574,6 +601,7 @@ const soluzione = async (s) => {
                         //h1Errore2D.className = "hiddenText";
                             const testoErrore7 = document.createTextNode("NO EXCEPTION.");
                             h1Errore2D.appendChild(testoErrore7);
+                           // h1Errore2D.append(breakLine2);
                     
                     h1Errore2A.appendChild(h1Errore2D);
 

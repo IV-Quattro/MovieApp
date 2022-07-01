@@ -90,7 +90,9 @@
     </nav>
 
     <div class="container-fluid ">
-        <div id="splash">
+
+        <!--Photo by <a href="https://unsplash.com/@druks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Félix Besombes</a> on <a href="https://unsplash.com/s/photos/black-orange?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>-->
+        <div id="splash" class="sfondoIV">
             <!--<img src="IV_stuff/img/the-warriors-luther.jpg" class="bgimg1" alt="the warriors" >-->
             <!--<video width="100%" class="bgimg1" controls autoplay loop poster="IV_stuff/img/the-warriors-luther.jpg"
                 title="the warriors">
@@ -99,14 +101,15 @@
                 Your browser does not support the video tag.
             </video>-->
             
+            
             <div class="logoPos1">
                 <a href="./home.html">
-                    <img src="./IV_stuff/img/logo1.svg" class="logoApp">
+                    <img src="./IV_stuff/img/1Risorsa5xxxhdpi.png" class="logoApp">
                 </a>
             </div>
-             
-            <div>
-                <p class="text-left mx-4 white scrittaSplash">
+        </div>     
+            <div class="divPresentazione">
+                <p class="text-center mx-4 my-4 white scrittaSplash">
                     il nostro scopo è di disporre gratuitamente uno strumento definitivo il piu semplice e funzionale possibile per ridurre i tempi di ricerca dello streaming e download di film e serie cinematografiche.<br>
                     I media messi a disposizione sono selezionati da un team di esperti in materia, così da evitare all’utente di perdere tempo in frequenti e deludenti esperienze.<br>
                     Il team manutenzione assicura l utente di trovare link funzionanti e di non avere pubblicità aggressiva.<br>
@@ -114,9 +117,9 @@
                 </p>
             </div>
             
-        </div>
+        
 
-        <div id="attuale" class="container-fluid">
+        <div id="attuale" class="container-fluid my-4">
             <br>
             <h1 class="text-center white strisciaColorata">FILM DELL' ANNO</h1>
             <p class="text-center white">
@@ -133,13 +136,19 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="IV_stuff/img/2022/scream5.jpg" class="d-block w-100 immagineCarousel" alt="...">
+                        <a href="#">
+                            <img src="IV_stuff/img/2022/scream5.jpg" class="d-block w-100 immagineCarousel" alt="...">
+                        </a>
                     </div>
                     <div class="carousel-item">
-                        <img src="IV_stuff/img/2022/jp2.jpg" class="d-block w-100 immagineCarousel" alt="...">
+                        <a href="#">
+                            <img src="IV_stuff/img/2022/jp2.jpg" class="d-block w-100 immagineCarousel" alt="...">
+                        </a>
                     </div>
                     <div class="carousel-item">
-                        <img src="IV_stuff/img/2022/matrix.jpg" class="d-block w-100 immagineCarousel" alt="...">
+                        <a href="#">
+                            <img src="IV_stuff/img/2022/matrix.jpg" class="d-block w-100 immagineCarousel" alt="...">
+                        </a>
                     </div>
 
                     <!-- per dare l' effetto figo da carousel a categorie
@@ -285,7 +294,7 @@
             <!--sezione con tutti i film-->
             <div id="all" class="container-fluid ">
 
-                <h1 class="text-center white strisciaColorata">Tutti i film</h1>
+                <h1 class="text-center white strisciaColorata">FILM SELEZIONATI</h1>
                 <p class="white text-center">
                     Questa sezione consiste in una rigida selezione di film solo per te!<br>
                     Solo i migliori sono ammessi!
@@ -465,7 +474,29 @@
                     <div class="collapse" id="collapseExample">
                         <div class="card-body"><!--toglilo eventualmente-->
                             <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4 ">
-                            <div class="col my-5">
+
+
+                                <div class="col my-5">
+                                    <div class="card filmCard">
+                                        <ul class="list-group list-group-flush ulHide lineeColorate">
+                                            <li class="list-group-item bg-dark lineeColorate">
+                                                <h5 class="card-title text-white text-center">titolo</h5>
+                                            </li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Released</li>
+                                        </ul>
+                                        <a href="./moreInfo.html?keywords=">
+                                            <img src="img"
+                                                alt="" class="filmImg" title="titolo">
+                                        </a>
+                                        <ul class="list-group list-group-flush ulHide lineeColorate">
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col my-5">
                                     <div class="card filmCard">
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
                                             <li class="list-group-item bg-dark lineeColorate">
@@ -544,26 +575,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!--------------DA QUA------------------->
-                                <div class="col my-5">
-                                    <div class="card filmCard">
-                                        <ul class="list-group list-group-flush ulHide lineeColorate">
-                                            <li class="list-group-item bg-dark lineeColorate">
-                                                <h5 class="card-title text-white text-center">titolo</h5>
-                                            </li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Relised</li>
-                                        </ul>
-                                        <a href="./moreInfo.html?keywords=">
-                                            <img src="img"
-                                                alt="" class="filmImg" title="titolo">
-                                        </a>
-                                        <ul class="list-group list-group-flush ulHide lineeColorate">
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                
 
                                 <div class="col my-5">
                                     <div class="card filmCard">
@@ -869,18 +881,18 @@
                                     <div class="card filmCard">
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
                                             <li class="list-group-item bg-dark lineeColorate">
-                                                <h5 class="card-title text-white text-center">titolo</h5>
+                                                <h5 class="card-title text-white text-center">Tenacious D in the Pick of Destiny</h5>
                                             </li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Relised</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">22 Nov 2006</li>
                                         </ul>
-                                        <a href="./moreInfo.html?keywords=">
-                                            <img src="img"
-                                                alt="" class="filmImg" title="titolo">
+                                        <a href="./moreInfo.html?keywords=tenacious%20D%20in%20the%20Pick%20of%20Destiny">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BMTUyMDA3OTc4MV5BMl5BanBnXkFtZTcwNzE5NjkzMQ@@._V1_SX300.jpg"
+                                                alt="" class="filmImg" title="Tenacious D in the Pick of Destiny">
                                         </a>
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">1 h 34 min</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Liam Lynch</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Adventure, Comedy, Music</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -889,18 +901,18 @@
                                     <div class="card filmCard">
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
                                             <li class="list-group-item bg-dark lineeColorate">
-                                                <h5 class="card-title text-white text-center">titolo</h5>
+                                                <h5 class="card-title text-white text-center">Jackass: The Movie</h5>
                                             </li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Relised</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">25 Oct 2002</li>
                                         </ul>
-                                        <a href="./moreInfo.html?keywords=">
-                                            <img src="img"
-                                                alt="" class="filmImg" title="titolo">
+                                        <a href="./moreInfo.html?keywords=jackass:%20The%20Movie">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BOTgwMmU0YzktOGNhNi00MDcyLTg1OGEtZGQwM2RlMTAyYzhlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                                                alt="" class="filmImg" title="Jackass: The Movie">
                                         </a>
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">1 h 25 min</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Jeff Tremaine</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Documentary, Action, Comedy</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -909,22 +921,41 @@
                                     <div class="card filmCard">
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
                                             <li class="list-group-item bg-dark lineeColorate">
-                                                <h5 class="card-title text-white text-center">titolo</h5>
+                                                <h5 class="card-title text-white text-center">Jay and Silent Bob Strike Back</h5>
                                             </li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Relised</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">24 Aug 2001</li>
                                         </ul>
-                                        <a href="./moreInfo.html?keywords=">
-                                            <img src="img"
-                                                alt="" class="filmImg" title="titolo">
+                                        <a href="./moreInfo.html?keywords=Jay%20and%20Silent%20Bob%20Strike%20Back">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BY2EyYWEwZmQtZWU0Yy00M2Y3LThiZTktOTQxZDUxY2ZjOTYwXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                                                alt="" class="filmImg" title="Jay and Silent Bob Strike Back">
                                         </a>
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">1 h 44 min</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Kevin Smith</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Comedy</li>
                                         </ul>
                                     </div>
                                 </div>
 
+                                <div class="col my-5">
+                                    <div class="card filmCard">
+                                        <ul class="list-group list-group-flush ulHide lineeColorate">
+                                            <li class="list-group-item bg-dark lineeColorate">
+                                                <h5 class="card-title text-white text-center">Tropic Thunder</h5>
+                                            </li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">13 Aug 2008</li>
+                                        </ul>
+                                        <a href="./moreInfo.html?keywords=Tropic%20Thunder">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BNDE5NjQzMDkzOF5BMl5BanBnXkFtZTcwODI3ODI3MQ@@._V1_SX300.jpg"
+                                                alt="" class="filmImg" title="Tropic Thunder">
+                                        </a>
+                                        <ul class="list-group list-group-flush ulHide lineeColorate">
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">1 h 47 min</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Ben Stiller</li>
+                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Action, Comedy, War</li>
+                                        </ul>
+                                    </div>
+                                </div>
 
 
 
@@ -934,43 +965,45 @@
 
                             </div><!--fine row interna al bottone collapse-->
                         </div> <!--fine card-body collapse-->
-                    </div> <!--fine bottone collapse-->
+                </div> <!--fine bottone collapse-->
             
 
             </div>
 
-
             
-            <div id="foot" class="piede">
-                
-                <div class="row row-cols-1 row-cols-sm-3">
-                    <div class="col">
-                        <h5>CONTATTACI</h5>
-                        <a href="#"><p>tel: +39 342 666 792</p></a>
-                        <a href="#"><p>e-mail: scarto@gmail.org</p></a>
-                        <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
-                            <p>indirizzo: montesiro(MB), 20842</p>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <h5>SPONSOR</h5>
-                        <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
-                        onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
-                        onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
-                    </div>
-                    <div class="col">
-                        <h5>TORNA SU</h5>
-                        <a href="#splash"><p>splash page</p></a>
-                        <a href="#attuale"><p>film dell' anno</p></a>
-                        <a href="#categorie"><p>film del mese</p></a>
-                    <!--    <a href="#all"><p>tutto</p></a>-->
-
-                    </div>
-
-                </div>
-            </div>
+            
+            
 
         </div><!--termina container-->
+
+        <div id="foot" class="piede text-center white">
+                
+            <div class="row row-cols-1 row-cols-sm-3">
+                <div class="col">
+                    <h5>CONTATTACI</h5>
+                    <a href="#"><p>tel: +39 342 666 792</p></a>
+                    <a href="#"><p>e-mail: scarto@gmail.org</p></a>
+                    <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
+                        <p>indirizzo: montesiro(MB), 20842</p>
+                    </a>
+                </div>
+                <div class="col">
+                    <h5>SPONSOR</h5>
+                    <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
+                    onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
+                    onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
+                </div>
+                <div class="col">
+                    <h5>TORNA SU</h5>
+                    <a href="#splash"><p>splash page</p></a>
+                    <a href="#attuale"><p>film dell' anno</p></a>
+                    <a href="#categorie"><p>film del mese</p></a>
+                <!--    <a href="#all"><p>tutto</p></a>-->
+
+                </div>
+
+            </div>
+        </div>
 
         <!--link importazione da bootstrap-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
