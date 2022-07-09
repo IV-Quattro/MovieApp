@@ -34,7 +34,7 @@ INSERISCI FILM
 FAI CATEGORIE --> sistema row
 SITEMA LA FRECCETTA
 SISTEMA CAROUSEL E METTI LINK
-
+fix img lu
 
 RUNTIME FORMATO 1h30min
 
@@ -49,6 +49,7 @@ MODIFICA LA CHIAMATA IN MODO CHE UTILIZZI ANCHE IL PARAMETRO Y
 
 dynamic.html
 VEDI COLORI
+non carica la foto sostituitiva da dominio pubblico
 
 
 pageNotFound.html

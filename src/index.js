@@ -14,7 +14,7 @@ export const apiList = (s,type) => {
     fetch(url)
         //piglia la risposta della fetch e la trasformo in stringa
         .then(jsonResponse => jsonResponse.json())
-        //utilizzo del ritorno di jsonResponse
+        //utilizzo del ritorno di jsonResponse in formato Json
         .then(objResult => {
            console.log(objResult);
             if(objResult.Response == "True")
@@ -24,6 +24,7 @@ export const apiList = (s,type) => {
                 argomentoDiv.className = "text-white text-center strisciaColorata titoloDynamic";
                     //parametro ricerca come titolo pagina -->              decodificalo!
                     const nodo1 = document.createTextNode("search: " + s);
+                    
                     argomentoDiv.appendChild(nodo1);
                 everything.appendChild(argomentoDiv);
 
@@ -40,26 +41,16 @@ export const apiList = (s,type) => {
            
         });
 
-       
-        /*.catch(objResult => {
-            const everything = document.getElementById("search");
-            const argomentoDiv = document.createElement("h1");
-            argomentoDiv.className = "text-white text-center strisciaColorata titoloDynamic";
-                //parametro ricerca come titolo pagina -->              decodificalo!
-                const nodo1 = document.createTextNode("search: " + s);
-                argomentoDiv.appendChild(nodo1);
-            everything.appendChild(argomentoDiv);
-        }*/
-   }
+}
 
-   //richiamata da quella sopra (se c ' è contenuto nell array search)
+   //richiamata da apiList() (se c ' è contenuto nell array search)
    const viewItems = (items) => {
     const place = document.getElementById("search");
     //creazione riga alla quale applicare un for di colonne
     const riga = document.createElement("div");
     riga.className = "row row-cols-1 row-cols-md-2 row-cols-xxl-4";
     place.appendChild(riga);
-    //questo for inserisce nella variabile media il contenuto della cella dell array items
+    //questo for inserisce nella variabile media il contenuto di una cella dell array items
     //e ad ogni ripetizione genera la card relativa
     items.map((media) => {
         riga.appendChild(mediaCardGenerator(media));
@@ -68,8 +59,9 @@ export const apiList = (s,type) => {
     return place;
    }
         
-        //chiamata da quella sopra
+        //chiamata da viewItems(items)
       //funzione per chiamare films con parametro S
+      //il parametro media è 1 degli oggetti nell' array search della response in json
       //richiama anche creazioneFooter ma alla fine ritorna la colonna con la card che si applica alla row
       const mediaCardGenerator = (media) => {
         //creazione colonna da applicare alla row
@@ -78,33 +70,14 @@ export const apiList = (s,type) => {
             const card = document.createElement("div");
             card.className="filmCard colCard";
             colonna.appendChild(card);
-
-            //OPZIONE CON LINK <a href>
-            /*
-                //const linkMoreInfo = genMoreInfo(nomeFilm);
-                const linkAllaSchedaTec = document.createElement("a");
-                linkAllaSchedaTec.setAttribute("href", "#");
-                //linkAllaSchedaTec.setAttribute("href", linkMoreInfo);
-                card.appendChild(linkAllaSchedaTec);
-                    //inserimento immagini in base al risultato della ricerca
-                    const imgPoster = document.createElement("img");
-                    imgPoster.className="filmImg";
-                        imgPoster.src=media.Poster;
-                        //imgPoster.addEventListener("click",genMoreInfo(media.Title));
-                        imgPoster.onclick = "genMoreInfo(media.Title)";
-                        linkAllaSchedaTec.appendChild(imgPoster);*/
-
-                //OPZIONE SENZA LINK <a href>
-                //const linkMoreInfo = genMoreInfo(nomeFilm);
-                //inserimento immagini in base al risultato della ricerca
-
+            //link a moreInfo.html clickando sull immagine
             const linkAllaSchedaTec = document.createElement("a");
-                //const urlMoreInfo = create
             linkAllaSchedaTec.href="./moreInfo.html?keywords=" + media.Title;
                 
                 const imgPoster = document.createElement("img");
                 imgPoster.className="filmImg";
-                imgPoster.src = imgMediaCardGenerator(media)
+                //immagine originale se disponibile, oppure placeholder
+                imgPoster.src = imgMediaCardGenerator(media);
                 //meccanica per mettere un placeholder in caso non ci sia l immagine
                /* if(media.Poster == "N/A")
                 {
@@ -141,15 +114,19 @@ export const apiList = (s,type) => {
        }
 
        //chiamata da MediaCardGenerator
-       const imgMediaCardGenerator = (media) => {
+       const imgMediaCardGenerator =  (media) => {
             
+
             //meccanica per mettere un placeholder in caso non ci sia l immagine
             if(media.Poster == "N/A")
             {
-                return "./IV_STUFF/img/imageNotFound.svg";
+                 //return "./IV_STUFF/img/imageNotFound.svg";
+                 return "https://www.davidebertozzi.it/wp-content/uploads/2020/03/errore-404.jpg"
             }
             else
-            {return media.Poster;}
+            {
+                 return media.Poster;
+            }
         
     }
 
@@ -179,13 +156,11 @@ export const apiList = (s,type) => {
    }
 
    //collegamento a moreInfo
-   const genMoreInfo = (nomeFilm) =>{
-    
-    //sostituisci spazio con %20
-
+  /* const genMoreInfo = (nomeFilm) =>{
+    //inutilizzata!!!!
     //lo applico all url e mi manda alla pagina moreInfo il valore richiesto
     location.href = "./moreInfo.html?keywords=" + nomeFilm;
-   }
+   }*/
 
 /*-------------------------------------MOREINFO.HTML----------------------------------------*/
 
@@ -210,21 +185,26 @@ export const apiList = (s,type) => {
 //genera contenuto pagina moreInfo
 const viewDetails = (dettagli) => {
     const scheda = document.getElementById("details");
-//-------------------------------------LOGOOOOOOO----------------------
+        //riga contente praticamente tutto
+        //racchiusa dalla cornice arancio
         const rigaSplash = document.createElement("div");
         rigaSplash.className = "row row-cols-1 row-cols-lg-2 blckCentrale white";
         scheda.appendChild(rigaSplash);
         
+            //immagine
             const colonna1A = genColImg(dettagli); 
             rigaSplash.appendChild(colonna1A);
             //rigaSplash.appendChild(genColImg(dettagli)); funziona ma è meno ordinata
 
+            //info in evidenza
             const colonna2A = genColEvidenza(dettagli);
             rigaSplash.appendChild(colonna2A);
 
+            //info generale
             const colonna3A = genColGenerale(dettagli);
             rigaSplash.appendChild(colonna3A);
 
+            //dati
             const colonna4A = genColDati(dettagli);
             rigaSplash.appendChild(colonna4A);
 
@@ -233,11 +213,11 @@ const viewDetails = (dettagli) => {
 
     return scheda;
 }
-//generazione colonna 1
+//generazione colonna 1 --> chiamata da viewDetails()
 const genColImg = (dettagli) =>{
 const colonna1B = document.createElement("div");
 colonna1B.className = "col my-5";
-
+    //div centrabile
     const filmCardImmagine = document.createElement("div");
     filmCardImmagine.className = "filmCard posterInfoCard";
     colonna1B.appendChild(filmCardImmagine);
@@ -245,6 +225,7 @@ colonna1B.className = "col my-5";
         filmImmagine.className = "posterInfoCard moreInfoImg";
         if(dettagli.Poster == "N/A")
         {
+            //link in internet o non la piglia
             filmImmagine.src = "./IV_STUFF/img/imageNotFound.svg";
             filmImmagine.title=dettagli.Title;
         }
@@ -261,29 +242,32 @@ return colonna1B;
 
 }
 
-//generazione colonna 2
+//generazione colonna 2 --> chiamata da viewDetails()
 const genColEvidenza = (dettagli) =>{
     const colonna2B = document.createElement("div");
     colonna2B.className = "col my-5 white";
-
+        //titolo film
         const campoA1 = document.createElement("h1");
         campoA1.className = "diventaArancio";
             const dettTitolo = document.createTextNode(dettagli.Title);
             campoA1.appendChild(dettTitolo);
         colonna2B.appendChild(campoA1);
 
+        //genere film
         const campoA2 = document.createElement("h3");
         campoA2.className = "scrittaMoreInfo";
             const dettGenre = document.createTextNode(dettagli.Genre);
             campoA2.appendChild(dettGenre);
         colonna2B.appendChild(campoA2);
 
+        //anno pubblicazione
         const campoA3 = document.createElement("h6");
         campoA3.className = "scrittaMoreInfo";
             const dettYear = document.createTextNode(dettagli.Year);
             campoA3.appendChild(dettYear);
         colonna2B.appendChild(campoA3);
 
+        //plot
         const campoA4 = document.createElement("h4");
         campoA4.className = "scrittaMoreInfo";
             const dettPlot = document.createTextNode("Plot: ");
@@ -292,6 +276,7 @@ const genColEvidenza = (dettagli) =>{
             //devo trovare il modo di mettere tutto in un <p> senza andare poi a capo      
         colonna2B.appendChild(campoA4);
 
+        //premi
         const campoA5 = document.createElement("h5");
         campoA5.className = "scrittaMoreInfo";
             const dettAwards = document.createTextNode("Awards: ");
@@ -300,11 +285,13 @@ const genColEvidenza = (dettagli) =>{
             //devo trovare il modo di mettere tutto in un <p> senza andare poi a capo      
         colonna2B.appendChild(campoA5);
 
-        const campoA6 = document.createElement("div");//nuova riga con i bottoni
+        //nuova riga con i bottoni
+        const campoA6 = document.createElement("div");
         campoA6.className = "row row-cols-sm-2";
             //bottone1
             const col6I= document.createElement("div");
             col6I.className = "col";
+                //bottone streaming
                 const linkBtnStream = document.createElement("a");
                 linkBtnStream.href = "https://ilgeniodellostreaming.quest/?s=" + dettagli.Title;
                     const btn1 = document.createElement("button");
@@ -312,7 +299,7 @@ const genColEvidenza = (dettagli) =>{
                     btn1.className = "btn btn-primary btnStreaming";
                         const imgStreaming = document.createElement("img");
                         imgStreaming.src = "https://img.icons8.com/ios/100/undefined/circled-play--v1.png";
-                        imgStreaming.title = "Streaming";
+                        imgStreaming.title = "Free Streaming";
                         //<!--<a target="_blank" href="https://icons8.com/icon/3017/calamita">Calamita icon by Icons8</a>-->
                         btn1.appendChild(imgStreaming);
                     linkBtnStream.appendChild(btn1);
@@ -321,6 +308,7 @@ const genColEvidenza = (dettagli) =>{
             //bottone2
             const col6II= document.createElement("div");
             col6II.className = "col";
+                //bottone torrent
                 const linkBtnMagnet = document.createElement("a");
                 linkBtnMagnet.href = "https://www.1337xx.to/category-search/" + dettagli.Title + "/Movies/1/";
                     const btn2 = document.createElement("button");
@@ -345,8 +333,8 @@ const genColEvidenza = (dettagli) =>{
 
 
 
-const aCapo = document.createElement("br");
-//generazione colonna 3
+const aCapo = document.createElement("br"); //inutilizzato
+//generazione colonna 3 --> chiamata da viewDetails()
 const genColGenerale = (dettagli) =>{
     const colonna3B = document.createElement("div");
     colonna3B.className = "col my-5 white colonneDati";
@@ -358,6 +346,7 @@ const genColGenerale = (dettagli) =>{
             campoB1.appendChild(dettGenerale);
         colonna3B.appendChild(campoB1);
 
+        //direttore: 3 campi max
         const campoB2 = document.createElement("h6");
         campoB2.className = "scrittaMoreInfo2";
             const dettDirector = document.createTextNode("Director: ");
@@ -370,6 +359,7 @@ const genColGenerale = (dettagli) =>{
                 campoB2.appendChild(dettDirPar);
         colonna3B.appendChild(campoB2);
 
+        //writers: 3 campi max
         const campoB3 = document.createElement("h6");
         campoB3.className = "scrittaMoreInfo2";
             const dettWriter = document.createTextNode("Writers: ");
@@ -380,6 +370,7 @@ const genColGenerale = (dettagli) =>{
             campoB3.appendChild(dettWriPar);
         colonna3B.appendChild(campoB3);
 
+        //actors: 3 campi max
         const campoB4 = document.createElement("h6");
         campoB4.className = "scrittaMoreInfo2";
             const dettActor = document.createTextNode("Actors: ");
@@ -390,6 +381,7 @@ const genColGenerale = (dettagli) =>{
             campoB4.appendChild(dettActPar);
         colonna3B.appendChild(campoB4);
 
+        //country:: 3 campi max
         const campoB5 = document.createElement("h6");
         campoB5.className = "scrittaMoreInfo2";
             const dettCountry = document.createTextNode("Country: ");
@@ -400,6 +392,7 @@ const genColGenerale = (dettagli) =>{
             campoB5.appendChild(dettCounPar);
         colonna3B.appendChild(campoB5);
 
+        //production
         const campoB6 = document.createElement("h6");
         campoB6.className = "scrittaMoreInfo2";
             const dettProduction = document.createTextNode("Production: ");
@@ -410,10 +403,13 @@ const genColGenerale = (dettagli) =>{
             campoB6.appendChild(dettProdPar);
         colonna3B.appendChild(campoB6);
 
+        //website: link solo se disponibile
         const campoB7 = document.createElement("h6");
         campoB7.className = "scrittaMoreInfo2";
             const dettWebsite = document.createTextNode("Website: ");
             campoB7.appendChild(dettWebsite);
+                //se il link è disponibile viene scritto url con link al sito
+                //altrimenti non compare niente
                 if(dettagli.Website != "N/A")
                 {
                     const dettWebAnc = document.createElement("a");
@@ -430,7 +426,7 @@ const genColGenerale = (dettagli) =>{
     return colonna3B;
 }
 
-//generazione colonna 4 DATI FILM
+//generazione colonna 4 DATI FILM --> chiamata da viewDetails()
 const genColDati = (dettagli) =>{
     const colonna4B = document.createElement("div");
     colonna4B.className = "col my-5 white colonneDati datiFilmCol";
@@ -440,6 +436,7 @@ const genColDati = (dettagli) =>{
             campoC1.appendChild(dettDati);
         colonna4B.appendChild(campoC1);
 
+        //budget
         const campoC2 = document.createElement("h6");
             const dettBox = document.createTextNode("Boxoffice: ");
             campoC2.appendChild(dettBox);
@@ -449,6 +446,7 @@ const genColDati = (dettagli) =>{
             campoC2.appendChild(dettBoxPar);
         colonna4B.appendChild(campoC2);
 
+        //data di rilascio film
         const campoC3 = document.createElement("h6");
             const dettRelised = document.createTextNode("Released: ");
             campoC3.appendChild(dettRelised);
@@ -458,6 +456,7 @@ const genColDati = (dettagli) =>{
             campoC3.appendChild(dettRelPar);
         colonna4B.appendChild(campoC3);
 
+        //data di rilascio DVD
         const campoC4 = document.createElement("h6");
             const dettDVD = document.createTextNode("DVD: ");
             campoC4.appendChild(dettDVD);
@@ -467,6 +466,7 @@ const genColDati = (dettagli) =>{
             campoC4.appendChild(dettDVDPar);
         colonna4B.appendChild(campoC4);
 
+        //lingua: 3 campi max
         const campoC5 = document.createElement("h6");
             const dettLanguage = document.createTextNode("Language: ");
             campoC5.appendChild(dettLanguage);
@@ -476,6 +476,7 @@ const genColDati = (dettagli) =>{
             campoC5.appendChild(dettLangPar);
         colonna4B.appendChild(campoC5);
 
+        //durata film
         const campoC6 = document.createElement("h6");
             const dettRuntime = document.createTextNode("Runtime: ");
             campoC6.appendChild(dettRuntime);
@@ -530,38 +531,56 @@ export const pageNotFound = async (s) => {
     const h1Errore = document.createElement("h1");
     h1Errore.className = "text-center white ";
     findId.appendChild(h1Errore);
+        /*per andare a capo è un po un casino quindi uso questa struttura piu ordinata
+        genero prima i tag br
+        poi i textnode con i testi
+        poi metto tutto insieme alla fine*/
+
+        //tag br
         const breakLine = document.createElement("br");
         const breakLine1 = document.createElement("br");
 
+        //testo suddiviso in parti
         const testoErrore = document.createTextNode("404");
         const testoErrore1 = document.createTextNode("THE TITLE " + s);
         const testoErrore2 = document.createTextNode("IS NOT FOUND");
 
+        //unione testi e <br>
         h1Errore.append(testoErrore);
         h1Errore.append(breakLine);
         h1Errore.append(testoErrore1);
         h1Errore.append(breakLine1);
         h1Errore.append(testoErrore2);
 
-
+    //operazioni sincrone per rispettare i tempi di attesa che ho imposto
+    //attende tot secondi
     await delay(4000);
+    //rimuove tutto il contenuto del div con id="redirect"
     findId.removeChild(h1Errore);
+    //attende mezzo secondo
     await delay(500);
+    //chiama questa funzione che ripopola il div di id="redirect"
+    //con altro testo
     soluzione(s);
 
 }
 
+//chiamata da pageNotFound()
+//attende il tempo passato come argomento in sincrono
 const delay = async (time) => {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
+//chiamata da pageNotFound()
+//crea nuovo testo da mettere in sostituzione a quello appena cancellato
+//e infine dopo 5s di attesa chiama ricercaAlternativa() 
 const soluzione = async (s) => {
     const findId2 = document.getElementById("redirect");
     const h1Errore2 = document.createElement("h1");
     h1Errore2.className = "text-center white ";
     findId2.appendChild(h1Errore2);
-
-        const breakLine2 = document.createElement("br");
+        
+        const breakLine2 = document.createElement("br"); //inutilizzato ma pronto per eventuali correzioni
         const breakLine3 = document.createElement("br");
         const breakLine4 = document.createElement("br");
         
@@ -569,6 +588,7 @@ const soluzione = async (s) => {
 
         const testoErrore3 = document.createTextNode("BUT THE 34");
         h1Errore2.appendChild(testoErrore3);
+            //sup --> supertext °^'
             const superTest = document.createElement("sup");
             const testoErrore4 = document.createTextNode("TH");
             superTest.appendChild(testoErrore4);
@@ -583,7 +603,8 @@ const soluzione = async (s) => {
 
                         const testoErrore6 = document.createTextNode("IF IT EXISTS, THERE'S A ");
                         h1Errore2A.appendChild(testoErrore6);
-
+                    //tag span inline per spezzare la frase
+                    //e mandare la sola parola a comparsa in hover
                     const spanErrore2B = document.createElement("span");
                     spanErrore2B.className = "hiddenText";
                         const hiddenwords1 = document.createTextNode("PORN");
@@ -598,7 +619,8 @@ const soluzione = async (s) => {
 
                     
                     const h1Errore2D = document.createElement("h1");
-                        //h1Errore2D.className = "hiddenText";
+                        //solo se posso fare l hover sull' intera scritta
+                        //h1Errore2D.className = "hiddenText";  
                             const testoErrore7 = document.createTextNode("NO EXCEPTION.");
                             h1Errore2D.appendChild(testoErrore7);
                            // h1Errore2D.append(breakLine2);
@@ -607,8 +629,10 @@ const soluzione = async (s) => {
 
                 h1Errore2.append(h1Errore2A);
 
-   await delay(5000);
-   ricercaAlternativa(s);
+    //appare tutto per 5 secondi e poi chiama la funzione di ridirect
+    await delay(5000);
+    //TODO: await -> ma funziona bene anche senza
+    ricercaAlternativa(s);
 
 }
 
