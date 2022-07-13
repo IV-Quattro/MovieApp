@@ -12,14 +12,13 @@
 
 <body>
     <div class="container-fluid">
+
         <nav class="navbar fixed-top bggray">
             <div class="container-fluid">
                 <div class="d-flex">
                     <button id="buttonSearch1" class="btn btn-outline-light" onclick="window.ricercaGenerica1()">Search</button>
                     <input id="research1" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
                 </div>
-
-
                 <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon white "></span>
@@ -29,7 +28,8 @@
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
                         <button type="button" class="btn-close bgwhite" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
+                            aria-label="Close">
+                        </button>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -66,25 +66,11 @@
             </div>
         </nav>
 
-        <!--riprende l'url con parametro s proveniente dalla barra di ricerca di home.html
-        e ci tira fuori il titolo completo del film
-        e da questo richiama la funzione apilist che popola la pagina dynamic.html-->
-        <script type="module">
-            import { CONTENT_TYPE } from "./config.js";
-            import { apiList } from "./index.js";
-            const urlRicerca = document.URL;
-        // const urlString = decodeURI(urlRicerca);
-
-            const indiceSym = urlRicerca.lastIndexOf("=") + 1; 
-            const finalKeyword = urlRicerca.slice(indiceSym);
 
         
-            apiList(finalKeyword, CONTENT_TYPE.MOVIES); // inserisci la variabile con la key
 
-            //const bottone = document.getElementById()
-        </script>
-
-        <!--questo invece serve per la ricerca sempre generica dalla barra di ricerca
+        <!--ricercaGenerica1()
+            serve per la ricerca generica dalla barra di ricerca
         che però parte da dynamic.html e richiama apilist che sostituisce il contenuto nella stessa pagina-->
         <script type="module">
             import { CONTENT_TYPE } from "./config.js";
@@ -93,20 +79,22 @@
                 //rimuovo il blocco e lo ricostruisco per non accodare i risultati (ci si arrangia)
                 const containerBloccato = document.getElementById("blockedCntr");
                 const divPrincipale = document.getElementById("search");
+                //rimuovo search
                 containerBloccato.removeChild(divPrincipale);
+                //ricreo search
                 const ricreazioneDiv = document.createElement("div");
                 ricreazioneDiv.id = "search";
                 containerBloccato.appendChild(ricreazioneDiv);
 
                 const inputSearch1 = document.getElementById("research1");
                 const keyWords1 = inputSearch1.value;
-                //encode key
                 apiList(keyWords1, CONTENT_TYPE.MOVIES);
                 
             }
             window.ricercaGenerica1 = ricercaGenerica1;
         </script>
 
+        <!--sfondo + logo -> vedi home-->
         <div class="sfondoIV">
             <div class="logoPos1">
                 <a href="./home.html">
@@ -117,7 +105,10 @@
         
             
         
-
+        <!--div da popolare con cards di film attraverso ricercaGenerica() e ricercaGenerica1()-->
+        <!--blockedCntr è necessario per la ricerca nella stessa pagina
+            search con la vecchia ricerca verrà rimosso e 
+            poi ricostruito con le card relative alla nuova ricerca-->
         <div id="blockedCntr">
             <div id="search" >
 
@@ -125,8 +116,34 @@
             
         </div>
 
+        <!--ricercaGenerica() da home.html
+        riprende l'url con parametro s proveniente dalla barra di ricerca di home.html
+        e ci tira fuori il titolo completo del film
+        e da questo richiama la funzione apilist che popola la pagina dynamic.html 
+        di film con titoli simili-->
+        <script type="module">
+            import { CONTENT_TYPE } from "./config.js";
+            import { apiList } from "./index.js";
+            //recupero dell url attuale
+            const urlRicerca = document.URL;
+
+            const indiceSym = urlRicerca.lastIndexOf("=") + 1; 
+            //a finalKeyword viene assegnato il testo da = in poi -> titolo 
+            const finalKeyword = urlRicerca.slice(indiceSym);
+            
+            //TODO:decodifica il titolo per stamparlo a video senza %20
+            //prova con replace("%20", " ");
+        // const urlString = decodeURI(urlRicerca);
+        
+            apiList(finalKeyword, CONTENT_TYPE.MOVIES); 
+
+        </script>
+
+
+        <!--footer-->
         <div id="foot" class="piede ">      
             <div class="row row-cols-1 row-cols-sm-3 text-center">
+                <!--contatti fasulli SCARTO-->
                 <div class="col">
                     <h5 class="white">CONTATTACI</h5>
                     <a href="#"><p>tel: +39 342 666 792</p></a>

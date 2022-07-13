@@ -37,10 +37,15 @@
         //rende globale la funzione
         window.ricercaGenerica = ricercaGenerica;
     </script>
+    <!--navbar bootstrap
+        ricercaGenerica()-->
 
     <nav class="navbar fixed-top bggray">
         <div class="container-fluid">
             <div class="d-flex">
+            <!--ricercaGenerica() al click su search-->
+            <!--TODO:disabilita bottone se non c' è testo digitato
+                     permettere la ricerca attraverso il tasto invio-->
                 <button id="buttonSearch" class="btn btn-outline-light" onclick="window.ricercaGenerica()">Search</button>
                 <input id="research" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
             </div>
@@ -80,34 +85,42 @@
                             </ul>
                         </li>
                     </ul>
-                   <!-- <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>-->
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- bottoni search originali
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>-->
+
     <div class="container-fluid ">
 
         <!--Photo by <a href="https://unsplash.com/@druks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Félix Besombes</a> on <a href="https://unsplash.com/s/photos/black-orange?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>-->
         <div id="splash" class="sfondoIV">
-            <!--<img src="IV_stuff/img/the-warriors-luther.jpg" class="bgimg1" alt="the warriors" >-->
-            <!--<video width="100%" class="bgimg1" controls autoplay loop poster="IV_stuff/img/the-warriors-luther.jpg"
+
+
+            <!--sfondo video --><!--
+            <video width="100%" class="bgimg1" controls autoplay loop poster="IV_stuff/img/the-warriors-luther.jpg"
                 title="the warriors">
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>-->
             
-            
+            <!--logo ZEROIDEE-->
+            <!--TODO: SU CELL NON SI PUO FARE L HOVER CHE PALLE
+                TODO: sistema sfondo che è circolare e si sminchia con le diverse dimensioni schermo 
+                        sistema tutto con media query-->
             <div class="logoPos1">
                 <a href="./home.html">
                     <img src="./IV_stuff/img/1Risorsa5xxxhdpi.png" class="logoApp">
                 </a>
             </div>
-        </div>     
+        </div>    
+
             <div class="divPresentazione">
                 <p class="text-center mx-4 my-4 white scrittaSplash">
                     il nostro scopo è di disporre gratuitamente uno strumento definitivo il piu semplice e funzionale possibile<br>
@@ -119,13 +132,14 @@
             </div>
             
         
-
+        <!--carousel film 2022-->
         <div id="attuale" class="container-fluid my-4">
             <br>
             <h1 class="text-center white strisciaColorata">FILM DELL' ANNO</h1>
             <p class="text-center white">
                 In questa sezione vengono inseriti i film usciti quest'anno che hanno superato i criteri di accettazione di tutti i componenti del nostro team.
             </p>
+            <!--carousel bootstrap-->
             <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="true">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -136,8 +150,10 @@
                         aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
+                    <!--TODO:  sostituisci le immagini delle prime 3. metti: jackass,-->
+                    <!--TODO:  metti percorso relativo-->
                     <div class="carousel-item active">
-                        <a href="#">
+                        <a href="#">    
                             <img src="IV_stuff/img/2022/scream5.jpg" class="d-block w-100 immagineCarousel" alt="...">
                         </a>
                     </div>
@@ -152,13 +168,14 @@
                         </a>
                     </div>
 
-                    <!-- per dare l' effetto figo da carousel a categorie
+                    <!--
+                         per dare l' effetto figo da carousel a categorie
                         possiamo farlo che quando schiacci 4 volte la freccia destra
                         l' evento elimina il carousel
-                    <div class="carousel-item">
-                        <img src="IV_stuff/img/2022/" class="d-block w-100" alt="...">
-                    </div>
+                        TODO: riscrivilo in js e fai in modo che al termine delle foto si chiuda
+                                una volta arrivato al footer deve ricomparire
                     
+                    predefinito:
                     <div class="carousel-item">
                         <img src="IV_stuff/img/2022/" class="d-block w-100 immagineCarousel" alt="...">
                     </div>-->
@@ -178,7 +195,7 @@
             </div>
         </div>
 
-        <!--categorie non hanno risultati-->
+        <!--categorie-->
 
         <div id="categorie" class="container-fluid">
             <br><br>
@@ -189,9 +206,10 @@
                 velocizzando il processo di scelta anche per farti una bella overdose di arte.
             </p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+                <!--8 colonne di cards-->
                 <div class="col my-5">
                     <div class="card cardHov cardCat text-bg-dark">
-                        <a href="">
+                        <a href=""> <!--TODO: nel tempo fai anche queste-->
                             <img src="./IV_stuff/img/interstellar.jpg" class="card-img-top" alt="" title="sci-fi">
                         </a>
                         <div class="card-body">
@@ -201,6 +219,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col my-5">
                     <div class="card cardHov cardCat text-bg-dark ">
                         <a href="">
@@ -301,19 +320,26 @@
                     Questa lista di film non è fondata sui tuoi interessi, è fondata sulle conoscenze di un team competente in materia <br>
                     assicurandoti di trovare un opera d' arte di qualità, togliendo l' incertezza della scelta del film della serata.
                 </p>
-
+                <!--TODO: rendere il popolamento di questo div (o solo dall espandi in poi), automatico.
+                non completamente automatico, in quanto i film li devo scegliere io.
+                quindi gli devo passare in input i titoli corretti e l anno, e lui mi genera la card relativa 
+                la card va fatta in modo statico e perenne, oppure le ricrea tutte ogni volta in modo dinamico? 
+                forse ha piu senso dinamico
+                in ogni caso devo automatizzare la generazione delle card-->
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4 ">
                     
-
+                    <!--colonne di card film-->
                     <div class="col my-5">
                         <div class="card filmCard">
                             <ul class="list-group list-group-flush ulHide lineeColorate">
                                 <li class="list-group-item bg-dark lineeColorate">
                                     <h5 class="card-title text-white text-center">the onion movie</h5>
                                 </li>
-                                <li class="list-group-item bg-dark text-white text-center lineeColorate">Relised</li>
+                                <li class="list-group-item bg-dark text-white text-center lineeColorate">Released</li>
                             </ul>
+                            <!--link a moreInfo con il titolo come argomento-->
                             <a href="./moreInfo.html?keywords=the%20onion%20movie">
+                            <!--immagini recuperate da omdb-->
                                 <img src="https://m.media-amazon.com/images/M/MV5BNDdkMDUxMmUtNWQ1Yi00OWY3LWI2ZDktOTBmNzVkMTAwODM5XkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_SX300.jpg"
                                     alt="" class="filmImg" title="the onion movie">
                             </a>
@@ -467,6 +493,8 @@
                 </div>
                     <!--inizio bottone collapsed-->
                     
+                        <!--TODO: percorso relativo-->
+                        <!--TODO: sistema il bottone che si espande ma non si riduce-->
                         <div class="d-grid gap-2">
                             <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 <img src="IV_stuff/img/angle-down-solid.svg" class="iconaEsplodi">
@@ -477,7 +505,7 @@
                         <div class="card-body"><!--toglilo eventualmente-->
                             <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4 ">
 
-
+                                <!--default-->
                                 <div class="col my-5">
                                     <div class="card filmCard">
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
@@ -978,9 +1006,11 @@
 
         </div><!--termina container-->
 
+        <!--footer-->
         <div id="foot" class="piede text-center white">
                 
             <div class="row row-cols-1 row-cols-sm-3">
+                <!--contatti fasulli SCARTO-->
                 <div class="col">
                     <h5>CONTATTACI</h5>
                     <a href="#"><p>tel: +39 342 666 792</p></a>
@@ -989,12 +1019,14 @@
                         <p>indirizzo: montesiro(MB), 20842</p>
                     </a>
                 </div>
+                <!--logo SCARTO-->
                 <div class="col">
                     <h5>SPONSOR</h5>
                     <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
                     onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
                     onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
                 </div>
+                <!--link su in alto-->
                 <div class="col">
                     <h5>TORNA SU</h5>
                     <a href="#splash"><p>splash page</p></a>
