@@ -9,16 +9,11 @@
     <title>Document</title>
 </head>
 <body>
-
+    <!--ricercaGenerica2()-->
     <script type="module"> //per linkare al search la pagina dynamic.html
-        
-        /*scrivo il titolo nella barra di ricerca e faccio invio
-            mi manda in dynamic.html 
-            mi passo come parametro il nome della ricerca 
-            creo dinamicamente la pagina dynamic.html 
-            con all interno tutti i film relativi*/
         const ricercaGenerica2 = () => {
             //const but = document.getElementById("buttonSearch");
+            //id = research2
             const inputSearch = document.getElementById("research2");
             //piglio il contenuto testuale dalla barra di ricerca
             const keywords = inputSearch.value;
@@ -90,6 +85,9 @@
 
         
 
+        <!--come si arriva in questa pagina viene creato il contenuto in id=redirect.
+            si arriva in questa pagina se la ricerca in dynamic con parametro s (titoli simili),
+            non riporta nessun risultato-->
 
         <script type="module">
             import { pageNotFound } from "./index.js";
@@ -98,12 +96,12 @@
             
             const indiceSym4 = urlRicerca4.lastIndexOf("=") + 1; 
             const finalKeyword4 = urlRicerca4.slice(indiceSym4);
-            
+            //prendo il titolo dalla barra di ricerca e lo passo come parametro a pageNotFound
             pageNotFound(finalKeyword4);
         </script>
 
         <div class="sfondoIV">
-            <div id="redirect" >
+            <div id="redirect">
         
             </div>
         </div>
@@ -115,6 +113,7 @@
                 
                 <div class="row row-cols-1 row-cols-sm-3">
                     <div class="col">
+                        <!--contatti fasulli SCARTO-->
                         <h5>CONTATTACI</h5>
                         <a href="#"><p>tel: +39 342 666 792</p></a>
                         <a href="#"><p>e-mail: scarto@gmail.org</p></a>

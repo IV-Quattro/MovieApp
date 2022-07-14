@@ -142,9 +142,6 @@ mediaQuery
     /*background-color:#757575;*/
     background-color:#000000;
     color: #FFFFFF;
-    
-    
-    
 }
 
 .sfondoIV{
@@ -216,11 +213,6 @@ mediaQuery
    background-color:#000000;
     color: #FFFFFF !important;
 }
-
-
-/*.sfondoCarousel{
-    background-color: #000000;
-}*/
 
 .immagineCarousel{
     height: 750px;
@@ -639,16 +631,5 @@ div suggerimenti
 .rivelaCose:hover{
     color:#FFFFFF !important;
 }
-/*
-.hiddenText{
-    visibility: hidden;
-}
-.hiddenText:hover{
-    visibility:visible;
-}
-
-.rivelaCose:hover{
-    visibility:visible !important;
-}*/
 
 
