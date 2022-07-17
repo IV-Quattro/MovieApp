@@ -1,4 +1,15 @@
 
+/* INDICE
+-css globali
+-css multiuso
+-navbar
+-home.html
+-dynamic.html
+-moreInfo.html
+-titleNotFound.html
+-media query
+ */
+
 /*-------------------------------------css globali-----------------------------------------*/
 
 /*
@@ -42,7 +53,7 @@ in ordine di importanza:
   
   /* visited link */
   a:visited {
-    color: lightgrey;
+    color: #FFFFFF;
   }
   
   /* mouse over link */
@@ -52,7 +63,7 @@ in ordine di importanza:
   
   /* selected link */
   a:active {
-    color: blue;
+    color: #9900cc;
   }
 
   body{
@@ -85,7 +96,7 @@ in ordine di importanza:
 
 
 .lunghezzaRicerca{ 
-    width: 100%;
+    width: 350px;
 }
 #buttonSearch:hover{
     background-color:#ff9012;
@@ -103,10 +114,6 @@ in ordine di importanza:
     color:#ff9012 !important;
 }
 
-
-
-
-/* unvisited link */
 
 /*-------------------------------------------home.html---------------------------------------------*/
 /*come migliorare home.html
@@ -161,7 +168,7 @@ mediaQuery
 
 .logoPos1{
     margin: 0 auto;
-    padding-top: 18.5%;
+    padding-top: 20%;
     width:200px;
     height:200px;
 }
@@ -169,8 +176,7 @@ mediaQuery
 .logoApp{
     width:200px;
     height:200px;
-    opacity: 0;
-    
+    opacity: 0;  
 }
 
 .logoApp:hover{
@@ -218,38 +224,6 @@ mediaQuery
     height: 750px;
     
 }
-
-@media (max-width: 576px) { 
-    .immagineCarousel{
-        height: 250px;
-    }
- }
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { 
-    .immagineCarousel{
-        height: 400px;
-    }
- }
-/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-@media (min-width: 768px) {
-    .immagineCarousel{
-        height: 500px;
-    }
-}
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    .immagineCarousel{
-        height: 750px;
-    }
-}
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    .immagineCarousel{
-        height: 750px;
-    }
-}
-
-
 
 #categorie{
     /*background-color:#535353;*/
@@ -528,90 +502,7 @@ div suggerimenti
 
 
 
-/* BOOSTRAP MEDIA BREAKPOINTS */
-/* 487px dove si impallano i bottoni */
-@media (max-width: 487px) {
-     /*scritte a sinistra*/
-    .datiFilmCol{
-        text-align:left;
-    }
-    /*bordo arancione esterno*/
-    .blckCentrale{
-        border: 1px solid #ff9012;
-        width: 95%;
-        height: 70%;
-        margin: 10px auto;
-    }
-    
-    .moreInfoImg{
-        width: 50%;
-    }
-    /*CAZZO GUARDA FilmCard     --> in modalità telefono FUNZIONA !!!!
-    .filmCard{
-        width: 50%;
-    }*/
 
-    /*SISTEMA IMMAGINE  (anche di dynamic   --> NON E' VERO LI FUNZIONA !!!!!)
-     E BOTTONE*/
-
-
-
-}
-
-/*da minimo 487px in poi*/
-@media (min-width: 487px ) {
-    /*scritte a sinistra*/
-    .datiFilmCol{
-        text-align: left;
-    }
-    /*bordo arancione esterno*/
-    .blckCentrale{
-        border: 1px solid #ff9012;
-        width: 80%;
-        height: 70%;
-        margin: 10px auto;
-    }
-    
-}
-
-/* 768 px dove si dimezza il num di colonne 1000px */
-@media (min-width: 768px ) {
-    /*scritte a sinistra*/
-    .datiFilmCol{
-        text-align: left;
-    }
-    /*bordo arancione esterno*/
-    .blckCentrale{
-        border: 1px solid #ff9012;
-        width: 75%;
-        height: 70%;
-        margin: 10px auto;
-    }
-
-    
-
-}
-
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { /*                  ORA CREA SPESSORE SOTTO*/  
-    /*scritta a destra*/
-    .datiFilmCol{
-        text-align: right;
-    }
-    /*bordo arancione esterno*/
-    .blckCentrale{
-        border: 1px solid #ff9012;
-        width: 70%;
-        height: 70%;
-        margin: 10px auto;
-    }
-    
-}
-
-
-/* Extra large devices (large desktops, 1200px and up) 
-@media (min-width: 1200px) {}*/
 
 /*-----------------------------------------titleNotFound.html----------------------------------------------------------*/
 #redirect{
@@ -633,3 +524,295 @@ div suggerimenti
 }
 
 
+/*-------------------------------MEDIA QUERY-----------------------------------------------*/
+
+/* BOOSTRAP MEDIA BREAKPOINTS */
+/* 487px dove si impallano i bottoni */
+@media (max-width: 487px) {
+    
+
+   .lunghezzaRicerca{
+       width: 75%;
+   }
+
+   .sfondoIV{
+       height: 250px;
+       /*height:768px;*/
+   }
+   .logoPos1{
+       padding-top: 21%;
+       width:75px;
+       height:75px;
+   }
+   
+   .logoApp{
+       width:75px;
+       height:75px;
+       opacity: 0;  
+   }
+
+   .immagineCarousel{
+       height: 250px;
+   }
+   /*CAZZO GUARDA FilmCard     --> in modalità telefono FUNZIONA !!!!
+   .filmCard{
+       width: 50%;
+   }*/
+
+   /*SISTEMA IMMAGINE  (anche di dynamic   --> NON E' VERO LI FUNZIONA !!!!!)
+    E BOTTONE*/
+
+
+/*home.html*/
+   
+/*dynamic.html*/
+
+/* moreInfo.html*/
+    
+    
+    /*bordo arancione esterno*/
+    .blckCentrale{
+        border: 1px solid #ff9012;
+        width: 95%;
+        height: 70%;
+        margin: 10px auto;
+    }
+
+    .moreInfoImg{
+        width: 50%;
+    }
+    /*scritte a sinistra*/
+    .datiFilmCol{
+        text-align:left;
+    }
+
+/* titleNotFound.html */
+    h1{ 
+        font-size: small;
+    }
+    .margineAvviso{
+        margin-top:5%;
+    }
+    .margineAvviso2{
+        margin-top:3%;
+    }
+
+}
+
+/*da minimo 487px in poi*/
+@media (min-width: 487px ) {
+   
+   .sfondoIV{
+       height: 370px;
+       /*height:768px;*/
+   }
+   
+   .logoPos1{
+       padding-top: 17.5%;
+       width:130px;
+       height:130px;
+   }
+   
+   .logoApp{
+       width:130px;
+       height:130px;
+       opacity: 0;  
+   }
+
+   
+/*home.html*/
+   .immagineCarousel{
+       height: 400px;
+   }
+/*dynamic.html*/
+
+/* moreInfo.html*/
+
+   /*scritte a sinistra*/
+   .datiFilmCol{
+    text-align: left;
+    }
+    /*bordo arancione esterno*/
+    .blckCentrale{
+        border: 1px solid #ff9012;
+        width: 80%;
+        height: 70%;
+        margin: 10px auto;
+    }
+/* titleNotFound.html */
+    h1{ 
+        font-size:medium;
+    }
+
+    .margineAvviso{
+        margin-top:4%;
+    }
+    .margineAvviso2{
+        margin-top:3%;
+    }
+}
+
+/* 768 px dove si dimezza il num di colonne 1000px */
+@media (min-width: 768px ) {
+   
+   .sfondoIV{
+       height: 480px;
+       /*height:768px;*/
+   }
+
+   .logoPos1{
+       padding-top: 18.5%;
+       width:150px;
+       height:150px;
+   }
+   
+   .logoApp{
+       width:150px;
+       height:150px;
+       opacity: 0;  
+   }
+
+   
+/*home.html*/
+   .immagineCarousel{
+       height: 500px;
+   }
+/*dynamic.html*/
+
+/* moreInfo.html*/
+
+    /*scritte a sinistra*/
+    .datiFilmCol{
+        text-align: left;
+        }
+        /*bordo arancione esterno*/
+        .blckCentrale{
+            border: 1px solid #ff9012;
+            width: 75%;
+            height: 70%;
+            margin: 10px auto;
+    }
+/* titleNotFound.html */
+    h1{ 
+        font-size: x-large;
+    }
+    .margineAvviso{
+        margin-top:3%;
+    }
+    .margineAvviso2{
+        margin-top:2%;
+    }
+
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {  
+   
+
+   .sfondoIV{
+       height:640px;
+   }
+   
+   .logoPos1{
+       padding-top: 20%;
+       width:180px;
+       height:180px;
+   }
+   
+   .logoApp{
+       width:180px;
+       height:180px;
+       opacity: 0;  
+   }
+
+   /*home.html*/
+    .immagineCarousel{
+        height: 750px;
+    }
+   /*dynamic.html*/
+
+   /* moreInfo.html*/
+    
+   /* TODO: il logo si sputtana, o metto lo sfondo, o coloro di bianco il logo e lo rendo visisbile*/
+
+   /* TODO: sistema l immagine che si crea uno spessore nero inutile (col bordo arancio 
+            lo fa con le immagini pigliate da dynamic
+            lo spessore è relativo alla dimensione del monitor
+            piu si schiacciano le scritte a destra piu si allungano
+            lo spessore segue i 2 bottoni, che sono sotto le scritte*/
+   
+    /*scritta a destra*/
+   .datiFilmCol{
+    text-align: right;
+    }
+    /*bordo arancione esterno*/
+    .blckCentrale{
+        border: 1px solid #ff9012;
+        width: 70%;
+        height: 70%;
+        margin: 10px auto;
+    }
+
+/* titleNotFound.html */
+    h1{ 
+        font-size: xx-large;
+    }
+    .margineAvviso{
+        margin-top:3.5%;
+    }
+    .margineAvviso2{
+        margin-top:2%;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+   .sfondoIV{
+       height:768px;
+   }
+   
+   .logoPos1{
+       padding-top: 19%;
+       width:200px;
+       height:200px;
+   }
+   
+   .logoApp{
+       width:200px;
+       height:200px;
+       opacity: 0;  
+   }
+
+/*home.html*/
+   .immagineCarousel{
+    height: 750px;
+    }
+/*dynamic.html*/
+
+/* moreInfo.html*/
+
+    /*scritta a destra*/
+   .datiFilmCol{
+    text-align: right;
+    }
+    /*bordo arancione esterno*/
+    .blckCentrale{
+        border: 1px solid #ff9012;
+        width: 70%;
+        height: 70%;
+        margin: 10px auto;
+    }
+/* titleNotFound.html */
+    h1{ 
+        font-size: xx-large;
+    }
+
+    .margineAvviso{
+        margin-top:3.5%;
+    }
+    .margineAvviso2{
+        margin-top:2%;
+    }
+}

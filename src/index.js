@@ -1,6 +1,56 @@
 
 import {URL_BASE} from "./config.js"
-/*-------------------------------------HOME.HTML----------------------------------------*/
+
+
+/*----------------------------------------NAVBAR------------------------------------------*/
+
+// <!--KeyboardEvent {isTrusted: true, key: 'Enter', code: 'Enter', location: 0, ctrlKey: false, …}
+//         isTrusted: true
+//         altKey: false
+//         bubbles: true
+//         cancelBubble: false
+//         cancelable: true
+//         charCode: 13
+//         code: "Enter"
+//         composed: true
+//         ctrlKey: false
+//         currentTarget: null
+//         defaultPrevented: false
+//         detail: 0
+//         eventPhase: 0
+//         isComposing: false
+//         key: "Enter"
+//         keyCode: 13-->
+  
+
+// VERSIONE NUOVA
+export const enterKeyPressed = (event, idPaginaRicerca) => {
+    console.log(event);
+
+    if (event.keyCode === 13) 
+    {
+        
+        ricercaGenerica(idPaginaRicerca);
+    }
+}
+
+export const ricercaGenerica = ( idPaginaRicerca ) => {
+    //const but = document.getElementById("buttonSearch3");
+    //id = research3
+    const inputSearch = document.getElementById( idPaginaRicerca );
+    //se esiste contenuto, avvia la ricerca. altrimenti non fare niente
+    if(inputSearch.value != "")
+    {
+        
+
+        //piglio il contenuto testuale dalla barra di ricerca
+        const keywords = inputSearch.value;
+        //lo applico all url e mi manda alla pagina in automatico
+        location.href = "./dynamic.html?keywords=" + keywords;
+    }
+}
+        
+/*---------------------------------------HOME.HTML----------------------------------------*/
 
 
 /*-------------------------------------DYNAMIC.HTML----------------------------------------*/
@@ -293,7 +343,7 @@ const genColEvidenza = (dettagli) =>{
             col6I.className = "col";
                 //bottone streaming
                 const linkBtnStream = document.createElement("a");
-                linkBtnStream.href = "https://ilgeniodellostreaming.quest/?s=" + dettagli.Title;
+                linkBtnStream.href = "https://streamingcommunity.org/search?q=" + dettagli.Title;
                     const btn1 = document.createElement("button");
                     btn1.type = "button";
                     btn1.className = "btn btn-primary btnStreaming";
@@ -529,7 +579,7 @@ export const pageNotFound = async (s) => {
             
     const findId = document.getElementById("redirect");
     const h1Errore = document.createElement("h1");
-    h1Errore.className = "text-center white ";
+    h1Errore.className = "text-center white margineAvviso";
     findId.appendChild(h1Errore);
         /*per andare a capo è un po un casino quindi uso questa struttura piu ordinata
         genero prima i tag br
@@ -577,7 +627,7 @@ const delay = async (time) => {
 const soluzione = async (s) => {
     const findId2 = document.getElementById("redirect");
     const h1Errore2 = document.createElement("h1");
-    h1Errore2.className = "text-center white ";
+    h1Errore2.className = "text-center white margineAvviso2";
     findId2.appendChild(h1Errore2);
         
         const breakLine2 = document.createElement("br"); //inutilizzato ma pronto per eventuali correzioni

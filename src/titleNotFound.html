@@ -9,28 +9,42 @@
     <title>Document</title>
 </head>
 <body>
-    <!--ricercaGenerica2()-->
-    <script type="module"> //per linkare al search la pagina dynamic.html
-        const ricercaGenerica2 = () => {
-            //const but = document.getElementById("buttonSearch");
-            //id = research2
-            const inputSearch = document.getElementById("research2");
-            //piglio il contenuto testuale dalla barra di ricerca
-            const keywords = inputSearch.value;
-            //lo applico all url e mi manda alla pagina in automatico
-            location.href = "./dynamic.html?keywords=" + keywords;
 
-        }
-        //rende globale la funzione
-        window.ricercaGenerica2 = ricercaGenerica2;
-    </script>
+    <!--come si arriva in questa pagina viene creato il contenuto in id=redirect.
+            si arriva in questa pagina se la ricerca in dynamic con parametro s (titoli simili),
+            non riporta nessun risultato-->
 
-    <div class="container">
+            <script type="module">
+                // ho raggruppato tutte le funzioni relative al search
+                // in una sola importazione di 2 funzioni multiuso su qualsiasi pagina
+                import { enterKeyPressed } from "./index.js"; 
+                import { ricercaGenerica } from "./index.js";
+                //rende globale la funzione
+                window.ricercaGenerica = ricercaGenerica;
+                window.enterKeyPressed = enterKeyPressed;
+                //ora che ho eseguito queste 2 posso fare la ricerca 
+                //anche se trasformo la prossima funzione in asincrona
+
+                import { pageNotFound } from "./index.js";
+                 const urlRicerca4 = document.URL;
+           // const urlString = decodeURI(urlRicerca);
+                
+                const indiceSym4 = urlRicerca4.lastIndexOf("=") + 1; 
+                const finalKeyword4 = urlRicerca4.slice(indiceSym4);
+                //prendo il titolo dalla barra di ricerca e lo passo come parametro a pageNotFound
+                pageNotFound(finalKeyword4);
+
+                
+            </script>
+
+    
+
+    <div class="container-fluid">
         <nav class="navbar fixed-top bggray">
             <div class="container-fluid">
-                <div class="d-flex">
-                    <button id="buttonSearch2" class="btn btn-outline-light" onclick="window.ricercaGenerica2()">Search</button>
-                    <input id="research2" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
+                <div class="d-flex lunghezzaRicerca">
+                    <button id="buttonSearch2" class="btn btn-outline-light" onclick="window.ricercaGenerica('research2')">Search</button>
+                    <input id="research2" class="form-control me-2 " onkeypress="return enterKeyPressed(event, 'research2')" type="search" placeholder="Search" aria-label="Search">
                 </div>
     
     
@@ -83,22 +97,6 @@
         </nav>
 
 
-        
-
-        <!--come si arriva in questa pagina viene creato il contenuto in id=redirect.
-            si arriva in questa pagina se la ricerca in dynamic con parametro s (titoli simili),
-            non riporta nessun risultato-->
-
-        <script type="module">
-            import { pageNotFound } from "./index.js";
-             const urlRicerca4 = document.URL;
-       // const urlString = decodeURI(urlRicerca);
-            
-            const indiceSym4 = urlRicerca4.lastIndexOf("=") + 1; 
-            const finalKeyword4 = urlRicerca4.slice(indiceSym4);
-            //prendo il titolo dalla barra di ricerca e lo passo come parametro a pageNotFound
-            pageNotFound(finalKeyword4);
-        </script>
 
         <div class="sfondoIV">
             <div id="redirect">

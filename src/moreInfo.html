@@ -7,37 +7,61 @@
     <title>more info</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet" />
+    
 </head>
 <body>
+
+    <script type="module">
+        // <!--l url della pagina attuale dipende dal click sulle immagini dei film
+        //     sia da all che da dynamic-->
+            import { URL_BASE } from "./config.js";
+            import { apiDetail } from "./index.js";
+            // recupera l url
+            const urlRicerca3 = document.URL;
+            const indiceSym3 = urlRicerca3.lastIndexOf("=") + 1; 
+            // recupera il titolo
+            const finalKeyword3 = urlRicerca3.slice(indiceSym3);
+            //chiamata API con parametro t
+            // parametro t fa una ricerca per titolo di 1 solo film 
+            // ma è molto piu dettagliata e da info in piu
+            // TODO: titolo + ANNO --> parametro y
+            //quindi attraverso la chiamata api con il titolo del film come argomento
+            //popola la pagina attuale
+            apiDetail(finalKeyword3);
+
+            //poi
+
+            //per linkare al search di moreInfo.html la pagina dynamic.html            
+            /*scrivo il titolo nella barra di ricerca e 
+                faccio invio oppure click sul bottone,
+                mi manda in dynamic.html 
+                mi passo come parametro il nome della ricerca alla chiamata api
+                creo dinamicamente la pagina dynamic.html 
+                con all interno tutti i film con titolo simile*/
+
+            // ho raggruppato tutte le funzioni relative al search
+            // in una sola importazione di 2 funzioni multiuso su qualsiasi pagina
+            import { enterKeyPressed } from "./index.js"; 
+            import { ricercaGenerica } from "./index.js";
+            //rende globale la funzione
+            window.ricercaGenerica = ricercaGenerica;
+            window.enterKeyPressed = enterKeyPressed;
+            
+        </script>
+
     <div class="container-fluid">
 
-        <!--ricercaGenerica3()-->
-        <script type="module"> //per linkare al search la pagina dynamic.html            
-    
-            /*scrivo il titolo nella barra di ricerca e faccio invio
-                mi manda in dynamic.html 
-                mi passo come parametro il nome della ricerca 
-                creo dinamicamente la pagina dynamic.html 
-                con all interno tutti i film relativi*/
-            const ricercaGenerica3 = () => {
-                //const but = document.getElementById("buttonSearch3");
-                //id = research3
-                const inputSearch = document.getElementById("research3");
-                //piglio il contenuto testuale dalla barra di ricerca
-                const keywords = inputSearch.value;
-                //lo applico all url e mi manda alla pagina in automatico
-                location.href = "./dynamic.html?keywords=" + keywords;
-    
-            }
-            //rende globale la funzione
-            window.ricercaGenerica3 = ricercaGenerica3;
+        <script type="module"> 
+        
         </script>
+
+        
     
         <nav class="navbar fixed-top bggray">
             <div class="container-fluid">
-                <div class="d-flex">
-                    <button id="buttonSearch3" class="btn btn-outline-light" onclick="window.ricercaGenerica3()">Search</button>
-                    <input id="research3" class="form-control me-2 lunghezzaRicerca " type="search" placeholder="Search" aria-label="Search">
+                <div class="d-flex lunghezzaRicerca">
+                    <button id="buttonSearch3" class="btn btn-outline-light" onclick="window.ricercaGenerica('research3')">Search</button>
+                    <input id="research3" class="form-control me-2  " type="search" placeholder="Search" aria-label="Search" onkeypress="return enterKeyPressed(event, 'research3')">
                 </div>
 
                 <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
@@ -84,16 +108,8 @@
             </div>
         </nav>
 
-        <!--importazione url dal bottone sulle immagini-->
-        <script type="module">
-
-            import{ URL_BASE } from "./config.js";
-            import { apiDetail } from "./index.js";
-            const urlRicerca3 = document.URL;
-            const indiceSym3 = urlRicerca3.lastIndexOf("=") + 1; 
-            const finalKeyword3 = urlRicerca3.slice(indiceSym3);
-            apiDetail(finalKeyword3);
-        </script>
+        
+        
 
         <div class="logoPos">
             <a href="./home.html">
