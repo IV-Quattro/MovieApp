@@ -16,18 +16,34 @@
         //     sia da all che da dynamic-->
             import { URL_BASE } from "./config.js";
             import { apiDetail } from "./index.js";
+            import { apiDetailID } from "./index.js";
+
             // recupera l url
             const urlRicerca3 = document.URL;
+            //controllo che il parametro di ricerca sia il titolo e non l id
+            const checkPar = urlRicerca3.search("keywords_id=");
+            console.log(checkPar);
             const indiceSym3 = urlRicerca3.lastIndexOf("=") + 1; 
             // recupera il titolo
             const finalKeyword3 = urlRicerca3.slice(indiceSym3);
-            //chiamata API con parametro t
-            // parametro t fa una ricerca per titolo di 1 solo film 
-            // ma è molto piu dettagliata e da info in piu
-            // TODO: titolo + ANNO --> parametro y
-            //quindi attraverso la chiamata api con il titolo del film come argomento
-            //popola la pagina attuale
-            apiDetail(finalKeyword3);
+
+            //se il parametro di ricerca è il titolo proseguo qua
+            if (checkPar < 0)
+            {
+                //chiamata API con parametro t
+                // parametro t fa una ricerca per titolo di 1 solo film 
+                // ma è molto piu dettagliata e da info in piu
+                // TODO: titolo + ANNO --> parametro y
+                //quindi attraverso la chiamata api con il titolo del film come argomento
+                //popola la pagina attuale
+                apiDetail(finalKeyword3);
+            }
+            //se il parametro di ricerca è l ID chiamo apiDatailID
+            else
+            {
+                apiDetailID(finalKeyword3);
+            }
+            
 
             //poi
 

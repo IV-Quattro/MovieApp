@@ -37,6 +37,13 @@
         
     </script>
 
+    <script type="module">
+        import { filmCardsGenerator } from "./index.js";
+        
+        window.filmCardsGenerator = filmCardsGenerator
+        
+    </script>
+
 
     <!--navbar bootstrap
         ricercaGenerica()-->
@@ -122,6 +129,7 @@
             </div>
         </div>    
 
+        <!--TODO: SFONDO GRIGIO SU QUESTA FRASE E LA PROSSIMA-->
             <div class="divPresentazione">
                 <p class="text-center mx-4 my-4 white scrittaSplash">
                     il nostro scopo è di disporre gratuitamente uno strumento definitivo il piu semplice e funzionale possibile<br>
@@ -497,36 +505,141 @@
                         <!--TODO: percorso relativo-->
                         <!--TODO: sistema il bottone che si espande ma non si riduce-->
                         <div class="d-grid gap-2">
-                            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" onclick="window.filmCardsGenerator()" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 <img src="IV_stuff/img/angle-down-solid.svg" class="iconaEsplodi">
                             </button>
                         </div>
                     
                     <div class="collapse" id="collapseExample">
-                        <div class="card-body"><!--toglilo eventualmente-->
-                            <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4 ">
-
-                                <!--default-->
-                                <div class="col my-5">
-                                    <div class="card filmCard">
-                                        <ul class="list-group list-group-flush ulHide lineeColorate">
-                                            <li class="list-group-item bg-dark lineeColorate">
-                                                <h5 class="card-title text-white text-center">titolo</h5>
-                                            </li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Released</li>
-                                        </ul>
-                                        <a href="./moreInfo.html?keywords=">
-                                            <img src="img"
-                                                alt="" class="filmImg" title="titolo">
-                                        </a>
-                                        <ul class="list-group list-group-flush ulHide lineeColorate">
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
-                                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        <div class="card-body" id="contenitoreLista">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4" id="omdbFilms">
                                 
+
+
+
+
+                            </div><!--fine row interna al bottone collapse-->
+                        </div> <!--fine card-body collapse-->
+                </div> <!--fine bottone collapse-->
+            
+
+            </div>
+
+            
+            
+            
+
+        </div><!--termina container-->
+
+        <!--footer-->
+        <div id="foot" class="piede text-center white">
+                
+            <div class="row row-cols-1 row-cols-sm-3">
+                <!--contatti fasulli SCARTO-->
+                <div class="col">
+                    <h5>CONTATTACI</h5>
+                    <a href="#"><p>tel: +39 342 666 792</p></a>
+                    <a href="#"><p>e-mail: scarto@gmail.org</p></a>
+                    <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
+                        <p>indirizzo: montesiro(MB), 20842</p>
+                    </a>
+                </div>
+                <!--logo SCARTO-->
+                <div class="col">
+                    <h5>SPONSOR</h5>
+                    <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
+                    onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
+                    onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
+                </div>
+                <!--link su in alto-->
+                <div class="col">
+                    <h5>TORNA SU</h5>
+                    <a href="#splash"><p>splash page</p></a>
+                    <a href="#attuale"><p>film dell' anno</p></a>
+                    <a href="#categorie"><p>film del mese</p></a>
+                <!--    <a href="#all"><p>tutto</p></a>-->
+
+                </div>
+
+            </div>
+        </div>
+
+        <!--link importazione da bootstrap-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+
+<!--prove colori
+            <div class="row row-cols-1 row-cols-md-2 row-cols-l-4 ">
+                <div class="col provacolore1"><p>prova</p></div>
+                <div class="col provacolore2">
+                    <p>prova</p>
+                </div>
+                <div class="col provacolore3">
+                    <p>prova</p>
+                </div>
+                <div class="col provacolore4">
+                    <p>prova</p>
+                </div>
+                <div class="col provacolore5">
+                    <p>prova</p>
+                </div>
+                <div class="col provacolore6">
+                    <p>prova</p>
+                </div>
+                <div class="col provacolore7">
+                    <p>prova</p>
+                </div>
+                <div class="col provacolore8">
+                    <p>prova</p>
+                </div>
+                <div class="col provacolore9"><p>prova</p></div>
+                <div class="col provacolore10"><p>prova</p></div>
+                <div class="col provacolore11"><p>prova</p></div>
+                <div class="col provacolore12"><p>prova</p></div>
+                <div class="col provacolore13"><p>prova</p></div>
+                <div class="col provacolore14"><p>prova</p></div>
+                <div class="col provacolore15"><p>prova</p></div>
+                <div class="col provacolore16"><p>prova</p></div>
+            </div>-->
+
+
+<!--default
+<div class="col my-5">
+    <div class="card filmCard">
+        <ul class="list-group list-group-flush ulHide lineeColorate">
+            <li class="list-group-item bg-dark lineeColorate">
+                <h5 class="card-title text-white text-center">titolo</h5>
+            </li>
+            <li class="list-group-item bg-dark text-white text-center lineeColorate">Released</li>
+        </ul>
+        <a href="./moreInfo.html?keywords=">
+            <img src="img"
+                alt="" class="filmImg" title="titolo">
+        </a>
+        <ul class="list-group list-group-flush ulHide lineeColorate">
+            <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
+            <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
+            <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
+        </ul>
+    </div>
+</div>-->
+
+
+<!--TUTTE LE CARDS SCRITTE MANUALMENTE
+
                                 <div class="col my-5">
                                     <div class="card filmCard">
                                         <ul class="list-group list-group-flush ulHide lineeColorate">
@@ -989,104 +1102,4 @@
                                 </div>
 
 
-
-
-
-
-
-                            </div><!--fine row interna al bottone collapse-->
-                        </div> <!--fine card-body collapse-->
-                </div> <!--fine bottone collapse-->
-            
-
-            </div>
-
-            
-            
-            
-
-        </div><!--termina container-->
-
-        <!--footer-->
-        <div id="foot" class="piede text-center white">
-                
-            <div class="row row-cols-1 row-cols-sm-3">
-                <!--contatti fasulli SCARTO-->
-                <div class="col">
-                    <h5>CONTATTACI</h5>
-                    <a href="#"><p>tel: +39 342 666 792</p></a>
-                    <a href="#"><p>e-mail: scarto@gmail.org</p></a>
-                    <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
-                        <p>indirizzo: montesiro(MB), 20842</p>
-                    </a>
-                </div>
-                <!--logo SCARTO-->
-                <div class="col">
-                    <h5>SPONSOR</h5>
-                    <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
-                    onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
-                    onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
-                </div>
-                <!--link su in alto-->
-                <div class="col">
-                    <h5>TORNA SU</h5>
-                    <a href="#splash"><p>splash page</p></a>
-                    <a href="#attuale"><p>film dell' anno</p></a>
-                    <a href="#categorie"><p>film del mese</p></a>
-                <!--    <a href="#all"><p>tutto</p></a>-->
-
-                </div>
-
-            </div>
-        </div>
-
-        <!--link importazione da bootstrap-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
-            integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
-            crossorigin="anonymous"></script>
-</body>
-
-</html>
-
-
-
-
-<!--prove colori
-            <div class="row row-cols-1 row-cols-md-2 row-cols-l-4 ">
-                <div class="col provacolore1"><p>prova</p></div>
-                <div class="col provacolore2">
-                    <p>prova</p>
-                </div>
-                <div class="col provacolore3">
-                    <p>prova</p>
-                </div>
-                <div class="col provacolore4">
-                    <p>prova</p>
-                </div>
-                <div class="col provacolore5">
-                    <p>prova</p>
-                </div>
-                <div class="col provacolore6">
-                    <p>prova</p>
-                </div>
-                <div class="col provacolore7">
-                    <p>prova</p>
-                </div>
-                <div class="col provacolore8">
-                    <p>prova</p>
-                </div>
-                <div class="col provacolore9"><p>prova</p></div>
-                <div class="col provacolore10"><p>prova</p></div>
-                <div class="col provacolore11"><p>prova</p></div>
-                <div class="col provacolore12"><p>prova</p></div>
-                <div class="col provacolore13"><p>prova</p></div>
-                <div class="col provacolore14"><p>prova</p></div>
-                <div class="col provacolore15"><p>prova</p></div>
-                <div class="col provacolore16"><p>prova</p></div>
-            </div>-->
+-->

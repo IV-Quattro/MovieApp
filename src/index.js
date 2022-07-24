@@ -52,7 +52,92 @@ export const ricercaGenerica = ( idPaginaRicerca ) => {
         
 /*---------------------------------------HOME.HTML----------------------------------------*/
 
+export const filmCardsGenerator = () => {
+    
+    const contenitore = document.getElementById("contenitoreLista");
 
+    const rigaOmdbFilms = document.getElementById("omdbFilms");
+
+    contenitore.removeChild(rigaOmdbFilms);
+    //TODO:riscrivila
+    contenitore.appendChild(rigaOmdbFilms);
+
+    fetch("./listaFilm.json")
+        .then(responseLocale => responseLocale.json())
+        .then(listaCompleta => {
+            console.log(listaCompleta);
+            if (listaCompleta.ivList <= 0)
+            {
+                console.log("lista vuota")
+            }
+            else
+            {
+                console.log(listaCompleta.ivList)
+                listaCompleta.ivList.map( (singoloObj) => {
+                    //chiamata api per id
+                    //singoloObj.movieId
+                    console.log("obj ", singoloObj)
+                    const urlID= URL_BASE+`i=${singoloObj.imdbID}`;
+                    fetch(urlID)
+                        .then(responseOmdb => responseOmdb.json())
+                        .then(dettagliObjFilm => {
+                            console.log(dettagliObjFilm);
+                            rigaOmdbFilms.appendChild(newFilmCardGenerator(dettagliObjFilm));
+                        });
+                });
+            }
+        });
+    
+}
+
+export const newFilmCardGenerator = (film) => {
+    const newCol = document.createElement("div");
+    newCol.className = "col my-5";
+        const newCard = document.createElement("div");
+        newCard.className = "card filmCard";
+        newCol.appendChild(newCard)
+            const newUl1 = document.createElement("ul");
+            newUl1.className = "list-group list-group-flush ulHide lineeColorate";
+            newCard.appendChild(newUl1);
+                const newLi1 = document.createElement("li");
+                newLi1.className = "list-group-item bg-dark lineeColorate";
+                newUl1.appendChild(newLi1);
+                    const newHtitolo = document.createElement("h5");
+                    newHtitolo.className = "card-title text-white text-center";
+                    newLi1.appendChild(newHtitolo);
+                        newHtitolo.append(film.Title);
+                        //const newTextTitolo = document.createTextNode(film.Title);
+                    const newLi2 = document.createElement("li");
+                    newLi2.className = "list-group-item bg-dark text-white text-center lineeColorate";
+                    newUl1.appendChild(newLi2);
+                        newLi2.append(film.Released);
+                    const linkID = document.createElement("a");
+                    linkID.href = "./moreInfo.html?keywords_id=" + film.imdbID;
+                    newCard.appendChild(linkID);
+                        const newPoster = document.createElement("img");
+                        newPoster.src = film.Poster;
+                        newPoster.alt = "IMMAGINE FILM"
+                        linkID.appendChild(newPoster);
+                    const newUl2 = document.createElement("ul");
+                    newUl2.className = "list-group list-group-flush ulHide lineeColorate";
+                    newCard.appendChild(newUl2);
+
+                                const newLi3 = document.createElement("li");
+                                newLi3.className = "list-group-item bg-dark text-white text-center lineeColorate";
+                                    newLi3.append(film.Released);
+                                newUl2.appendChild(newLi3);
+
+                                const newLi4 = document.createElement("li");
+                                newLi4.className = "list-group-item bg-dark text-white text-center lineeColorate";
+                                    newLi4.append(film.Director);
+                                newUl2.appendChild(newLi4);
+
+                                const newLi5 = document.createElement("li");
+                                newLi5.className = "list-group-item bg-dark text-white text-center lineeColorate";
+                                    newLi5.append(film.Genre);
+                                newUl2.appendChild(newLi5);
+    return newCol;
+}
 /*-------------------------------------DYNAMIC.HTML----------------------------------------*/
 
  //genera contenuto pagina dynamic
@@ -72,8 +157,9 @@ export const apiList = (s,type) => {
                 const everything = document.getElementById("search");
                 const argomentoDiv = document.createElement("h1");
                 argomentoDiv.className = "text-white text-center strisciaColorata titoloDynamic";
-                    //parametro ricerca come titolo pagina -->              decodificalo!
-                    const nodo1 = document.createTextNode("search: " + s);
+                    //parametro ricerca come titolo pagina decodificato
+                    const titoloDecodificato = s.split("%20").join(" ");
+                    const nodo1 = document.createTextNode("search: " + titoloDecodificato);
                     
                     argomentoDiv.appendChild(nodo1);
                 everything.appendChild(argomentoDiv);
@@ -113,7 +199,7 @@ export const apiList = (s,type) => {
       //funzione per chiamare films con parametro S
       //il parametro media è 1 degli oggetti nell' array search della response in json
       //richiama anche creazioneFooter ma alla fine ritorna la colonna con la card che si applica alla row
-      const mediaCardGenerator = (media) => {
+      export const mediaCardGenerator = (media) => {
         //creazione colonna da applicare alla row
         const colonna = document.createElement("div");
         colonna.className="col my-5" 
@@ -122,7 +208,7 @@ export const apiList = (s,type) => {
             colonna.appendChild(card);
             //link a moreInfo.html clickando sull immagine
             const linkAllaSchedaTec = document.createElement("a");
-            linkAllaSchedaTec.href="./moreInfo.html?keywords=" + media.Title;
+            linkAllaSchedaTec.href="./moreInfo.html?keywords_id=" + media.imdbID;
                 
                 const imgPoster = document.createElement("img");
                 imgPoster.className="filmImg";
@@ -216,7 +302,7 @@ export const apiList = (s,type) => {
 
 
    //per generare pagina dinamica moreInfo relative ad 1 solo film (in modalità sincrona)
-   export const apiDetail = async (t) =>{  
+   export const apiDetail = async (t) => {  
     //generazione url completo
     //deve passare come parametro I o T per ottenere dati completi
     const urlDetail = URL_BASE+`t=${t}`;
@@ -232,6 +318,18 @@ export const apiList = (s,type) => {
            viewDetails(details);
        });*/
 }
+
+//ricerca per id (anche questa come la precedente sfrutta viewDetail())
+export const apiDetailID = async (i) => {  
+    //generazione url completo
+    //deve passare come parametro I o T per ottenere dati completi
+    const urlDetailID = URL_BASE+`i=${i}`;
+    //fetch modalità sincrona
+    const response = await fetch(urlDetailID);
+    const result = await response.json();
+    viewDetails(result);
+}
+
 //genera contenuto pagina moreInfo
 const viewDetails = (dettagli) => {
     const scheda = document.getElementById("details");

@@ -1,0 +1,17 @@
+
+{"ivList" :
+    [
+        {
+            "titolo" : "Scream",
+            "anno" : "2022",
+            "imdbID" : "tt11245972"
+        },
+        {
+            "titolo" : "Jurassic Park",
+            "anno" : "1993",
+            "imdbID" : "tt0107290"
+        }
+    ],
+    "totalResults" : "2"
+
+}
