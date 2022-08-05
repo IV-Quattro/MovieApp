@@ -50,13 +50,14 @@
 
     <nav class="navbar fixed-top bggray">
         <div class="container-fluid">
+            <a href="./home.html">
+                <img src="./IV_stuff/img/1Risorsa5xxxhdpi.png" class="loghinoApp">
+            </a>
             <div class="d-flex lunghezzaRicerca">
-            <!--ricercaGenerica() al click su search-->
-            <!--TODO:disabilita bottone se non c' è testo digitato
-                     permettere la ricerca attraverso il tasto invio-->
                 <button id="buttonSearch" class="btn btn-outline-light" onclick="window.ricercaGenerica('research')">Search</button>
                 <input id="research" class="form-control me-2 " onkeypress="return enterKeyPressed(event, 'research')" type="search" placeholder="Search" aria-label="Search">
             </div>
+            
 
 
             <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"

@@ -1,6 +1,46 @@
 url sito
 https://nice-tree-061af1803.1.azurestaticapps.net
 
+IMPORTANTE
+crea input che chiede all user di lamentarsi del sito
+scrivi qui cosa di questo sito ti fa girare il cazzo, così maybe lo fixo
+scrivi in un logLamentele in json i log dei suggerimenti
+
+POI
+in config.js inserisci 
+current_straming_link e current_magnet_link
+e importalo in index.js
+
+POI
+metti loghino in mezzo alla navbar per versioni > 480px
+
+POI
+pubblica foto lu404
+
+POI
+se vado dal cloud
+e da una card con immagine assente entro in moreInfo
+ho lo spazio vuoto che spacca tutto
+invece da locale funziona ma con la foto di lu404
+
+POI
+completa snakeCock.py e fai una funzione che
+se clicki su superhero,
+ti apre lo schermo e una volta che perdi 
+ti fa ridirect a moreInfo
+
+POI
+crea un array di funzioni applicato a superhero
+ogni volta che clicki ti chiama una funzione random del mio array
+
+
+
+
+
+
+
+
+
 
 
 nome progetto: 0 idee

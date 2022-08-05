@@ -73,6 +73,9 @@ export const filmCardsGenerator = () => {
             else
             {
                 console.log(listaCompleta.ivList)
+                // listaCompleta.sort((a,b) => {
+                //     return a.titolo - b.titolo;} );
+                //json.sort(ivList)
                 listaCompleta.ivList.map( (singoloObj) => {
                     //chiamata api per id
                     //singoloObj.movieId
@@ -356,8 +359,8 @@ const viewDetails = (dettagli) => {
             const colonna4A = genColDati(dettagli);
             rigaSplash.appendChild(colonna4A);
 
-        /*const tabellaVoti = genTabellaVoti(dettagli);
-        scheda.appendChild(tabellaVoti);*/ 
+        const tabellaVoti = genTabellaVoti(dettagli);
+        scheda.appendChild(tabellaVoti);
 
     return scheda;
 }
@@ -441,7 +444,7 @@ const genColEvidenza = (dettagli) =>{
             col6I.className = "col";
                 //bottone streaming
                 const linkBtnStream = document.createElement("a");
-                linkBtnStream.href = "https://streamingcommunity.org/search?q=" + dettagli.Title;
+                linkBtnStream.href = "https://streamingcommunity.best/search?q=" + dettagli.Title;
                     const btn1 = document.createElement("button");
                     btn1.type = "button";
                     btn1.className = "btn btn-primary btnStreaming";

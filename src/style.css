@@ -15,9 +15,7 @@
 /*
 CHE FARE CHE RIPARARE
 
-permettere la ricerca anche con il tasto invio
 
-fare pagina N/A
 
 scritte
 
@@ -113,6 +111,12 @@ in ordine di importanza:
 .scritteMenu:hover{
     color:#ff9012 !important;
 }
+
+ .loghinoApp{
+    height: 50px;
+    width: 50px;
+    margin: auto 0;
+}/* TODO: DA RENDERE CENTRALE RISPETTO ALL INTERA NAVBAR*/
 
 
 /*-------------------------------------------home.html---------------------------------------------*/
@@ -531,6 +535,10 @@ div suggerimenti
 @media (max-width: 487px) {
     
 
+    .loghinoApp{
+        display: none;
+    }
+
    .lunghezzaRicerca{
        width: 75%;
    }
@@ -548,7 +556,7 @@ div suggerimenti
    .logoApp{
        width:75px;
        height:75px;
-       opacity: 0;  
+       opacity: 1;  
    }
 
    .immagineCarousel{
@@ -601,6 +609,10 @@ div suggerimenti
 
 /*da minimo 487px in poi*/
 @media (min-width: 487px ) {
+
+    .loghinoApp{
+        display: none;
+    }
    
    .sfondoIV{
        height: 370px;
@@ -654,6 +666,10 @@ div suggerimenti
 
 /* 768 px dove si dimezza il num di colonne 1000px */
 @media (min-width: 768px ) {
+
+    .loghinoApp{
+        display:block;
+    }
    
    .sfondoIV{
        height: 480px;
