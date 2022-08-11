@@ -400,18 +400,10 @@ td {
 /*-----------------------------------------moreInfo.html----------------------------------------------------------*/
 /*
 come voglio fare la pagina:
-immagine poster : centrale o a sinistra 
-    se a sinistra tengo a destra lo space per le info impo
-bottoni:
-    attaccati all immagine
-        o a destra o sotto l immagine
-        oppure
-        solo bottone torrent
-    piu da pagina seria
+
     div con 5 link streaming --> theuselessweb
     div con link download --> theuselessweb
-tabelle dati
-    o sotto o sopra i link
+
 
 div suggerimenti
     movies
@@ -499,12 +491,15 @@ div suggerimenti
 
 .tabellaVoti{
     border: 0.5px solid #ff9012 ;
+    
     width: 90%;
     margin: 5% auto;
     
 }
 
-
+.cellsWidth{
+    width: 33.3%;
+}
 
 
 

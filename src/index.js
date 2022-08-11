@@ -532,7 +532,7 @@ const genColGenerale = (dettagli) =>{
             campoB4.appendChild(dettActPar);
         colonna3B.appendChild(campoB4);
 
-        //country:: 3 campi max
+        //country: 3 campi max
         const campoB5 = document.createElement("h6");
         campoB5.className = "scrittaMoreInfo2";
             const dettCountry = document.createTextNode("Country: ");
@@ -641,36 +641,120 @@ const genColDati = (dettagli) =>{
 }
 
 //generazione tabella voti
-/*  NON FUNZIONA    (riga 204 il relativo da scommentare)
 const genTabellaVoti = (dettagli) =>{
     const tagTable = document.createElement("table");
-    tagTable.className = "table table-dark table-striped-columns";
+    tagTable.className = "table table-dark table-striped-columns tabellaVoti text-center";
+
+        
         const tagTr1 = document.createElement("tr");
-            const tit1 = document.createElement("h6");
-             const tit1Testo = document.createTextNode("RATINGS");
-             tit1.appendChild(tit1Testo);
-        tagTr1.appendChild(tit1);
+            const tagTh7 = document.createElement("th");
+            tagTh7.setAttribute("colspan", "3");
+                const tit1 = document.createElement("h6");
+                    const tit1Testo = document.createTextNode("RATINGS");
+                tit1.appendChild(tit1Testo);
+            tagTh7.appendChild(tit1);
+        tagTr1.appendChild(tagTh7);
+
     tagTable.appendChild(tagTr1);
+    //end row 1
+        
         const tagTr2 = document.createElement("tr");
+            //Internet Movie Database
             const tagTh1 = document.createElement("th");
-                const rat1 = document.createTextNode(dettagli.Ratings.[0]);
+            tagTh1.className = "cellsWidth";
+                const rat1 = document.createTextNode(dettagli.Ratings[0].Source);
             tagTh1.appendChild(rat1);
         tagTr2.appendChild(tagTh1);
-    tagTable.appendChild(tagTr2);
-            
-            const rat2 = document.createTextNode(dettagli.Ratings[1]);
+            //Rotten Tomatoes
+            const tagTh2 = document.createElement("th");
+            tagTh2.className = "cellsWidth";
+                const rat2 = document.createTextNode(dettagli.Ratings[1].Source);
             tagTh2.appendChild(rat2);
         tagTr2.appendChild(tagTh2);
-     tagTable.appendChild(tagTr2);
-        const tagTh3 = document.createElement("th");
-        const rat3 = document.createTextNode(dettagli.Ratings[2]);
-        tagTh3.appendChild(rat3);
-    tagTr2.appendChild(tagTh3);
+            //Metacritic
+            const tagTh3 = document.createElement("th");
+            tagTh3.className = "cellsWidth";
+                const rat3 = document.createTextNode(dettagli.Ratings[2].Source);
+            tagTh3.appendChild(rat3);
+        tagTr2.appendChild(tagTh3);
+
     tagTable.appendChild(tagTr2);
+    //end row 2
+        const tagTr3 = document.createElement("tr");
+            //Internet Movie Database
+            const tagTd1 = document.createElement("td");
+                const valore1 = document.createTextNode(dettagli.Ratings[0].Value);
+            tagTd1.appendChild(valore1)
+        tagTr3.appendChild(tagTd1);
+            //Rotten Tomatoes
+            const tagTd2 = document.createElement("td");
+                const valore2 = document.createTextNode(dettagli.Ratings[1].Value);
+            tagTd2.appendChild(valore2)
+        tagTr3.appendChild(tagTd2);
+            //Metacritic
+            const tagTd3 = document.createElement("td");
+                const valore3 = document.createTextNode(dettagli.Ratings[2].Value);
+            tagTd3.appendChild(valore3)
+        tagTr3.appendChild(tagTd3);
 
+    tagTable.appendChild(tagTr3);
+    //end row 3
 
+        const tagTr4 = document.createElement("tr");
+            const tagTh8 = document.createElement("th");
+            tagTh8.setAttribute("colspan", "3");
+                const tit2 = document.createElement("h6");
+                    const tit2Testo = document.createTextNode("IMDB RATINGS");
+                tit2.appendChild(tit2Testo);
+                tagTh8.appendChild(tit2)
+        tagTr4.appendChild(tagTh8);
+
+    tagTable.appendChild(tagTr4);
+    //end row 4
+
+        const tagTr5 = document.createElement("tr");
+
+            //imdbVotes
+            const tagTh4 = document.createElement("th");
+                const rat4 = document.createTextNode("imdbVotes");  //TODO: prova a manipolarlo come un dict
+            tagTh4.appendChild(rat4);
+        tagTr5.appendChild(tagTh4);
+            //imdbRating
+            const tagTh5 = document.createElement("th");
+                const rat5 = document.createTextNode("imdbRating");
+            tagTh5.appendChild(rat5);
+        tagTr5.appendChild(tagTh5);
+            //Metascore
+            const tagTh6 = document.createElement("th");
+                const rat6 = document.createTextNode("Metascore");
+            tagTh6.appendChild(rat6);
+        tagTr5.appendChild(tagTh6);
+
+    tagTable.appendChild(tagTr5);
+    //end row 5
+
+        const tagTr6 = document.createElement("tr");
+
+            //imdbVotes
+            const tagTd4 = document.createElement("td");
+                const valore4 = document.createTextNode(dettagli.imdbVotes);
+            tagTd4.appendChild(valore4)
+        tagTr6.appendChild(tagTd4);
+            //imdbRating
+            const tagTd5 = document.createElement("td");
+                const valore5 = document.createTextNode(dettagli.imdbRating);
+            tagTd5.appendChild(valore5)
+        tagTr6.appendChild(tagTd5);
+            //Metascore
+            const tagTd6 = document.createElement("td");
+                const valore6 = document.createTextNode(dettagli.Metascore);
+            tagTd6.appendChild(valore6)
+        tagTr6.appendChild(tagTd6);
+
+    tagTable.appendChild(tagTr6);
+    //end row 5
     return tagTable;
-}*/
+}
 
 
 
