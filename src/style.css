@@ -284,6 +284,7 @@ si puo fare cosi
 #all{
     background-color:#404040;
 }
+
 .mleft{
     margin-left:7% !important;
 }
@@ -455,6 +456,10 @@ div suggerimenti
     
 }
 
+.senzaDecorazione{
+    text-decoration: none;
+}
+
 .btnStreaming{
     border: 0.5px solid #ff9012 ;
     float:right !important;
@@ -567,7 +572,12 @@ div suggerimenti
 
 
 /*home.html*/
-   
+.freccetta{
+    background-color: #ff9012;
+}
+.freccetta:hover{
+    background-color: #404040;
+}
 /*dynamic.html*/
 
 /* moreInfo.html*/

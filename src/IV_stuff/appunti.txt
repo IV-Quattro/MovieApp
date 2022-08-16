@@ -43,12 +43,7 @@ ogni volta che clicki ti chiama una funzione random del mio array
 
 
 
-nome progetto: 0 idee
 
-SISTEMA LOGO CAZZO
-
-
-SISTEMA LINK NAVBAR E FOOTER    fatto
 SISTEMA RICERCA SENZA TESTO     fanculo? fa gia ridirect --> disabilita il bottone se non c è testo
 RICERCA DA MOREINFO E NOTFOUND fatto
 SISTEMA CARD SENZA IMMAGINI --> lu --> sul pubblico non funziona
@@ -62,15 +57,12 @@ colore : sfondo scritte card viola borders verdi
 
 METTERE LOGO DA INDEX.JS --> sinistra o centro? centro
 
-sfondo e logo:
-sfondo 
-        versione ritagliata in alto e in basso di 20px totali
-        versione solo centro arancione per moreInfo.html e notFound.html
-        cambiare colore con il mio #arancione
+
 
 
 home.html
 INSERISCI FILM
+sistema scritte --> metti anche le maiuscole 
 FAI CATEGORIE --> sistema row
 SITEMA LA FRECCETTA
 SISTEMA CAROUSEL E METTI LINK
@@ -80,20 +72,12 @@ RUNTIME FORMATO 1h30min
 
 
 moreInfo.html
-SISTEMA TABELLA 
 COLORA LE SCRITTE IN MOREINFO --> si impalla
-MEDIAQUERY
-        immagine 
-        bottoni
-MODIFICA LA CHIAMATA IN MODO CHE UTILIZZI ANCHE IL PARAMETRO Y
 
 dynamic.html
 VEDI COLORI
-non carica la foto sostituitiva da dominio pubblico
+non carica la foto sostituitiva da online
 
 
 pageNotFound.html
-SISTEMA SCRITTA MARGIN-BOTTOM
-SISTEMA L'HOVER --> fatto
-MEDIA QUERY O CONTAINER-FLUID 
-SISTEMA FOOTER NERO
+

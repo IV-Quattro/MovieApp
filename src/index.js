@@ -1,6 +1,9 @@
 
-import {URL_BASE} from "./config.js"
+import {URL_BASE} from "./config.js";
+import {URL_BASE_STREAMING} from "./config.js";
+import {URL_BASE_MAGNET} from "./config.js";
 
+//console.log(URL_BASE_STREAMING + " " + URL_BASE_MAGNET)
 
 /*----------------------------------------NAVBAR------------------------------------------*/
 
@@ -335,6 +338,7 @@ export const apiDetailID = async (i) => {
 
 //genera contenuto pagina moreInfo
 const viewDetails = (dettagli) => {
+    
     const scheda = document.getElementById("details");
         //riga contente praticamente tutto
         //racchiusa dalla cornice arancio
@@ -368,26 +372,36 @@ const viewDetails = (dettagli) => {
 const genColImg = (dettagli) =>{
 const colonna1B = document.createElement("div");
 colonna1B.className = "col my-5";
+
     //div centrabile
     const filmCardImmagine = document.createElement("div");
     filmCardImmagine.className = "filmCard posterInfoCard";
     colonna1B.appendChild(filmCardImmagine);
-        const filmImmagine = document.createElement("img");
-        filmImmagine.className = "posterInfoCard moreInfoImg";
-        if(dettagli.Poster == "N/A")
-        {
-            //link in internet o non la piglia
-            filmImmagine.src = "./IV_STUFF/img/imageNotFound.svg";
-            filmImmagine.title=dettagli.Title;
-        }
-        else
-        {
-            filmImmagine.src=dettagli.Poster;
-            filmImmagine.className="filmImg";
-            filmImmagine.title=dettagli.Title;
-        }
-            
-        filmCardImmagine.appendChild(filmImmagine);
+        const buttonTrailer = document.createElement("a");
+        const titoloCod = dettagli.Title;
+        const titoloPerTrailer = titoloCod.split("%20").join("+");
+        const linkTrailer = "https://www.youtube.com/results?search_query=trailer+" + titoloPerTrailer;
+        buttonTrailer.setAttribute("href", linkTrailer);
+        buttonTrailer.setAttribute("target", "_blank");
+            const filmImmagine = document.createElement("img");
+            filmImmagine.className = "posterInfoCard moreInfoImg";
+            if(dettagli.Poster == "N/A")
+            {
+                //link in internet o non la piglia  -->     da locale funziona
+                //filmImmagine.src = "./IV_STUFF/img/imageNotFound.svg";
+                filmImmagine.src = "https://www.davidebertozzi.it/wp-content/uploads/2020/03/errore-404.jpg";
+                filmImmagine.className="filmImg";
+                filmImmagine.title=dettagli.Title;
+
+            }
+            else
+            {
+                filmImmagine.src=dettagli.Poster;
+                filmImmagine.className="filmImg";
+                filmImmagine.title=dettagli.Title;
+            }
+            buttonTrailer.appendChild(filmImmagine);
+        filmCardImmagine.appendChild(buttonTrailer);
 
 return colonna1B;
 
@@ -427,7 +441,24 @@ const genColEvidenza = (dettagli) =>{
             //devo trovare il modo di mettere tutto in un <p> senza andare poi a capo      
         colonna2B.appendChild(campoA4);
 
-        //premi
+        //trailer
+        const campoA7 = document.createElement("h5");
+        campoA7.className = "scrittaMoreInfo";
+            const buttonTrailer = document.createElement("a");
+                const titoloCod = dettagli.Title;
+                const titoloPerTrailer = titoloCod.split("%20").join("+");
+                const linkTrailer = "https://www.youtube.com/results?search_query=trailer+" + titoloPerTrailer;
+                buttonTrailer.setAttribute("href", linkTrailer);
+                buttonTrailer.setAttribute("target", "_blank");
+                buttonTrailer.className = "senzaDecorazione";
+
+                    const dettTrailer = document.createTextNode("Cerca un Trailer");
+                    buttonTrailer.appendChild(dettTrailer);
+            campoA7.appendChild(buttonTrailer);
+                  
+        colonna2B.appendChild(campoA7);
+
+        //awards
         const campoA5 = document.createElement("h5");
         campoA5.className = "scrittaMoreInfo";
             const dettAwards = document.createTextNode("Awards: ");
@@ -439,12 +470,17 @@ const genColEvidenza = (dettagli) =>{
         //nuova riga con i bottoni
         const campoA6 = document.createElement("div");
         campoA6.className = "row row-cols-sm-2";
+        
             //bottone1
             const col6I= document.createElement("div");
             col6I.className = "col";
                 //bottone streaming
                 const linkBtnStream = document.createElement("a");
-                linkBtnStream.href = "https://streamingcommunity.best/search?q=" + dettagli.Title;
+                //URL_BASE_STREAMING from config.js
+                const url_streaming = URL_BASE_STREAMING;
+                console.log(url_streaming)
+                console.log(url_streaming + dettagli.Title);
+                linkBtnStream.href = url_streaming + dettagli.Title;
                     const btn1 = document.createElement("button");
                     btn1.type = "button";
                     btn1.className = "btn btn-primary btnStreaming";
@@ -461,7 +497,9 @@ const genColEvidenza = (dettagli) =>{
             col6II.className = "col";
                 //bottone torrent
                 const linkBtnMagnet = document.createElement("a");
-                linkBtnMagnet.href = "https://www.1337xx.to/category-search/" + dettagli.Title + "/Movies/1/";
+                //URL_BASE_MAGNET from config.js
+                const url_magnet = URL_BASE_MAGNET;
+                linkBtnMagnet.href = url_magnet + "/category-search/" + dettagli.Title + "/Movies/1/";
                     const btn2 = document.createElement("button");
                     btn2.type = "button";
                     btn2.className = "btn btn-primary btnMagnet";
