@@ -412,7 +412,7 @@ const genColEvidenza = (dettagli) =>{
     const colonna2B = document.createElement("div");
     colonna2B.className = "col my-5 white";
         //titolo film
-        const campoA1 = document.createElement("h1");
+        const campoA1 = document.createElement("h2");
         campoA1.className = "diventaArancio";
             const dettTitolo = document.createTextNode(dettagli.Title);
             campoA1.appendChild(dettTitolo);
