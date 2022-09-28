@@ -44,8 +44,6 @@ export const ricercaGenerica = ( idPaginaRicerca ) => {
     //se esiste contenuto, avvia la ricerca. altrimenti non fare niente
     if(inputSearch.value != "")
     {
-        
-
         //piglio il contenuto testuale dalla barra di ricerca
         const keywords = inputSearch.value;
         //lo applico all url e mi manda alla pagina in automatico
@@ -54,95 +52,277 @@ export const ricercaGenerica = ( idPaginaRicerca ) => {
 }
         
 /*---------------------------------------HOME.HTML----------------------------------------*/
+/*TODO:
+fare un case per gestire 1 card in particolare passandogli l' id
+    per sistemare lo svarione degli anelli
+fare la divisione per lettere con bootstrap
+    struttura a cassetti --> collapse accordion
+    quando premo il primo con la lettera A
+    gli passo A come parametro e mi genera le card di tutti i film dal titolo che inizia per A
+    primo cassetto: all --> resta com è
+*/
+
+// listaCompleta1.push(listaCompleta.ivList.sort((a,b) => {
+                //     return a.titolo - b.titolo;} ));     //doesn't work
+
+                //TODO: button switch a-z o random per la lista dei film
+                // const listaCompleta1 = listaCompleta.ivList.sort(GetSortOrder("titolo"));
+                // console.log(listaCompleta1);
+
+                //json.sort(ivList) non funziona
+
+                // MAP TEST non funziona ordine
+                // listaCompleta1.map( (singoloObj) => {         //maybe il problema è map non la lista
+                //     const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
+                //     fetch(urlID)
+                //         .then(responseOmdb => responseOmdb.json())
+                //         .then(dettagliObjFilm => {
+                //             rigaOmdbFilms.appendChild(newFilmCardGenerator(dettagliObjFilm));
+                //         });
+                // }).sort(GetSortOrder("titolo"));
+
+
+                // FOR IN TEST non funziona ERRORE
+                // for( let singoloObj in listaCompleta1 ) {        
+                //     const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
+                //     fetch(urlID)
+                //         .then(responseOmdb => responseOmdb.json())
+                //         .then(dettagliObjFilm => {
+                //             rigaOmdbFilms.appendChild(newFilmCardGenerator(dettagliObjFilm));
+                //         });
+                // };
+
+                // const listaCompleta1 = listaCompleta.ivList.sort((a, b) =>{
+                //     if (a.titolo < b.titolo){
+                //         return -1;
+                //     }
+                // });
+                // console.log(listaCompleta1);
+
+                // // FOR i TEST non funziona ordine
+                // for( let i = 0; i < listaCompleta1.length; i++ ) { 
+                //     console.log(i, listaCompleta1[i].titolo);       
+                //     const urlID = URL_BASE+`i=${listaCompleta1[i].imdbID}`;
+                //     fetch(urlID)
+                //         .then(responseOmdb => responseOmdb.json())
+                //         .then(dettagliObjFilm => {
+                //             console.log(dettagliObjFilm.Title);
+                //             rigaOmdbFilms.appendChild(newFilmCardGenerator(dettagliObjFilm));
+                //         });
+                // };
+
+                
+
+                /*TODO: RIFACCIAMO TUTTO
+                    il sort va inserito dopo la API call*/
+                
+        //         for(let i=0; i<listaCompleta.ivList.length; i++){
+        //             //compongo l url del I esimo movie della lista
+        //             const urlID = URL_BASE+`i=${listaCompleta.ivList[i].imdbID}`;
+        //             fetch(urlID)
+        //                 .then(responseOmdb => responseOmdb.json())
+        //                 .then(dettagliObjFilm => {
+        //                     randomMoviesJsonObj.push(dettagliObjFilm)
+        //                 });
+        //         }
+        //     }
+        //     return randomMoviesJsonObj;
+        // });
+        // .then(randomMoviesJsonObj => {
+        //     //sort arrayJson in base al titolo
+        //     const sortedMoviesJsonObj = randomMoviesJsonObj.sort((a, b) =>{
+        //         if (a.Title < b.Title){
+        //             return -1;
+        //         }
+        //     });
+        //     return sortedMoviesJsonObj;
+        // });
+
+        // .then(sortedMoviesJsonObj => {
+        //     //chiamo newFilmCardGenerator() in ordine a-z
+        //     for(let i=0; i<sortedMoviesJsonObj.length; i++){
+        //         rigaOmdbFilms.appendChild(newFilmCardGenerator(sortedMoviesJsonObj[i]));
+        //     }
+        // });
 
 export const filmCardsGenerator = () => {
-    
-    const contenitore = document.getElementById("contenitoreLista");
+    console.time();
+    try {
+        const contenitore = document.getElementById("contenitoreLista");
 
-    const rigaOmdbFilms = document.getElementById("omdbFilms");
+        const rigaOmdbFilms = document.getElementById("omdbFilms");
+        contenitore.removeChild(rigaOmdbFilms);
+        //TODO:riscrivila
+        contenitore.appendChild(rigaOmdbFilms);
+        
+        fetch("./listaFilm.json")
+            .then(responseLocale => responseLocale.json())
+            .then(listaCompleta => {
+                
+                if (listaCompleta.ivList <= 0)
+                {
+                    console.log("lista vuota")
+                }
+                else
+                {
+                    getDetailedMovieArray(listaCompleta.ivList, rigaOmdbFilms); 
+                } 
+            });
 
-    contenitore.removeChild(rigaOmdbFilms);
-    //TODO:riscrivila
-    contenitore.appendChild(rigaOmdbFilms);
-
-    fetch("./listaFilm.json")
-        .then(responseLocale => responseLocale.json())
-        .then(listaCompleta => {
-            console.log(listaCompleta);
-            if (listaCompleta.ivList <= 0)
-            {
-                console.log("lista vuota")
-            }
-            else
-            {
-                console.log(listaCompleta.ivList)
-                // listaCompleta.sort((a,b) => {
-                //     return a.titolo - b.titolo;} );
-                //json.sort(ivList)
-                listaCompleta.ivList.map( (singoloObj) => {
-                    //chiamata api per id
-                    //singoloObj.movieId
-                    console.log("obj ", singoloObj)
-                    const urlID= URL_BASE+`i=${singoloObj.imdbID}`;
-                    fetch(urlID)
-                        .then(responseOmdb => responseOmdb.json())
-                        .then(dettagliObjFilm => {
-                            console.log(dettagliObjFilm);
-                            rigaOmdbFilms.appendChild(newFilmCardGenerator(dettagliObjFilm));
-                        });
-                });
-            }
-        });
-    
+    } catch (error) {
+        console.error(error);
+    }
 }
 
+
+// ASYNC WAY
+// const getDetailedMovieArray = async (ivListOriginal) => {
+//     let randomMoviesJson = [];
+//     for(let i=0; i<ivListOriginal.length; i++){
+//         const urlID = URL_BASE+`i=${ivListOriginal[i].imdbID}`;
+//         const responseImdb = await fetch(urlID);
+//         const responseJson = await responseImdb.json();
+        
+//         await randomMoviesJson.push(responseJson);
+//         // fetch(urlID)
+//         //     .then(responseImdb => responseImdb.json())
+//         //     .then(responseJson => {
+//         //         console.log(responseJson);
+//         //         });
+//     }
+    
+//     console.log("randomMoviesJson.length funz: ",randomMoviesJson.length);
+//     //return await randomMoviesJson;
+//     console.log("valueTest",valueTest);
+//     await sortArray(randomMoviesJson);
+// }
+
+// const sortArray = async (notSortedArray) => {
+//     console.log("notSortedArray", notSortedArray);
+//     const sortedMoviesArray = await notSortedArray.sort((a, b) =>{
+//         if (a.Title < b.Title){
+//             return -1;
+//         }
+//     });
+//     console.log("sorted: ",sortedMoviesArray);
+//     //return await sortedMoviesArray;
+//     await genCard(sortedMoviesArray);
+// }
+
+// const genCard = async (sortedMoviesArray) => {
+//     console.log(sortedMoviesArray[0]);
+//     console.log(sortedMoviesArray);
+//     for(let i=0; i<sortedMoviesArray.length; i++){
+//         //dettagliMovie = sortedMoviesArray[i].json();
+//         rigaOmdbFilms.appendChild(newFilmCardGenerator(sortedMoviesArray[i]));
+//     } 
+// }
+
+//SYNC WAY
+const getDetailedMovieArray = (ivListOriginal, rigaOmdbFilms) => {
+    let randomMoviesJson = [];
+    ivListOriginal.map( (singoloObj) => {
+        const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
+        
+        fetch(urlID)
+            .then(responseImdb => responseImdb.json())
+            .then(responseJson => {
+                randomMoviesJson.push(responseJson);
+                console.log("randomMoviesJson.length: ",randomMoviesJson.length);
+                if(randomMoviesJson.length == ivListOriginal.length){
+                    sortArray(randomMoviesJson, rigaOmdbFilms);
+                }
+            });
+    });
+}
+
+const sortArray = (notSortedArray, rigaOmdbFilms) => {
+    console.log("notSortedArray", notSortedArray);
+    const sortedArray = notSortedArray.sort((a, b) =>{
+        if (a.Title < b.Title){
+            return -1;
+        }
+    });
+    console.log("sorted: ",sortedArray);
+    genCard(sortedArray, rigaOmdbFilms);
+}
+
+const genCard = (sortedMoviesArray, rigaOmdbFilms) => {
+    for(let i=0; i<sortedMoviesArray.length; i++){
+        rigaOmdbFilms.appendChild(newFilmCardGenerator(sortedMoviesArray[i]));
+    } 
+    console.log("time:");
+    console.timeEnd();
+}
+
+const asyncGenList = async (randomList) => {
+    const randomMoviesArray =  getDetailedMovieArray(randomList);
+    const sortedMoviesArray =  sortArray(randomMoviesArray);
+    return await sortedMoviesArray;
+}
+
+// const GetSortOrder = (campo) => {    
+//     return function(a, b) {    
+//         if (a[campo] > b[campo]) {    
+//             return 1;    
+//         } else if (a[campo] < b[campo]) {    
+//             return -1;    
+//         }    
+//         return 0;    
+//     }    
+// } 
+
 export const newFilmCardGenerator = (film) => {
-    const newCol = document.createElement("div");
-    newCol.className = "col my-5";
-        const newCard = document.createElement("div");
-        newCard.className = "card filmCard";
-        newCol.appendChild(newCard)
-            const newUl1 = document.createElement("ul");
-            newUl1.className = "list-group list-group-flush ulHide lineeColorate";
-            newCard.appendChild(newUl1);
-                const newLi1 = document.createElement("li");
-                newLi1.className = "list-group-item bg-dark lineeColorate";
-                newUl1.appendChild(newLi1);
-                    const newHtitolo = document.createElement("h5");
-                    newHtitolo.className = "card-title text-white text-center";
-                    newLi1.appendChild(newHtitolo);
-                        newHtitolo.append(film.Title);
-                        //const newTextTitolo = document.createTextNode(film.Title);
-                    const newLi2 = document.createElement("li");
-                    newLi2.className = "list-group-item bg-dark text-white text-center lineeColorate";
-                    newUl1.appendChild(newLi2);
-                        newLi2.append(film.Released);
-                    const linkID = document.createElement("a");
-                    linkID.href = "./moreInfo.html?keywords_id=" + film.imdbID;
-                    newCard.appendChild(linkID);
-                        const newPoster = document.createElement("img");
-                        newPoster.src = film.Poster;
-                        newPoster.alt = "IMMAGINE FILM"
-                        linkID.appendChild(newPoster);
-                    const newUl2 = document.createElement("ul");
-                    newUl2.className = "list-group list-group-flush ulHide lineeColorate";
-                    newCard.appendChild(newUl2);
+    try {
+        const newCol = document.createElement("div");
+        newCol.className = "col my-5";
+            const newCard = document.createElement("div");
+            newCard.className = "card filmCard";
+            newCol.appendChild(newCard)
+                const newUl1 = document.createElement("ul");
+                newUl1.className = "list-group list-group-flush ulHide lineeColorate";
+                newCard.appendChild(newUl1);
+                    const newLi1 = document.createElement("li");
+                    newLi1.className = "list-group-item bg-dark lineeColorate";
+                    newUl1.appendChild(newLi1);
+                        const newHtitolo = document.createElement("h5");
+                        newHtitolo.className = "card-title text-white text-center";
+                        newLi1.appendChild(newHtitolo);
+                            newHtitolo.append(film.Title);
+                            //const newTextTitolo = document.createTextNode(film.Title);
+                        const newLi2 = document.createElement("li");
+                        newLi2.className = "list-group-item bg-dark text-white text-center lineeColorate";
+                        newUl1.appendChild(newLi2);
+                            newLi2.append(film.Released);
+                        const linkID = document.createElement("a");
+                        linkID.href = "./moreInfo.html?keywords_id=" + film.imdbID;
+                        newCard.appendChild(linkID);
+                            const newPoster = document.createElement("img");
+                            newPoster.src = film.Poster;
+                            newPoster.alt = "IMMAGINE FILM"
+                            linkID.appendChild(newPoster);
+                        const newUl2 = document.createElement("ul");
+                        newUl2.className = "list-group list-group-flush ulHide lineeColorate";
+                        newCard.appendChild(newUl2);
 
-                                const newLi3 = document.createElement("li");
-                                newLi3.className = "list-group-item bg-dark text-white text-center lineeColorate";
-                                    newLi3.append(film.Released);
-                                newUl2.appendChild(newLi3);
+                                    const newLi3 = document.createElement("li");
+                                    newLi3.className = "list-group-item bg-dark text-white text-center lineeColorate";
+                                        newLi3.append(film.Released);
+                                    newUl2.appendChild(newLi3);
 
-                                const newLi4 = document.createElement("li");
-                                newLi4.className = "list-group-item bg-dark text-white text-center lineeColorate";
-                                    newLi4.append(film.Director);
-                                newUl2.appendChild(newLi4);
+                                    const newLi4 = document.createElement("li");
+                                    newLi4.className = "list-group-item bg-dark text-white text-center lineeColorate";
+                                        newLi4.append(film.Director);
+                                    newUl2.appendChild(newLi4);
 
-                                const newLi5 = document.createElement("li");
-                                newLi5.className = "list-group-item bg-dark text-white text-center lineeColorate";
-                                    newLi5.append(film.Genre);
-                                newUl2.appendChild(newLi5);
-    return newCol;
+                                    const newLi5 = document.createElement("li");
+                                    newLi5.className = "list-group-item bg-dark text-white text-center lineeColorate";
+                                        newLi5.append(film.Genre);
+                                    newUl2.appendChild(newLi5);
+        return newCol;
+    } catch(err) {
+        console.error(err)
+    }
 }
 /*-------------------------------------DYNAMIC.HTML----------------------------------------*/
 
@@ -157,7 +337,6 @@ export const apiList = (s,type) => {
         .then(jsonResponse => jsonResponse.json())
         //utilizzo del ritorno di jsonResponse in formato Json
         .then(objResult => {
-           console.log(objResult);
             if(objResult.Response == "True")
             {
                 const everything = document.getElementById("search");
@@ -815,7 +994,8 @@ export const pageNotFound = async (s) => {
 
         //testo suddiviso in parti
         const testoErrore = document.createTextNode("404");
-        const testoErrore1 = document.createTextNode("THE TITLE " + s);
+        const decodErrorTitle = s.split("%20").join(" ");
+        const testoErrore1 = document.createTextNode("THE TITLE " + decodErrorTitle);
         const testoErrore2 = document.createTextNode("IS NOT FOUND");
 
         //unione testi e <br>

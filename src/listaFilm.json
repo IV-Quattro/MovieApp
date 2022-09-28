@@ -22,7 +22,7 @@
             "imdbID" : "tt0066921"
         },
         {
-            "titolo" : "a history of violence",
+            "titolo" : "A History of Violence",
             "anno" : "2005",
             "imdbID" : "tt0399146"
         },
@@ -55,6 +55,11 @@
             "titolo" : "Ali G Indahouse            ",
             "anno" : "2002",
             "imdbID" : "tt0284837"
+        },
+        {
+            "titolo" : "Alien",
+            "anno" : "1979",
+            "imdbID" : "tt0078748"
         },
         {
             "titolo" : "Alien: Resurrection",
@@ -172,7 +177,7 @@
             "imdbID" : "tt0790636"
         },
         {
-            "titolo" : "deepwater horizon",
+            "titolo" : "Deepwater Horizon",
             "anno" : "2016",
             "imdbID" : "tt1860357"
         },
@@ -956,15 +961,69 @@
         {
             "titolo" : "What We Do in the Shadows",
             "anno" : "2006",
-            "imdbID" : "tt0434409"
+            "imdbID" : "tt3416742"
         },
         {
             "titolo" : "What Happened to Monday",
             "anno" : "2017",
             "imdbID" : "tt1536537"
+        },
+        {
+            "titolo" : "Rubber",
+            "anno" : "2010",
+            "imdbID" : "tt1612774"
+        },
+        {
+            "titolo" : "The Twelve Tasks of Asterix",
+            "anno" : "1976",
+            "imdbID" : "tt0072901"
+        },
+        {
+            "titolo" : "Asterix and Cleopatra",
+            "anno" : "1968",
+            "imdbID" : "tt0062687"
+        },
+        {
+            "titolo" : "Predator",
+            "anno" : "1987",
+            "imdbID" : "tt0093773"
+        },
+        {
+            "titolo" : "The Lord of the Rings",
+            "anno" : "1978",
+            "imdbID" : "tt0077869"
+        },
+        {
+            "titolo" : "The Lord of the Rings: The Fellowship of the Ring",
+            "anno" : "2001",
+            "imdbID" : "tt0120737"
+        },
+        {
+            "titolo" : "The Lord of the Rings: The Two Towers",
+            "anno" : "2002",
+            "imdbID" : "tt0167261"
+        },
+        {
+            "titolo" : "The Lord of the Rings: The Return of the King",
+            "anno" : "2003",
+            "imdbID" : "tt0167260"
+        },
+        {
+            "titolo" : "Prey",
+            "anno" : "2022",
+            "imdbID" : "tt11866324"
+        },
+        {
+            "titolo" : "Jurassic Park",
+            "anno" : "1993",
+            "imdbID" : "tt0107290"
+        },
+        {
+            "titolo" : "Resident Evil",
+            "anno" : "2002",
+            "imdbID" : "tt0120804"
         }
 
-    ],
-    "totalResults" : "13"
+    ]
 
 }

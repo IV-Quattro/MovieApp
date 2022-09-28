@@ -1,18 +1,17 @@
 url sito
 https://nice-tree-061af1803.1.azurestaticapps.net
 
+
+
+
+
+
 IMPORTANTE
 crea input che chiede all user di lamentarsi del sito
 scrivi qui cosa di questo sito ti fa girare il cazzo, così maybe lo fixo
 scrivi in un logLamentele in json i log dei suggerimenti
 
-POI
-in config.js inserisci 
-current_straming_link e current_magnet_link
-e importalo in index.js
 
-POI
-metti loghino in mezzo alla navbar per versioni > 480px
 
 POI
 pubblica foto lu404
@@ -33,29 +32,23 @@ POI
 crea un array di funzioni applicato a superhero
 ogni volta che clicki ti chiama una funzione random del mio array
 
+POI
+switch tra ordine a-z e casuale per i film 
 
 
 
+TRUCCHI
+riempi di 4
+o 
+taglio dell orecchio
+https://www.youtube.com/watch?v=exSgeNc6fXI 
+o 
 
 
-
-
-
-
-
-
-SISTEMA RICERCA SENZA TESTO     fanculo? fa gia ridirect --> disabilita il bottone se non c è testo
-RICERCA DA MOREINFO E NOTFOUND fatto
-SISTEMA CARD SENZA IMMAGINI --> lu --> sul pubblico non funziona
-NAVBAR NOTFOUND NON FUNZIONA --> link su LOGO
-
-
-
-
-SCEGLI I CAZZO DI COLORIIIIII
+COLORIIIIII
 colore : sfondo scritte card viola borders verdi
 
-METTERE LOGO DA INDEX.JS --> sinistra o centro? centro
+
 
 
 
