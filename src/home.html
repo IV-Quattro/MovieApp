@@ -9,41 +9,52 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet" />
+    <meta name="author" content="Ivan Reggiani">
+    <meta name="keywords" content="zeroidee, zero idee, 0idee, 0 idee, movie, movies, film, films, trailer, trailers, quick movie search, quick movies search, detailed movies, detailed movie"/>
 </head>
 
 <body>
-    
 
- 
-    <script type="module"> //per linkare al search la pagina dynamic.html
+    <script type="module">
         
-        
-
-        /*scrivo il titolo nella barra di ricerca e 
-                faccio invio oppure click sul bottone,
-                mi manda in dynamic.html 
-                mi passo come parametro il nome della ricerca alla chiamata api
-                creo dinamicamente la pagina dynamic.html 
-                con all interno tutti i film con titolo simile*/
+        import { topDistanceCalculator } from "./index.js";
+        import { filmCardsGenerator } from "./index.js";
 
         // ho raggruppato tutte le funzioni relative al search
         // in una sola importazione di 2 funzioni multiuso su qualsiasi pagina
         import { enterKeyPressed } from "./index.js"; 
         import { ricercaGenerica } from "./index.js";
+
         //rende globale la funzione
         window.ricercaGenerica = ricercaGenerica;
         window.enterKeyPressed = enterKeyPressed;
 
+        window.topDistanceCalculator = topDistanceCalculator;
+        window.filmCardsGenerator = filmCardsGenerator;
+
+        //per fare la fetch delle movie cards in base alla scrollbar position
+        try{
+            let divDistance = topDistanceCalculator("attuale");
+            //tolgo un tot per farlo partire prima o dopo
+            const collapseExample = document.getElementById("collapseExample");
+            // divDistance = divDistance - 100;
+            console.log(divDistance);
+            window.addEventListener("scroll", () => {
+                // console.warn("addeventlistner",scrollY);
+                 
+                if (document.body.scrollTop > divDistance || document.documentElement.scrollTop > divDistance || window.scrollY > divDistance) 
+                {
+                    if(collapseExample.className == "collapse") {
+                        console.log("sia lode al grande san gennaro");
+                        filmCardsGenerator();
+                    }  
+                }
+            });
+        } catch(err) {
+            console.error(err);
+        }
         
     </script>
-
-    <script type="module">
-        import { filmCardsGenerator } from "./index.js";
-        
-        window.filmCardsGenerator = filmCardsGenerator
-        
-    </script>
-
 
     <!--navbar bootstrap
         ricercaGenerica()-->
@@ -57,8 +68,6 @@
                 <button id="buttonSearch" class="btn btn-outline-light" onclick="window.ricercaGenerica('research')">Search</button>
                 <input id="research" class="form-control me-2 " onkeypress="return enterKeyPressed(event, 'research')" type="search" placeholder="Search" aria-label="Search">
             </div>
-            
-
 
             <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -105,7 +114,7 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>-->
 
-    <div class="container-fluid ">
+    <div class="container-fluid">
 
         <!--Photo by <a href="https://unsplash.com/@druks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Félix Besombes</a> on <a href="https://unsplash.com/s/photos/black-orange?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>-->
         <div id="splash" class="sfondoIV">
@@ -131,14 +140,14 @@
         </div>    
 
         <!--TODO: SFONDO GRIGIO SU QUESTA FRASE E LA PROSSIMA-->
-            <div class="divPresentazione">
-                <p class="text-center mx-4 my-4 white scrittaSplash">
-                    Il nostro scopo è di disporre gratuitamente uno strumento definitivo semplice e funzionale riducendo i tempi di ricerca di film e collezioni cinematografiche con link a streaming e download.
-                    I media messi a disposizione sono selezionati da un team di esperti, così da evitare all’utente perdite di tempo in frequenti e deludenti esperienze.
-                    Il team manutenzione assicura all’utente di trovare link funzionanti senza pubblicità aggressiva.
-                    Inoltre siamo attenti alla tua privacy, sfruttiamo solo i cookies necessari alle funzionalità del sito e i nostri registri vengono eliminati mensilmente ;)
-                </p>
-            </div>
+        <div class="divPresentazione">
+            <p class="text-center mx-4 my-4 white scrittaSplash">
+                Il nostro scopo è di disporre gratuitamente uno strumento definitivo semplice e funzionale riducendo i tempi di ricerca di film e collezioni cinematografiche con link a streaming e download.
+                I media messi a disposizione sono selezionati da un team di esperti, così da evitare all’utente perdite di tempo in frequenti e deludenti esperienze.
+                Il team manutenzione assicura all’utente di trovare link funzionanti senza pubblicità aggressiva.
+                Inoltre siamo attenti alla tua privacy, sfruttiamo solo i cookies necessari alle funzionalità del sito e i nostri registri vengono eliminati mensilmente ;)
+            </p>
+        </div>
             
         
         <!--carousel film 2022-->
@@ -321,117 +330,115 @@
                     </div>
                 </div>
             </div>
-
+        </div>    
             <!--sezione con tutti i film-->
-            <div id="all" class="container-fluid ">
+        <div id="all" class="container-fluid">
 
-                <h1 class="text-center white strisciaColorata">FILM SELEZIONATI</h1>
-                <p class="white text-center">
-                    Questa sezione consiste in una rigida selezione da parte del team di SCARTO.<br>
-                    Questa lista di film non è fondata sui tuoi interessi, è fondata sulle conoscenze di un team competente in materia <br>
-                    assicurandoti di trovare un opera d' arte di qualità in tempi brevi, togliendo l' incertezza della scelta del film della serata.
-                </p>
-                <!--TODO: rendere il popolamento di questo div (o solo dall espandi in poi), automatico.
-                non completamente automatico, in quanto i film li devo scegliere io.
-                quindi gli devo passare in input i titoli corretti e l anno, e lui mi genera la card relativa 
-                la card va fatta in modo statico e perenne, oppure le ricrea tutte ogni volta in modo dinamico? 
-                forse ha piu senso dinamico
-                in ogni caso devo automatizzare la generazione delle card-->
-                <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4 ">
-                    
-                    <!--colonne di card film
-
-                        COLONNA ESEMPIO
-                        serve per inserire film non presenti in imdb
-
-                    <div class="col my-5">
-                        <div class="card filmCard">
-                            <ul class="list-group list-group-flush ulHide lineeColorate">
-                                <li class="list-group-item bg-dark lineeColorate">
-                                    <h5 class="card-title text-white text-center">the onion movie</h5>
-                                </li>
-                                <li class="list-group-item bg-dark text-white text-center lineeColorate">Released</li>
-                            </ul>
-                            <!--link a moreInfo con il titolo come argomento
-                            <a href="./moreInfo.html?keywords=the%20onion%20movie">
-                            <!--immagini recuperate da omdb
-                                <img src="https://m.media-amazon.com/images/M/MV5BNDdkMDUxMmUtNWQ1Yi00OWY3LWI2ZDktOTBmNzVkMTAwODM5XkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_SX300.jpg"
-                                    alt="" class="filmImg" title="the onion movie">
-                            </a>
-                            <ul class="list-group list-group-flush ulHide lineeColorate">
-                                <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
-                                <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
-                                <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
-                            </ul>
-                        </div>
-                    </div>-->
-
-                    
-                </div>
-                    <!--inizio bottone collapsed-->
-                    
-                        <!--TODO: percorso relativo-->
-                        <!--TODO: sistema il bottone che si espande ma non si riduce-->
-                        <!--TODO: metti onscroll-->
-                        <div class="d-grid gap-2 freccetta">
-                            <button class="btn btn-secondary freccetta" type="button" data-bs-toggle="collapse" onclick="window.filmCardsGenerator()" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <img src="IV_stuff/img/angle-down-solid.svg" class="iconaEsplodi">
-                            </button>
-                        </div>
-                    
-                    <div class="collapse" id="collapseExample">
-                        <div class="card-body" id="contenitoreLista">
-                            <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4" id="omdbFilms">
-                                
-
-
-
-
-                            </div><!--fine row interna al bottone collapse-->
-                        </div> <!--fine card-body collapse-->
-                </div> <!--fine bottone collapse-->
-            
-
-            </div>
-
-            
-            
-            
-
-        </div><!--termina container-->
-
-        <!--footer-->
-        <div id="foot" class="piede text-center white">
+            <h1 class="text-center white strisciaColorata">FILM SELEZIONATI</h1>
+            <p class="white text-center">
+                Questa sezione consiste in una rigida selezione da parte del team di SCARTO.<br>
+                Questa lista di film non è fondata sui tuoi interessi, è fondata sulle conoscenze di un team competente in materia <br>
+                assicurandoti di trovare un opera d' arte di qualità in tempi brevi, togliendo l' incertezza della scelta del film della serata.
+            </p>
+            <!--TODO: rendere il popolamento di questo div (o solo dall espandi in poi), automatico.
+            non completamente automatico, in quanto i film li devo scegliere io.
+            quindi gli devo passare in input i titoli corretti e l anno, e lui mi genera la card relativa 
+            la card va fatta in modo statico e perenne, oppure le ricrea tutte ogni volta in modo dinamico? 
+            forse ha piu senso dinamico
+            in ogni caso devo automatizzare la generazione delle card-->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4 ">
                 
-            <div class="row row-cols-1 row-cols-sm-3">
-                <!--contatti fasulli SCARTO-->
-                <div class="col">
-                    <h5>CONTATTACI</h5>
-                    <a href="#"><p>tel: +39 342 666 792</p></a>
-                    <a href="#"><p>e-mail: scarto@gmail.org</p></a>
-                    <a href="https://www.google.com/maps/place/20842+Montesiro+MB/@45.6940342,9.2907038,15.27z/data=!4m5!3m4!1s0x4786a4c3045b9bb1:0x19814a18a6145611!8m2!3d45.6938445!4d9.2890812">
-                        <p>indirizzo: montesiro(MB), 20842</p>
-                    </a>
-                </div>
-                <!--logo SCARTO-->
-                <div class="col">
-                    <h5>PRODUCED BY</h5>
-                    <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
-                    onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
-                    onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
-                </div>
-                <!--link su in alto-->
-                <div class="col">
-                    <h5>TORNA SU</h5>
-                    <a href="#splash"><p>splash page</p></a>
-                    <a href="#attuale"><p>film dell' anno</p></a>
-                    <a href="#categorie"><p>film del mese</p></a>
-                <!--    <a href="#all"><p>tutto</p></a>-->
+                <!--colonne di card film
+                NON CANCELLARE
+                COLONNA ESEMPIO
+                serve per inserire film non presenti in imdb
 
-                </div>
+                <div class="col my-5">
+                    <div class="card filmCard">
+                        <ul class="list-group list-group-flush ulHide lineeColorate">
+                            <li class="list-group-item bg-dark lineeColorate">
+                                <h5 class="card-title text-white text-center">the onion movie</h5>
+                            </li>
+                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Released</li>
+                        </ul>
+                        <!--link a moreInfo con il titolo come argomento
+                        <a href="./moreInfo.html?keywords=the%20onion%20movie">
+                        <!--immagini recuperate da imdb
+                            <img src="https://m.media-amazon.com/images/M/MV5BNDdkMDUxMmUtNWQ1Yi00OWY3LWI2ZDktOTBmNzVkMTAwODM5XkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_SX300.jpg"
+                                alt="" class="filmImg" title="the onion movie">
+                        </a>
+                        <ul class="list-group list-group-flush ulHide lineeColorate">
+                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Runtime</li>
+                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Director</li>
+                            <li class="list-group-item bg-dark text-white text-center lineeColorate">Genre</li>
+                        </ul>
+                    </div>
+                </div>-->  
+            </div>
+            <!--inizio bottone collapsed-->
+            
+            <!--TODO: percorso relativo-->
+            <!--TODO: sistema il bottone che si espande ma non si riduce-->
+            <!--TODO: metti onscroll-->
+            <div class="d-grid gap-2 freccetta">
+                <button class="btn btn-secondary freccetta" type="button" data-bs-toggle="collapse" onclick="window.filmCardsGenerator()" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <img src="IV_stuff/img/angle-down-solid.svg" class="iconaEsplodi">
+                </button>
+            </div>
+            
+            <div class="collapse" id="collapseExample">
+                <div class="card-body" id="contenitoreLista">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4" id="imdbFilms">
+                        <!--QUI DENTRO VENGONO GENERATI TUTTI I FILM-->
+                    </div><!--fine row interna al bottone collapse-->
+                </div> <!--fine card-body collapse-->
+            </div> <!--fine bottone collapse-->
+
+        </div>
+
+            
+            
+            
+
+    </div><!--termina container-->
+
+    <!--footer-->
+    <div id="foot" class="piede text-center white" onscroll="topDistanceCalculator('foot')">
+            
+        <div class="row row-cols-1 row-cols-sm-3">
+            <!--contatti fasulli SCARTO-->
+            <div class="col">
+                <h5>CONTATTACI</h5>
+                <p>tel: <a href="#">+39 000 000 00 00</a></p>
+                <p>e-mail: <a href="#">exemple@scarto.org</a></p>
+                <p>indirizzo: 
+                    <a href="https://www.google.it/maps/place/20842+Besana+in+Brianza+MB/@45.6945514,9.2399834,13z/data=!4m6!3m5!1s0x4786a4bc6e82b365:0x40678022e66f1d0!8m2!3d45.6937341!4d9.27583!16zL20vMGR5Zm1i">
+                        besana (MB), 20842
+                    </a>
+                </p>
+                
+            </div>
+            <!--logo SCARTO-->
+            <div class="col">
+                <h5>PRODUCED BY</h5>
+                <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
+                onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
+                onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
+            </div>
+            <!--link su in alto-->
+            <div class="col">
+                <h5 class="verticalDisposition">TORNA SU</h5>
+                <a href="#splash"><p>splash page</p></a>
+                <a href="#attuale"><p>film dell' anno</p></a>
+                <a href="#categorie"><p>film del mese</p></a>
+            <!--    <a href="#all"><p>tutto</p></a>-->
 
             </div>
+
         </div>
+    </div>
+
+        
 
         <!--link importazione da bootstrap-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

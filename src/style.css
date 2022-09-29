@@ -87,6 +87,7 @@ in ordine di importanza:
 
 .strisciaColorata{
     background-color:#ff9012;
+    padding: 0.5%;
 }
 
 /*-------------------------------------------Navbar---------------------------------------------*/
@@ -570,19 +571,21 @@ div suggerimenti
    /*SISTEMA IMMAGINE  (anche di dynamic   --> NON E' VERO LI FUNZIONA !!!!!)
     E BOTTONE*/
 
+   .verticalDisposition{
+        margin-top:5%;
+   }
 
-/*home.html*/
-.freccetta{
-    background-color: #ff9012;
-}
-.freccetta:hover{
-    background-color: #404040;
-}
-/*dynamic.html*/
+    /*home.html*/
+    .freccetta{
+        background-color: #ff9012;
+    }
+    .freccetta:hover{
+        background-color: #404040;
+    }
+    /*dynamic.html*/
 
-/* moreInfo.html*/
-    
-    
+    /* moreInfo.html*/
+
     /*bordo arancione esterno*/
     .blckCentrale{
         border: 1px solid #ff9012;
@@ -599,7 +602,7 @@ div suggerimenti
         text-align:left;
     }
 
-/* titleNotFound.html */
+    /*titleNotFound.html */
     h1{ 
         font-size: small;
     }
@@ -636,14 +639,16 @@ div suggerimenti
        opacity: 0;  
    }
 
-   
-/*home.html*/
+   .verticalDisposition{
+    margin-top:5%;
+    }
+    /*home.html*/
    .immagineCarousel{
        height: 400px;
    }
-/*dynamic.html*/
+    /*dynamic.html*/
 
-/* moreInfo.html*/
+    /* moreInfo.html*/
 
    /*scritte a sinistra*/
    .datiFilmCol{
@@ -656,7 +661,7 @@ div suggerimenti
         height: 70%;
         margin: 10px auto;
     }
-/* titleNotFound.html */
+    /* titleNotFound.html */
     h1{ 
         font-size:medium;
     }
@@ -669,8 +674,19 @@ div suggerimenti
     }
 }
 
+@media (min-width: 576px ) {
+    /* per sistemare il footer */
+    .verticalDisposition{
+        margin-top:0%;
+    }
+}
+
 /* 768 px dove si dimezza il num di colonne 1000px */
 @media (min-width: 768px ) {
+
+    /*.strisciaColorata {
+        
+    }*/
 
     .loghinoApp{
         display:block;
@@ -692,10 +708,9 @@ div suggerimenti
        height:150px;
        opacity: 0;  
    }
-
    
 /*home.html*/
-   .immagineCarousel{
+   .immagineCarousel {
        height: 500px;
    }
 /*dynamic.html*/
@@ -703,11 +718,11 @@ div suggerimenti
 /* moreInfo.html*/
 
     /*scritte a sinistra*/
-    .datiFilmCol{
+    .datiFilmCol {
         text-align: left;
         }
         /*bordo arancione esterno*/
-        .blckCentrale{
+        .blckCentrale {
             border: 1px solid #ff9012;
             width: 75%;
             height: 70%;
@@ -717,10 +732,12 @@ div suggerimenti
     h1{ 
         font-size: x-large;
     }
-    .margineAvviso{
+
+    .margineAvviso {
         margin-top:3%;
     }
-    .margineAvviso2{
+
+    .margineAvviso2 {
         margin-top:2%;
     }
 
@@ -729,7 +746,6 @@ div suggerimenti
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {  
-   
 
    .sfondoIV{
        height:640px;

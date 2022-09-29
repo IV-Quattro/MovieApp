@@ -32,7 +32,6 @@ export const enterKeyPressed = (event, idPaginaRicerca) => {
 
     if (event.keyCode === 13) 
     {
-        
         ricercaGenerica(idPaginaRicerca);
     }
 }
@@ -60,100 +59,24 @@ fare la divisione per lettere con bootstrap
     quando premo il primo con la lettera A
     gli passo A come parametro e mi genera le card di tutti i film dal titolo che inizia per A
     primo cassetto: all --> resta com è
-*/
+*/                //TODO: button switch a-z o random per la lista dei film
 
-// listaCompleta1.push(listaCompleta.ivList.sort((a,b) => {
-                //     return a.titolo - b.titolo;} ));     //doesn't work
-
-                //TODO: button switch a-z o random per la lista dei film
-                // const listaCompleta1 = listaCompleta.ivList.sort(GetSortOrder("titolo"));
-                // console.log(listaCompleta1);
-
-                //json.sort(ivList) non funziona
-
-                // MAP TEST non funziona ordine
-                // listaCompleta1.map( (singoloObj) => {         //maybe il problema è map non la lista
-                //     const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
-                //     fetch(urlID)
-                //         .then(responseOmdb => responseOmdb.json())
-                //         .then(dettagliObjFilm => {
-                //             rigaOmdbFilms.appendChild(newFilmCardGenerator(dettagliObjFilm));
-                //         });
-                // }).sort(GetSortOrder("titolo"));
-
-
-                // FOR IN TEST non funziona ERRORE
-                // for( let singoloObj in listaCompleta1 ) {        
-                //     const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
-                //     fetch(urlID)
-                //         .then(responseOmdb => responseOmdb.json())
-                //         .then(dettagliObjFilm => {
-                //             rigaOmdbFilms.appendChild(newFilmCardGenerator(dettagliObjFilm));
-                //         });
-                // };
-
-                // const listaCompleta1 = listaCompleta.ivList.sort((a, b) =>{
-                //     if (a.titolo < b.titolo){
-                //         return -1;
-                //     }
-                // });
-                // console.log(listaCompleta1);
-
-                // // FOR i TEST non funziona ordine
-                // for( let i = 0; i < listaCompleta1.length; i++ ) { 
-                //     console.log(i, listaCompleta1[i].titolo);       
-                //     const urlID = URL_BASE+`i=${listaCompleta1[i].imdbID}`;
-                //     fetch(urlID)
-                //         .then(responseOmdb => responseOmdb.json())
-                //         .then(dettagliObjFilm => {
-                //             console.log(dettagliObjFilm.Title);
-                //             rigaOmdbFilms.appendChild(newFilmCardGenerator(dettagliObjFilm));
-                //         });
-                // };
-
-                
-
-                /*TODO: RIFACCIAMO TUTTO
-                    il sort va inserito dopo la API call*/
-                
-        //         for(let i=0; i<listaCompleta.ivList.length; i++){
-        //             //compongo l url del I esimo movie della lista
-        //             const urlID = URL_BASE+`i=${listaCompleta.ivList[i].imdbID}`;
-        //             fetch(urlID)
-        //                 .then(responseOmdb => responseOmdb.json())
-        //                 .then(dettagliObjFilm => {
-        //                     randomMoviesJsonObj.push(dettagliObjFilm)
-        //                 });
-        //         }
-        //     }
-        //     return randomMoviesJsonObj;
-        // });
-        // .then(randomMoviesJsonObj => {
-        //     //sort arrayJson in base al titolo
-        //     const sortedMoviesJsonObj = randomMoviesJsonObj.sort((a, b) =>{
-        //         if (a.Title < b.Title){
-        //             return -1;
-        //         }
-        //     });
-        //     return sortedMoviesJsonObj;
-        // });
-
-        // .then(sortedMoviesJsonObj => {
-        //     //chiamo newFilmCardGenerator() in ordine a-z
-        //     for(let i=0; i<sortedMoviesJsonObj.length; i++){
-        //         rigaOmdbFilms.appendChild(newFilmCardGenerator(sortedMoviesJsonObj[i]));
-        //     }
-        // });
+export const topDistanceCalculator = (id) => {
+    const testDiv = document.getElementById(id);
+    console.table(testDiv.id,testDiv.offsetTop);
+    return testDiv.offsetTop;
+}
 
 export const filmCardsGenerator = () => {
     console.time();
     try {
+        const wrapperContenitore = document.getElementById("collapseExample");
         const contenitore = document.getElementById("contenitoreLista");
+        const rigaimdbFilms = document.getElementById("imdbFilms");
 
-        const rigaOmdbFilms = document.getElementById("omdbFilms");
-        contenitore.removeChild(rigaOmdbFilms);
+        contenitore.removeChild(rigaimdbFilms);
         //TODO:riscrivila
-        contenitore.appendChild(rigaOmdbFilms);
+        contenitore.appendChild(rigaimdbFilms);
         
         fetch("./listaFilm.json")
             .then(responseLocale => responseLocale.json())
@@ -165,7 +88,16 @@ export const filmCardsGenerator = () => {
                 }
                 else
                 {
-                    getDetailedMovieArray(listaCompleta.ivList, rigaOmdbFilms); 
+                    // asincrona
+                    getDetailedMovieArray(listaCompleta.ivList, rigaimdbFilms); 
+                    // sincrona
+                    console.log(wrapperContenitore.className);
+                    if(wrapperContenitore.className == "collapse") {
+                        wrapperContenitore.classList.remove("collapse");
+                        wrapperContenitore.className("collapsing");
+                        // wrapperContenitore.classList.add("collapsing");
+                    }
+                    
                 } 
             });
 
@@ -174,91 +106,43 @@ export const filmCardsGenerator = () => {
     }
 }
 
-
-// ASYNC WAY
-// const getDetailedMovieArray = async (ivListOriginal) => {
-//     let randomMoviesJson = [];
-//     for(let i=0; i<ivListOriginal.length; i++){
-//         const urlID = URL_BASE+`i=${ivListOriginal[i].imdbID}`;
-//         const responseImdb = await fetch(urlID);
-//         const responseJson = await responseImdb.json();
-        
-//         await randomMoviesJson.push(responseJson);
-//         // fetch(urlID)
-//         //     .then(responseImdb => responseImdb.json())
-//         //     .then(responseJson => {
-//         //         console.log(responseJson);
-//         //         });
-//     }
-    
-//     console.log("randomMoviesJson.length funz: ",randomMoviesJson.length);
-//     //return await randomMoviesJson;
-//     console.log("valueTest",valueTest);
-//     await sortArray(randomMoviesJson);
-// }
-
-// const sortArray = async (notSortedArray) => {
-//     console.log("notSortedArray", notSortedArray);
-//     const sortedMoviesArray = await notSortedArray.sort((a, b) =>{
-//         if (a.Title < b.Title){
-//             return -1;
-//         }
-//     });
-//     console.log("sorted: ",sortedMoviesArray);
-//     //return await sortedMoviesArray;
-//     await genCard(sortedMoviesArray);
-// }
-
-// const genCard = async (sortedMoviesArray) => {
-//     console.log(sortedMoviesArray[0]);
-//     console.log(sortedMoviesArray);
-//     for(let i=0; i<sortedMoviesArray.length; i++){
-//         //dettagliMovie = sortedMoviesArray[i].json();
-//         rigaOmdbFilms.appendChild(newFilmCardGenerator(sortedMoviesArray[i]));
-//     } 
-// }
-
 //SYNC WAY
-const getDetailedMovieArray = (ivListOriginal, rigaOmdbFilms) => {
+const getDetailedMovieArray = (ivListOriginal, rigaimdbFilms) => {
     let randomMoviesJson = [];
     ivListOriginal.map( (singoloObj) => {
         const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
         
-        fetch(urlID)
+            fetch(urlID)
             .then(responseImdb => responseImdb.json())
             .then(responseJson => {
                 randomMoviesJson.push(responseJson);
-                console.log("randomMoviesJson.length: ",randomMoviesJson.length);
-                if(randomMoviesJson.length == ivListOriginal.length){
-                    sortArray(randomMoviesJson, rigaOmdbFilms);
+                console.log("randomMoviesJson.length: ", randomMoviesJson.length);
+                //questo fa funzionare tutta la programmazione sync, senza questo crasha tutto
+                if(randomMoviesJson.length == ivListOriginal.length) {
+                    sortArray(randomMoviesJson, rigaimdbFilms);
                 }
             });
     });
 }
 
-const sortArray = (notSortedArray, rigaOmdbFilms) => {
+const sortArray = (notSortedArray, rigaimdbFilms) => {
     console.log("notSortedArray", notSortedArray);
-    const sortedArray = notSortedArray.sort((a, b) =>{
-        if (a.Title < b.Title){
+    const sortedArray = notSortedArray.sort((a, b) => {
+        if (a.Title < b.Title) {
             return -1;
         }
     });
-    console.log("sorted: ",sortedArray);
-    genCard(sortedArray, rigaOmdbFilms);
+    console.log("sorted: ", sortedArray);
+    genCard(sortedArray, rigaimdbFilms);
 }
 
-const genCard = (sortedMoviesArray, rigaOmdbFilms) => {
-    for(let i=0; i<sortedMoviesArray.length; i++){
-        rigaOmdbFilms.appendChild(newFilmCardGenerator(sortedMoviesArray[i]));
+const genCard = (sortedMoviesArray, rigaimdbFilms) => {    
+    for(let i=0; i<sortedMoviesArray.length; i++)
+    {
+        rigaimdbFilms.appendChild(newFilmCardGenerator(sortedMoviesArray[i]));
     } 
     console.log("time:");
     console.timeEnd();
-}
-
-const asyncGenList = async (randomList) => {
-    const randomMoviesArray =  getDetailedMovieArray(randomList);
-    const sortedMoviesArray =  sortArray(randomMoviesArray);
-    return await sortedMoviesArray;
 }
 
 // const GetSortOrder = (campo) => {    
@@ -299,7 +183,7 @@ export const newFilmCardGenerator = (film) => {
                         newCard.appendChild(linkID);
                             const newPoster = document.createElement("img");
                             newPoster.src = film.Poster;
-                            newPoster.alt = "IMMAGINE FILM"
+                            newPoster.alt = "IMMAGINE FILM";
                             linkID.appendChild(newPoster);
                         const newUl2 = document.createElement("ul");
                         newUl2.className = "list-group list-group-flush ulHide lineeColorate";
