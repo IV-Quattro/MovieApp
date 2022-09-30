@@ -73,7 +73,8 @@ export const filmCardsGenerator = () => {
         const wrapperContenitore = document.getElementById("collapseExample");
         const contenitore = document.getElementById("contenitoreLista");
         const rigaimdbFilms = document.getElementById("imdbFilms");
-
+        
+        //perche allora trovo la stessa lista 1000 volte?????
         contenitore.removeChild(rigaimdbFilms);
         //TODO:riscrivila
         contenitore.appendChild(rigaimdbFilms);

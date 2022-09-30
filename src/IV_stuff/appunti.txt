@@ -2,8 +2,28 @@ url sito
 https://nice-tree-061af1803.1.azurestaticapps.net
 
 
+togli barra orizzontale sistema container
+
+home.html
+revisiona tutti i film inseriti
+INSERISCI FILM collezioni
+sistema scritte --> metti anche le maiuscole 
+FAI CATEGORIE --> sistema row
+SITEMA LA FRECCETTA
+SISTEMA CAROUSEL E METTI LINK
+fix img lu
+
+RUNTIME FORMATO 1h30min
+
+moreInfo.html
+COLORA LE SCRITTE IN MOREINFO --> si impalla
+
+dynamic.html
+VEDI COLORI
+non carica la foto sostituitiva da online
 
 
+pageNotFound.html
 
 
 IMPORTANTE
@@ -53,24 +73,5 @@ colore : sfondo scritte card viola borders verdi
 
 
 
-home.html
-INSERISCI FILM
-sistema scritte --> metti anche le maiuscole 
-FAI CATEGORIE --> sistema row
-SITEMA LA FRECCETTA
-SISTEMA CAROUSEL E METTI LINK
-fix img lu
 
-RUNTIME FORMATO 1h30min
-
-
-moreInfo.html
-COLORA LE SCRITTE IN MOREINFO --> si impalla
-
-dynamic.html
-VEDI COLORI
-non carica la foto sostituitiva da online
-
-
-pageNotFound.html
 
