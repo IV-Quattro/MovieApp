@@ -90,6 +90,75 @@ in ordine di importanza:
     padding: 0.5%;
 }
 
+/*----------------------------------Bootstrap override-----------------------------------------*/
+.button-primary{
+
+}
+
+.btn-secondary:hover{
+    background-color:#ff9012;
+}
+
+
+
+.btn-success{
+    background-color: #707070;
+    color: #707070;
+    border-color: #707070;
+}
+.btn-outline-success{
+    background-color: #404040;
+    color: #404040;
+}
+.btn-success:hover{
+    background-color: #707070;
+    border-color: #707070;
+}
+
+
+
+/* voci standard */
+.btn.btn-outline-warning{
+    /* background-color: rgba(0,0,0,0); */
+    color: #ff9012;
+    border-color:#ff9012;
+    
+}
+
+.btn.btn-outline-warning:hover{
+    background-color: #ff9012;
+    color: #FFF;
+    border-color:#ff9012;
+}
+
+/*TODO: sistema sta merda*/
+
+/* test checked */
+input[type="radio"]:checked {
+    background-color: #404040 !important;
+    box-shadow: 0 0 0 3px #404040;
+  }
+.checkControl{
+    background-color: rgba(0,0,0,0) !important;
+}
+.checkControl:checked{
+    background-color: #404040 !important;
+}
+.btn.btn-outline-warning:checked{
+    background-color: #404040;
+    border-color:#ff9012;
+    color: #fff;
+}
+.btn-group.btn-check:checked.btn-outline-warning{
+    background-color:#404040;
+}
+.btn-warning:checked{
+    background-color: #404040;
+    border-color:#404040;
+    color: #fff;
+}
+
+
 /*-------------------------------------------Navbar---------------------------------------------*/
 
 
@@ -286,6 +355,24 @@ si puo fare cosi
     background-color:#404040;
 }
 
+/* .freccetta{
+    background-color: #404040;
+} */
+
+/* .freccetta:hover{
+    background-color: #404040;
+} */
+
+.sfondoRadio{
+    background-color: #404040;
+}
+.radioDiv{
+    width:90%
+}
+.radioChoices{
+    width: 33% !important;
+}
+
 .mleft{
     margin-left:7% !important;
 }
@@ -316,9 +403,7 @@ si puo fare cosi
     
 }
 
-.btn-secondary:hover{
-    background-color:#ff9012;
-}
+
 .iconaEsplodi{
     width:15px;
     height:15px;
@@ -576,12 +661,7 @@ div suggerimenti
    }
 
     /*home.html*/
-    .freccetta{
-        background-color: #ff9012;
-    }
-    .freccetta:hover{
-        background-color: #404040;
-    }
+    
     /*dynamic.html*/
 
     /* moreInfo.html*/

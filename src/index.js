@@ -67,7 +67,7 @@ export const topDistanceCalculator = (id) => {
     return testDiv.offsetTop;
 }
 
-export const filmCardsGenerator = () => {
+export const filmCardsGenerator = (sortType) => {
     console.time();
     try {
         const wrapperContenitore = document.getElementById("collapseExample");
@@ -77,7 +77,28 @@ export const filmCardsGenerator = () => {
         //perche allora trovo la stessa lista 1000 volte?????
         contenitore.removeChild(rigaimdbFilms);
         //TODO:riscrivila
+        // non funziona
+        // contenitore.remove(rigaimdbFilms);
+        // contenitore.appendChild(rigaimdbFilms);
+
+        // do{
+        //     // var deleteResponse = rigaimdbFilms.removeChild(rigaimdbFilms.lastChild);
+        //     console.log("deleting ", rigaimdbFilms.lastChild);
+        // }while(deleteResponse != null)
+
+        //TODO:riscrivila
+        console.warn("rigarigaimdbFilms prima", rigaimdbFilms);
+        console.log(rigaimdbFilms.lastChild);
+        rigaimdbFilms.innerHTML = "";
+        console.log(rigaimdbFilms.lastChild);
+        console.warn("rigarigaimdbFilms dopo", rigaimdbFilms);
+
+
         contenitore.appendChild(rigaimdbFilms);
+
+        
+
+
         
         fetch("./listaFilm.json")
             .then(responseLocale => responseLocale.json())
@@ -85,18 +106,24 @@ export const filmCardsGenerator = () => {
                 
                 if (listaCompleta.ivList <= 0)
                 {
-                    console.log("lista vuota")
+                    console.error("lista vuota");
                 }
                 else
                 {
                     // asincrona
-                    getDetailedMovieArray(listaCompleta.ivList, rigaimdbFilms); 
+                    getDetailedMovieArray(listaCompleta.ivList, sortType, rigaimdbFilms); 
                     // sincrona
                     console.log(wrapperContenitore.className);
+                    // TODO:ricontrolla sta robaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    // if(wrapperContenitore.className == "collapse") {
+                        // wrapperContenitore.classList.remove = "collapse";
+                        // wrapperContenitore.className = "collapsing";
+                        
+                        // wrapperContenitore.classList.add("collapsing");
+                    // }
                     if(wrapperContenitore.className == "collapse") {
                         wrapperContenitore.classList.remove("collapse");
                         wrapperContenitore.className("collapsing");
-                        // wrapperContenitore.classList.add("collapsing");
                     }
                     
                 } 
@@ -108,7 +135,7 @@ export const filmCardsGenerator = () => {
 }
 
 //SYNC WAY
-const getDetailedMovieArray = (ivListOriginal, rigaimdbFilms) => {
+const getDetailedMovieArray = (ivListOriginal, sortType, rigaimdbFilms) => {
     let randomMoviesJson = [];
     ivListOriginal.map( (singoloObj) => {
         const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
@@ -120,20 +147,89 @@ const getDetailedMovieArray = (ivListOriginal, rigaimdbFilms) => {
                 console.log("randomMoviesJson.length: ", randomMoviesJson.length);
                 //questo fa funzionare tutta la programmazione sync, senza questo crasha tutto
                 if(randomMoviesJson.length == ivListOriginal.length) {
-                    sortArray(randomMoviesJson, rigaimdbFilms);
+                    sortArray(randomMoviesJson, sortType, rigaimdbFilms);
                 }
             });
     });
 }
 
-const sortArray = (notSortedArray, rigaimdbFilms) => {
-    console.log("notSortedArray", notSortedArray);
-    const sortedArray = notSortedArray.sort((a, b) => {
-        if (a.Title < b.Title) {
-            return -1;
-        }
-    });
-    console.log("sorted: ", sortedArray);
+// const sortArray = (notSortedArray, rigaimdbFilms) => {
+//     console.log("notSortedArray", notSortedArray);
+//     const sortedArray = notSortedArray.sort((a, b) => {
+//         if (a.Title < b.Title) {
+//             return -1;
+//         }
+//     });
+//     console.log("sorted: ", sortedArray);
+//     genCard(sortedArray, rigaimdbFilms);
+// }
+
+const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
+    console.warn("sortType: ", sortType);
+    var sortedArray = [];   //all interno dello switch non ha scope ma non posso ridichiararlo nei vari case
+    switch(sortType) {
+
+        // case "prova":
+        //     let newSortedArray = [];
+
+        //     break;
+        
+        case "Random":
+            sortedArray = notSortedArray.sort((a, b) => {
+                if (a.imdbID < b.imdbID) {
+                    return -1;
+                }
+                console.table("a.imdbID: " + a.imdbID + "b.imdbID: " + b.imdbID)
+            });
+            break;
+
+        case "A-Z":
+            sortedArray = notSortedArray.sort((a, b) => {
+                if (a.Title < b.Title) {
+                    return -1;
+                }
+            });
+            break;
+
+        case "Z-A":
+            sortedArray = notSortedArray.sort((a, b) => {
+                if (a.Title > b.Title) {
+                    return -1;
+                }
+            });
+            break;
+
+        case "ID":
+            sortedArray = notSortedArray.sort((a, b) => {
+                if (a.imdbID < b.imdbID) {
+                    return -1;
+                }
+            });
+            break;
+        // cerca nomi standard per queste cose
+        case "annoCrescente":
+
+            break;
+        
+        case "annoDecrescente":
+            
+            break;
+
+        case "ratingsCrescenti":
+
+            break;
+        
+
+        default: //A-Z  TODO: random
+            sortedArray = notSortedArray.sort((a, b) => {
+                if (a.Title < b.Title) {
+                    return -1;
+                }
+            });
+            break;
+
+    }
+    console.log(sortedArray);
     genCard(sortedArray, rigaimdbFilms);
 }
 
@@ -192,7 +288,9 @@ export const newFilmCardGenerator = (film) => {
 
                                     const newLi3 = document.createElement("li");
                                     newLi3.className = "list-group-item bg-dark text-white text-center lineeColorate";
-                                        newLi3.append(film.Released);
+                                    
+                                    const filmRuntime = numToHourConverter(film.Runtime);
+                                        newLi3.append(filmRuntime);
                                     newUl2.appendChild(newLi3);
 
                                     const newLi4 = document.createElement("li");
@@ -208,6 +306,13 @@ export const newFilmCardGenerator = (film) => {
     } catch(err) {
         console.error(err)
     }
+}
+
+const numToHourConverter = (originalRuntime) => {
+    const num = originalRuntime.replace(" min","");
+    let hours = Math.floor(num / 60);  
+    let minutes = num % 60;
+    return hours + "h " + minutes + "min";         
 }
 /*-------------------------------------DYNAMIC.HTML----------------------------------------*/
 
@@ -313,10 +418,8 @@ export const apiList = (s,type) => {
                     
     
                 //creazione footer card  
-                card.appendChild(creazioneFooter(media)); //mi ritorna il footer e lo attacco sotto l immagine
-                        
+                card.appendChild(creazioneFooter(media)); //mi ritorna il footer e lo attacco sotto l immagine 
         return colonna;
-
        }
 
        //chiamata da MediaCardGenerator
@@ -456,7 +559,6 @@ colonna1B.className = "col my-5";
                 filmImmagine.src = "https://www.davidebertozzi.it/wp-content/uploads/2020/03/errore-404.jpg";
                 filmImmagine.className="filmImg";
                 filmImmagine.title=dettagli.Title;
-
             }
             else
             {
@@ -575,16 +677,9 @@ const genColEvidenza = (dettagli) =>{
                     linkBtnMagnet.appendChild(btn2);
                 col6II.appendChild(linkBtnMagnet);
             campoA6.appendChild(col6II);
-
-
         colonna2B.appendChild(campoA6); //chiusura row bottoni
-
-
     return colonna2B;
 }
-
-
-
 
 const aCapo = document.createElement("br"); //inutilizzato
 //generazione colonna 3 --> chiamata da viewDetails()

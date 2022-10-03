@@ -47,7 +47,7 @@
                     {
                         console.log("sia lode al grande san gennaro");
                         if(isFuncTriggered == false) {
-                            filmCardsGenerator();
+                            filmCardsGenerator('Random');
                             isFuncTriggered = true;
                         }
                          
@@ -379,14 +379,34 @@
             
             <!--TODO: percorso relativo-->
             <!--TODO: sistema il bottone che si espande ma non si riduce-->
-            <!--TODO: metti onscroll-->
 
-            <div class="d-grid gap-2 freccetta">
-                <button class="btn btn-secondary freccetta" type="button" data-bs-toggle="collapse" onclick="window.filmCardsGenerator()" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    <img src="IV_stuff/img/angle-down-solid.svg" class="iconaEsplodi">
+            <!--originale-->
+            <!-- <div class="d-grid gap-2 freccetta">
+                    <button class="btn btn-secondary freccetta" type="button" data-bs-toggle="collapse" onclick="window.filmCardsGenerator()" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <img src="IV_stuff/img/angle-down-solid.svg" class="iconaEsplodi">
+                    </button>
+                </div> -->
+            
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+
+                    <!-- <div class="btn-group d-xxl-block gap-2 col-4" role="group" aria-label="Basic radio toggle button group"> -->
+                    <div class="btn-group radioDiv" role="group" aria-label="Basic radio toggle button group">
+
+                        <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                        <label class="btn btn-outline-warning" for="btnradio1" onclick="window.filmCardsGenerator('Random')">Random</label>
+                      
+                        <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-warning" for="btnradio2" onclick="window.filmCardsGenerator('A-Z')">A-Z</label>
+                      
+                        <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-warning" for="btnradio3" onclick="window.filmCardsGenerator('Z-A')">Z-A</label>
+                    </div>
+
                 </button>
             </div>
             
+
             <div class="collapse" id="collapseExample">
                 <div class="card-body" id="contenitoreLista">
                     <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-4" id="imdbFilms">
