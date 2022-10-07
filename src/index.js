@@ -172,16 +172,6 @@ const getDetailedMovieArray = (ivListOriginal, sortType, rigaimdbFilms) => {
     }
 }
 
-// const sortArray = (notSortedArray, rigaimdbFilms) => {
-//     console.log("notSortedArray", notSortedArray);
-//     const sortedArray = notSortedArray.sort((a, b) => {
-//         if (a.Title < b.Title) {
-//             return -1;
-//         }
-//     });
-//     console.log("sorted: ", sortedArray);
-//     genCard(sortedArray, rigaimdbFilms);
-// }
 
 const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
     try{
@@ -208,15 +198,9 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
                 });
                 break;
 
-            case "ID":
-                sortedArray = notSortedArray.sort((a, b) => {
-                    if (a.imdbID < b.imdbID) {
-                        return -1;
-                    }
-                });
-                break;
-
-            // cerca nomi standard per queste cose
+            // TODO: cerca nomi standard per queste cose o metti le freccette da carattere speciale
+            // TODO: trasforma tutti questi 4 switch case in 1 solo, in una funzione
+            //       che accetta come parametro "a" o  "b" che sia e ti sostituisce la sua released date
 
             case "YearIncr":
                 sortedArray = notSortedArray.sort((a, b) => {
@@ -227,15 +211,15 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
 
                         if(a.Released == "N/A") {
 
-                            switch(a.Title) {
+                            switch(a.Title) {   // aggiungere in questi 4 switch i nuovi film inseriti senza data di rilascio
 
                                 case "Rabbits":
                                     a.Released = "15 Jan 2002";
                                     break;
 
-                                case "The Secret Diary of Amarcord":
-                                    a.Released = "18 Dec 1973";
-                                    break;
+                                // case "The Secret Diary of Amarcord":
+                                //     a.Released = "18 Dec 1973";
+                                //     break; //Film sostituito
 
                                 default:
                                     a.Released = "15 Jan 1940";
@@ -248,15 +232,15 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
                         }
                         if(b.Released == "N/A") {
 
-                            switch(b.Title) {
+                            switch(b.Title) {   // aggiungere in questi 4 switch i nuovi film inseriti senza data di rilascio
 
                                 case "Rabbits":
                                     a.Released = "15 Jan 2002";
                                     break;
 
-                                case "The Secret Diary of Amarcord":
-                                    a.Released = "18 Dec 1973";
-                                    break;
+                                // case "The Secret Diary of Amarcord":
+                                //     a.Released = "18 Dec 1973";
+                                //     break;
 
                                 default:
                                     a.Released = "15 Jan 1940";
@@ -290,15 +274,15 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
 
                         if(a.Released == "N/A") {
 
-                            switch(a.Title) {
+                            switch(a.Title) {   // aggiungere in questi 4 switch i nuovi film inseriti senza data di rilascio
 
                                 case "Rabbits":
                                     a.Released = "15 Jan 2002";
                                     break;
 
-                                case "The Secret Diary of Amarcord":
-                                    a.Released = "18 Dec 1973";
-                                    break;
+                                // case "The Secret Diary of Amarcord":
+                                //     a.Released = "18 Dec 1973";
+                                //     break;
 
                                 default:
                                     a.Released = "15 Jan 1940";
@@ -311,15 +295,15 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
                         }
                         if(b.Released == "N/A") {
 
-                            switch(b.Title) {
+                            switch(b.Title) {   // aggiungere in questi 4 switch i nuovi film inseriti senza data di rilascio
 
                                 case "Rabbits":
                                     a.Released = "15 Jan 2002";
                                     break;
 
-                                case "The Secret Diary of Amarcord":
-                                    a.Released = "18 Dec 1973";
-                                    break;
+                                // case "The Secret Diary of Amarcord":
+                                //     a.Released = "18 Dec 1973";
+                                //     break;
 
                                 default:
                                     a.Released = "15 Jan 1940";
@@ -331,7 +315,7 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
                             dateA = new Date(a.Released).toISOString().slice(0, 10);
                         }
                     }
-                    else{
+                    else{//se Released != "N/A"
                         dateA = new Date(a.Released).toISOString().slice(0, 10);
                         dateB = new Date(b.Released).toISOString().slice(0, 10);
                     }
@@ -342,20 +326,19 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
                 });
                 break;
             
-
+            //TODO: valuta questa se farla o no
             case "ratingsCrescenti":
 
                 break;
             
-
             default: //random
                 sortedArray = notSortedArray.sort(() => Math.random() - 0.5);
                 break;
         }
-        console.log(sortedArray);
+        console.log("sortedArray.length:",sortedArray.length);
         genCard(sortedArray, rigaimdbFilms);
     }catch(err){
-        console.error("sortedArray() --> ", err)
+        console.error("sortedArray() --> ", err);
     }
 }
 

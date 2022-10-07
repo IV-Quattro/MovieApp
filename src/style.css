@@ -134,30 +134,13 @@ in ordine di importanza:
 /*TODO: sistema sta merda*/
 
 /* test checked */
-input[type="radio"]:checked {
-    background-color: #404040 !important;
-    box-shadow: 0 0 0 3px #404040;
-  }
-.checkControl{
-    background-color: rgba(0,0,0,0) !important;
-}
-.checkControl:checked{
-    background-color: #404040 !important;
-}
-.btn.btn-outline-warning:checked{
-    background-color: #404040;
-    border-color:#ff9012;
-    color: #fff;
-}
-.btn-group.btn-check:checked.btn-outline-warning{
-    background-color:#404040;
-}
-.btn-warning:checked{
-    background-color: #404040;
-    border-color:#404040;
-    color: #fff;
-}
 
+
+.btn-check:active+.btn, .btn-check:checked+.btn, .btn.active, .btn.show, .btn:active {
+    background-color: #404040;
+    border-color:#ff9012;;
+    color: #fff;
+}
 
 /*-------------------------------------------Navbar---------------------------------------------*/
 
