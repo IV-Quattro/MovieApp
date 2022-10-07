@@ -77,6 +77,7 @@ export const filmCardsGenerator = (sortType) => {
         //perche allora trovo la stessa lista 1000 volte?????
         contenitore.removeChild(rigaimdbFilms);
         //TODO:riscrivila
+
         // non funziona
         // contenitore.remove(rigaimdbFilms);
         // contenitore.appendChild(rigaimdbFilms);
@@ -86,10 +87,18 @@ export const filmCardsGenerator = (sortType) => {
         //     console.log("deleting ", rigaimdbFilms.lastChild);
         // }while(deleteResponse != null)
 
+        // non funziona
+        // for(let i=0; i<rigaimdbFilms.length; i++) {
+        //     rigaimdbFilms.removeChild(rigaimdbFilms.lastChild);
+        // }
+
         //TODO:riscrivila
         console.warn("rigarigaimdbFilms prima", rigaimdbFilms);
         console.log(rigaimdbFilms.lastChild);
-        rigaimdbFilms.innerHTML = "";
+        
+        // rigaimdbFilms.innerHTML = "";
+        removeAllChildNodes(rigaimdbFilms);
+
         console.log(rigaimdbFilms.lastChild);
         console.warn("rigarigaimdbFilms dopo", rigaimdbFilms);
 
@@ -97,8 +106,6 @@ export const filmCardsGenerator = (sortType) => {
         contenitore.appendChild(rigaimdbFilms);
 
         
-
-
         
         fetch("./listaFilm.json")
             .then(responseLocale => responseLocale.json())
@@ -113,7 +120,8 @@ export const filmCardsGenerator = (sortType) => {
                     // asincrona
                     getDetailedMovieArray(listaCompleta.ivList, sortType, rigaimdbFilms); 
                     // sincrona
-                    console.log(wrapperContenitore.className);
+
+                    //console.log(wrapperContenitore.className);
                     // TODO:ricontrolla sta robaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     // if(wrapperContenitore.className == "collapse") {
                         // wrapperContenitore.classList.remove = "collapse";
@@ -130,27 +138,38 @@ export const filmCardsGenerator = (sortType) => {
             });
 
     } catch (error) {
-        console.error(error);
+        console.error("filmCardsGeneration(), fetch lista completa --> ",error);
+    }
+}
+
+const removeAllChildNodes = (parent) => {
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
     }
 }
 
 //SYNC WAY
 const getDetailedMovieArray = (ivListOriginal, sortType, rigaimdbFilms) => {
-    let randomMoviesJson = [];
-    ivListOriginal.map( (singoloObj) => {
-        const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
-        
-            fetch(urlID)
-            .then(responseImdb => responseImdb.json())
-            .then(responseJson => {
-                randomMoviesJson.push(responseJson);
-                console.log("randomMoviesJson.length: ", randomMoviesJson.length);
-                //questo fa funzionare tutta la programmazione sync, senza questo crasha tutto
-                if(randomMoviesJson.length == ivListOriginal.length) {
-                    sortArray(randomMoviesJson, sortType, rigaimdbFilms);
-                }
-            });
-    });
+    try{
+        let randomMoviesJson = [];
+        ivListOriginal.map( (singoloObj) => {
+            const urlID = URL_BASE+`i=${singoloObj.imdbID}`;
+            
+                fetch(urlID)
+                .then(responseImdb => responseImdb.json())
+                .then(responseJson => {
+
+                    randomMoviesJson.push(responseJson);
+                    console.log("randomMoviesJson.length: ", randomMoviesJson.length);
+                    //questo fa funzionare tutta la programmazione sync, senza questo crasha tutto
+                    if(randomMoviesJson.length == ivListOriginal.length) {
+                        sortArray(randomMoviesJson, sortType, rigaimdbFilms);
+                    }
+                });
+        });
+    }catch(err){
+        console.error("getDetailedMovieArray() --> ", err);
+    }
 }
 
 // const sortArray = (notSortedArray, rigaimdbFilms) => {
@@ -165,72 +184,179 @@ const getDetailedMovieArray = (ivListOriginal, sortType, rigaimdbFilms) => {
 // }
 
 const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
-    console.warn("sortType: ", sortType);
-    var sortedArray = [];   //all interno dello switch non ha scope ma non posso ridichiararlo nei vari case
-    switch(sortType) {
-
-        // case "prova":
-        //     let newSortedArray = [];
-
-        //     break;
-        
-        case "Random":
-            sortedArray = notSortedArray.sort((a, b) => {
-                if (a.imdbID < b.imdbID) {
-                    return -1;
-                }
-                console.table("a.imdbID: " + a.imdbID + "b.imdbID: " + b.imdbID)
-            });
-            break;
-
-        case "A-Z":
-            sortedArray = notSortedArray.sort((a, b) => {
-                if (a.Title < b.Title) {
-                    return -1;
-                }
-            });
-            break;
-
-        case "Z-A":
-            sortedArray = notSortedArray.sort((a, b) => {
-                if (a.Title > b.Title) {
-                    return -1;
-                }
-            });
-            break;
-
-        case "ID":
-            sortedArray = notSortedArray.sort((a, b) => {
-                if (a.imdbID < b.imdbID) {
-                    return -1;
-                }
-            });
-            break;
-        // cerca nomi standard per queste cose
-        case "annoCrescente":
-
-            break;
-        
-        case "annoDecrescente":
+    try{
+        var sortedArray = [];   //all interno dello switch non ha scope ma non posso ridichiararlo nei vari case
+        switch(sortType) {
             
-            break;
+            case "Random":
+                sortedArray = notSortedArray.sort(() => Math.random() - 0.5);   
+                break;
 
-        case "ratingsCrescenti":
+            case "A-Z":
+                sortedArray = notSortedArray.sort((a, b) => {
+                    if (a.Title < b.Title) {
+                        return -1;
+                    }
+                });
+                break;
 
-            break;
-        
+            case "Z-A":
+                sortedArray = notSortedArray.sort((a, b) => {
+                    if (a.Title > b.Title) {
+                        return -1;
+                    }
+                });
+                break;
 
-        default: //A-Z  TODO: random
-            sortedArray = notSortedArray.sort((a, b) => {
-                if (a.Title < b.Title) {
-                    return -1;
-                }
-            });
-            break;
+            case "ID":
+                sortedArray = notSortedArray.sort((a, b) => {
+                    if (a.imdbID < b.imdbID) {
+                        return -1;
+                    }
+                });
+                break;
 
+            // cerca nomi standard per queste cose
+
+            case "YearIncr":
+                sortedArray = notSortedArray.sort((a, b) => {
+                    var dateA;
+                    var dateB;
+
+                    if(a.Released == "N/A" || b.Released == "N/A"){// || == Null || == undefined || == None
+
+                        if(a.Released == "N/A") {
+
+                            switch(a.Title) {
+
+                                case "Rabbits":
+                                    a.Released = "15 Jan 2002";
+                                    break;
+
+                                case "The Secret Diary of Amarcord":
+                                    a.Released = "18 Dec 1973";
+                                    break;
+
+                                default:
+                                    a.Released = "15 Jan 1940";
+                                    break;
+                            }
+                            
+                            dateA = new Date(a.Released).toISOString().slice(0, 10);
+                            console.error("Ho reimpostato manualmente la data: ",a.Title,a.Released,dateA);
+                            dateB = new Date(b.Released).toISOString().slice(0, 10);
+                        }
+                        if(b.Released == "N/A") {
+
+                            switch(b.Title) {
+
+                                case "Rabbits":
+                                    a.Released = "15 Jan 2002";
+                                    break;
+
+                                case "The Secret Diary of Amarcord":
+                                    a.Released = "18 Dec 1973";
+                                    break;
+
+                                default:
+                                    a.Released = "15 Jan 1940";
+                                    break;
+                            }
+
+                            dateB = new Date(b.Released).toISOString().slice(0, 10);
+                            console.error("Ho reimpostato manualmente la data: ",b.Title,b.Released,dateB);
+                            dateA = new Date(a.Released).toISOString().slice(0, 10);
+                        }
+                    }
+                    else{//se Released != "N/A"
+                        dateA = new Date(a.Released).toISOString().slice(0, 10);
+                        dateB = new Date(b.Released).toISOString().slice(0, 10);
+                    }
+
+                    if (dateA < dateB) {
+                        return -1;
+                    }
+                });
+                break;
+
+            //Rabbits e Amarcord non hanno la data di release 
+            
+            case "YearDecr":
+                sortedArray = notSortedArray.sort((a, b) => {
+                    var dateA;
+                    var dateB;
+
+                    if(a.Released == "N/A" || b.Released == "N/A"){
+
+                        if(a.Released == "N/A") {
+
+                            switch(a.Title) {
+
+                                case "Rabbits":
+                                    a.Released = "15 Jan 2002";
+                                    break;
+
+                                case "The Secret Diary of Amarcord":
+                                    a.Released = "18 Dec 1973";
+                                    break;
+
+                                default:
+                                    a.Released = "15 Jan 1940";
+                                    break;
+                            }
+                            
+                            dateA = new Date(a.Released).toISOString().slice(0, 10);
+                            console.error("Ho reimpostato manualmente la data: ",a.Title,a.Released,dateA);
+                            dateB = new Date(b.Released).toISOString().slice(0, 10);
+                        }
+                        if(b.Released == "N/A") {
+
+                            switch(b.Title) {
+
+                                case "Rabbits":
+                                    a.Released = "15 Jan 2002";
+                                    break;
+
+                                case "The Secret Diary of Amarcord":
+                                    a.Released = "18 Dec 1973";
+                                    break;
+
+                                default:
+                                    a.Released = "15 Jan 1940";
+                                    break;
+                            }
+
+                            dateB = new Date(b.Released).toISOString().slice(0, 10);
+                            console.error("Ho reimpostato manualmente la data: ",b.Title,b.Released,dateB);
+                            dateA = new Date(a.Released).toISOString().slice(0, 10);
+                        }
+                    }
+                    else{
+                        dateA = new Date(a.Released).toISOString().slice(0, 10);
+                        dateB = new Date(b.Released).toISOString().slice(0, 10);
+                    }
+
+                    if (dateA > dateB) {
+                        return -1;
+                    }
+                });
+                break;
+            
+
+            case "ratingsCrescenti":
+
+                break;
+            
+
+            default: //random
+                sortedArray = notSortedArray.sort(() => Math.random() - 0.5);
+                break;
+        }
+        console.log(sortedArray);
+        genCard(sortedArray, rigaimdbFilms);
+    }catch(err){
+        console.error("sortedArray() --> ", err)
     }
-    console.log(sortedArray);
-    genCard(sortedArray, rigaimdbFilms);
 }
 
 const genCard = (sortedMoviesArray, rigaimdbFilms) => {    
@@ -309,10 +435,26 @@ export const newFilmCardGenerator = (film) => {
 }
 
 const numToHourConverter = (originalRuntime) => {
-    const num = originalRuntime.replace(" min","");
-    let hours = Math.floor(num / 60);  
-    let minutes = num % 60;
-    return hours + "h " + minutes + "min";         
+    
+    try{
+        
+        if(originalRuntime != undefined){
+            const num = originalRuntime.replace(" min","");
+            let hours = Math.floor(num / 60);  
+            let minutes = num % 60;
+            return hours + "h " + minutes + "min";
+        }
+        else
+        {
+            console.error(originalRuntime);
+            return originalRuntime;
+        }
+        
+    } catch(err) {
+        console.error("errore nella conversione del runtime",originalRuntime, err);
+    }
+    
+             
 }
 /*-------------------------------------DYNAMIC.HTML----------------------------------------*/
 

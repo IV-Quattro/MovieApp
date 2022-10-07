@@ -49,8 +49,7 @@
                         if(isFuncTriggered == false) {
                             filmCardsGenerator('Random');
                             isFuncTriggered = true;
-                        }
-                         
+                        } 
                     }
                 }
             });
@@ -401,6 +400,12 @@
                       
                         <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio3" autocomplete="off">
                         <label class="btn btn-outline-warning" for="btnradio3" onclick="window.filmCardsGenerator('Z-A')">Z-A</label>
+
+                        <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio4" autocomplete="off">
+                        <label class="btn btn-outline-warning" for="btnradio4" onclick="window.filmCardsGenerator('YearIncr')">Year incr</label>
+
+                        <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio5" autocomplete="off">
+                        <label class="btn btn-outline-warning" for="btnradio5" onclick="window.filmCardsGenerator('YearDecr')">Year decr</label>
                     </div>
 
                 </button>
