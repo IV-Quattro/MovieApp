@@ -122,6 +122,7 @@ in ordine di importanza:
     /* background-color: rgba(0,0,0,0); */
     color: #ff9012;
     border-color:#ff9012;
+
     
 }
 
@@ -140,6 +141,7 @@ in ordine di importanza:
     background-color: #404040;
     border-color:#ff9012;;
     color: #fff;
+    --bs-btn-focus-shadow-rgb: 255, 144, 18;
 }
 
 /*-------------------------------------------Navbar---------------------------------------------*/
@@ -353,7 +355,7 @@ si puo fare cosi
     width:90%
 }
 .radioChoices{
-    width: 33% !important;
+    width: 20% !important;
 }
 
 .mleft{
@@ -644,6 +646,11 @@ div suggerimenti
    }
 
     /*home.html*/
+    .txtDimensionSort{
+        font-size: 50%;
+        margin-top:-10px;
+        top:10px;   
+    }
     
     /*dynamic.html*/
 
