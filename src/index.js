@@ -49,7 +49,230 @@ export const ricercaGenerica = ( idPaginaRicerca ) => {
         location.href = "./dynamic.html?keywords=" + keywords;
     }
 }
+/*--------------------------------------CONTATS.HTML--------------------------------------*/
+
+//onGame
+        // scompare tutto da dalle cols
+        // ogni tot secondi random
+        // compare the rock
+            // l'img deve avere l attributo onckick
+            // che chiama una funzione che termina la partita
+        // dopo altri secondi random (o prefissati)
+        // scompare
+
+    /*timeOut asincrono 
+    senza while
+    la prima chiama la seconda che chiama la prima
+    */
+
+    /*timeOut sincrono 
+    in sequenza il primo timeout chiama l apparizione
+    il secondo chiama la disappear
+    in un while come prima
+    all appear devo sempre passare l id del timeOut per stoppare tutto eventualmente
+    */
+export const startALR = () => {
+    // ho appena avviato il gioco
+
+    try{
+        const COUNTER_MAX = 6;
+        let onGame = true;
+        let timeoutSrartID1;
+        const row = document.getElementById("acchiappaLaRoccia");
+        const rocciaPosA = document.getElementById("rocciaPosA");
+        const rocciaPosB = document.getElementById("rocciaPosB");
+        const rocciaPosC = document.getElementById("rocciaPosC");
+
+        const arrayPosRoccia = [rocciaPosA,rocciaPosB,rocciaPosC];
+        for(let i=0; i<arrayPosRoccia.length; i++) {
+            removeAllChildNodes(arrayPosRoccia[i]);
+        }
         
+        let counter = 0;
+        // const intNumber = Math.floor(Math.random() * (max - min)) + min;
+        const primoRandomTime = Math.floor(Math.random() * (600 - 250)) + 250;
+        
+        timeoutSrartID1 = setTimeout(rocciaAppear, primoRandomTime, onGame, arrayPosRoccia, counter);
+        console.warn({timeoutSrartID1});
+        // avvioGioco(arrayPosRoccia);
+
+    }catch(err){
+        console.error("configurazione", err);
+    }
+}
+
+const rocciaAppear = (onGame, arrayPosRoccia, counter) => {
+    try{
+        
+        let appearingTimeoutID;
+
+        
+        const rocciaImg = document.createElement("img");
+    
+        rocciaImg.setAttribute("id", "rocciaAttuale");
+        rocciaImg.className = "imgRoccia";
+        rocciaImg.src = "./IV_stuff/img/acchiappaLaRoccia/sfida.png";
+
+        rocciaImg.addEventListener("mouseover", (event) => {
+            rocciaImg.src = "./IV_stuff/img/acchiappaLaRoccia/scary.png";
+        });
+        rocciaImg.addEventListener("mouseout", (event) => {
+            rocciaImg.src = "./IV_stuff/img/acchiappaLaRoccia/sfida.png";
+        });
+        rocciaImg.addEventListener("click", () => {
+            onGame = false; //RIMETTI A POSTO STA MERDA
+            stopALR("Me");
+            console.error("click");
+            
+        });
+        
+        let randomPosition = arrayPosRoccia[Math.floor(Math.random() * 3)];
+        console.log({randomPosition});
+
+        if(onGame == true){
+            randomPosition.appendChild(rocciaImg);
+
+        let showTime = Math.floor(Math.random() * (600 - 300)) + 300;
+        appearingTimeoutID = setTimeout(rocciaDisappear, showTime, onGame, arrayPosRoccia, randomPosition, rocciaImg, counter);
+        }
+        
+        console.warn({appearingTimeoutID});
+
+    }catch(err){
+        console.error("appearing: ", err);
+    }
+}
+
+const rocciaDisappear = (onGame, arrayPosRoccia, posizione, rocciaImg, counter) => {
+    try{
+        let disappearingTimeoutID;
+
+        posizione.removeChild(rocciaImg);
+
+        counter = counter + 1;
+        console.warn(counter);
+        if(counter >= 9) { //10-23 15-33
+            clearTimeout(counter*2+3);
+            onGame = false;
+            stopALR("TheRock");
+        }
+
+        if(onGame == true){
+            let hideTime = Math.floor(Math.random() * (700 - 250)) + 250;
+            disappearingTimeoutID = setTimeout(rocciaAppear, hideTime, onGame, arrayPosRoccia, counter);
+        }
+        
+        console.warn({disappearingTimeoutID});
+    }catch(err){
+        console.error("disappearing: ", err);
+    }
+}
+
+const stopALR = (winner) => {
+    try{
+            // clearTimeout(timeoutID);
+        const rocciaPosA = document.getElementById("rocciaPosA");
+        const rocciaPosB = document.getElementById("rocciaPosB");
+        const rocciaPosC = document.getElementById("rocciaPosC");
+
+        removeAllChildNodes(rocciaPosA);
+        removeAllChildNodes(rocciaPosB);
+        removeAllChildNodes(rocciaPosC);
+
+        
+
+        if (winner == "Me") {
+            // quando vinci
+            const rocciaWinner = document.createElement("img");
+                
+            rocciaWinner.setAttribute("id", "rocciaAttuale");
+            rocciaWinner.className = "imgRoccia";
+            rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/15.png";
+
+            rocciaWinner.addEventListener("mouseover", (event) => {
+                rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/sopracciglio1.png";
+            });
+            rocciaWinner.addEventListener("mouseout", (event) => {
+                rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/15.png";
+            });
+            rocciaPosB.appendChild(rocciaWinner);
+        }
+
+        else if(winner == "TheRock"){
+            // quando perdi
+            const rocciaLoser = document.createElement("img");
+                
+            rocciaLoser.setAttribute("id", "rocciaAttuale");
+            rocciaLoser.className = "imgRoccia";
+            rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/4.png";
+
+            rocciaLoser.addEventListener("mouseover", (event) => {
+                rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/scary.png";
+            });
+            rocciaLoser.addEventListener("mouseout", (event) => {
+                rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/4.png";
+            });
+            rocciaPosB.appendChild(rocciaLoser);
+        }
+
+        else{
+            console.error({winner});
+        }
+    }catch(err){
+        console.error(err)
+    }
+    
+}
+
+// const onGame = async (arrayPosRoccia) => {
+    
+
+//     console.log(arrayPosRoccia[0].id, arrayPosRoccia[1].id, arrayPosRoccia[2].id);
+
+//     let theWinnerIs;
+//     let onGame = true;
+//     let counter = 0;
+//     while(onGame == true){
+//         let appearingTime = 1000;
+//         let hidingTime = 1500;
+        
+//         let randomPosition = Math.floor(Math.random() * 3);
+//         console.log(randomPosition); 
+//         let timeout1 = await setTimeout(rocciaAppear(), hidingTime);
+//         console.log({timeout1});
+//         // let timeout1 = setTimeout( (timeout1) => {
+//         //     const rocciaImg = document.createElement("img");
+//         //     rocciaImg.className = "imgRoccia";
+//         //     rocciaImg.src = "./IV_stuff/img/acchiappaLaRoccia/sfida.png";
+//         //     rocciaImg.onmouseover = "rocciaImg.src='./IV_stuff/img/acchiappaLaRoccia/scary.png';";
+//         //     rocciaImg.onmouseout = "rocciaImg.src='./IV_stuff/img/acchiappaLaRoccia/sfida.png';";
+//         //     rocciaImg.onclick = "stopALR(timeout1)";
+//         //   }, hidingTime);
+//         // l immagine è presente
+//         arrayPosRoccia[randomPosition].appendChild(rocciaImg);
+         
+//         let timeout2 = setTimeout(rocciaDisappear(), appearingTime, arrayPosRoccia[randomPosition], rocciaImg)
+//         // l immagine non c è piu
+
+
+
+
+//         counter = counter + 1;
+//         if(counter >= COUNTER_MAX){
+//             onGame = false;
+//             //vince the rock
+//             theWinnerIs = "The Rock"
+//         } 
+//     }
+   
+// //    return theWinnerIs;
+// }
+
+
+
+
+
+
 /*---------------------------------------HOME.HTML----------------------------------------*/
 /*TODO:
 fare un case per gestire 1 card in particolare passandogli l' id
@@ -96,7 +319,7 @@ export const filmCardsGenerator = (sortType) => {
         console.warn("rigarigaimdbFilms prima", rigaimdbFilms);
         console.log(rigaimdbFilms.lastChild);
         
-        // rigaimdbFilms.innerHTML = "";
+        
         removeAllChildNodes(rigaimdbFilms);
 
         console.log(rigaimdbFilms.lastChild);

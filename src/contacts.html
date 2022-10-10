@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" />
+    <meta name="author" content="Ivan Reggiani">
+</head>
+<body class="container-fluid">
+
+    <!-- navbar -->
+    
+    <nav class="navbar fixed-top bggray">
+        <div class="container-fluid">
+            <a href="./home.html">
+                <img src="./IV_stuff/img/1Risorsa5xxxhdpi.png" class="loghinoApp">
+            </a>
+            <div class="d-flex lunghezzaRicerca">
+                <button id="buttonSearch5" class="btn btn-outline-light" onclick="window.ricercaGenerica('research5')">Search</button>
+                <input id="research5" class="form-control me-2 " onkeypress="return enterKeyPressed(event, 'research5')" type="search" placeholder="Search" aria-label="Search">
+            </div>
+
+            <button class="navbar-toggler border-light white hamburger" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon white "></span>
+<!--<img src="https://img.icons8.com/external-gradak-royyan-wijaya/24/undefined/external-hamburger-menu-basic-interface-iii-gradak-royyan-wijaya.png"/>
+<a target="_blank" href="https://icons8.com/icon/vNkcTvQx93Sj/hamburger-menu">Hamburger menu icon by Icons8</a>-->
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar4"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+                    <button type="button" class="btn-close bgwhite" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item ">
+                            <a class="scritteMenu" aria-current="page" href="./home.html">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="scritteMenu" href="./home.html#categorie">categorie</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="scritteMenu" href="./home.html#all">all</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle scritteMenu" href="#" id="offcanvasNavbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Impostazioni
+                            </a>
+                            <ul class="dropdown-menu scritteMenu" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a class="dropdown-item" href="#">account</a></li>
+                                <li><a class="dropdown-item" href="#">accessibilità</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">qualcos altro qui</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                <!-- <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="splashContancts" class="sfondoIV container-fluid">
+        <div class="logoPos1">
+            <a href="./home.html">
+                <img src="./IV_stuff/img/1Risorsa5xxxhdpi.png" class="logoApp">
+            </a>
+        </div>
+    </div>    
+
+    <div id="contactMe" class="contactDivs">
+        <div class="rettangolone">
+            
+            
+             
+
+            
+
+            
+
+            <!-- controllato su devTools -->
+            <!-- TODO: inserisci funzione openClose(idBottone) 
+                che controlla aria-expanded dell elemento del bottone o link che sia, 
+                e da li piglio href e mi dirigo al testo. 
+                sul testo modifico la classe show e sono a posto
+                per collassare o per riaprire indistivamente 
+            -->
+
+            <!-- me -->
+            <p>
+                <a class="btn infoBtns collapsed" data-bs-toggle="collapse" href="#txtCollapseMe" role="button" aria-expanded="false" aria-controls="txtCollapseMe">
+                  Me
+                </a>
+            </p>
+            <div class="collapse" id="txtCollapseMe">
+                <div class="card card-body rettangolino">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                </div>
+            </div>
+
+            <!-- contact me -->
+            <p>
+                <a class="btn infoBtns" data-bs-toggle="collapse" href="#txtCollapseContactMe" role="button" aria-expanded="true" aria-controls="txtCollapseContactMe">
+                  contact Me
+                </a>
+            </p>
+            <div class="collapse show" id="txtCollapseContactMe">
+                <div class="card card-body rettangolino">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="scartoLogo" class="contactDivs">
+        <div class="wrapperScartoLogo">
+            <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scartoInBellaVista" 
+                        onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png', 
+                        scartoInBellaVista.src='./IV_stuff/img/LOGO_ARANCIO.png';"
+                        
+                        onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png'
+                        scartoInBellaVista.src='./IV_stuff/img/LOGO_BIANCO.png';"
+                        
+                        
+                        >
+                        <!-- onclick="" attiva la funzione che scrivo per i collapse buttons, ma diretto ad Us 
+                        ondblclick="" altra stronzata-->
+
+                        <!-- aria-controls="txtCollapseUs" sul tag img per sostituire onclick -->
+        </div>
+    </div>
+
+    <div id="contactUs" class="contactDivs">
+        <div class="rettangolone">
+
+            <!-- us -->
+            <p>
+                <a class="btn infoBtns collapsed" data-bs-toggle="collapse" href="#txtCollapseUs" role="button" aria-expanded="false" aria-controls="txtCollapseUs">
+                Us
+                </a>
+            </p>
+            <div class="collapse" id="txtCollapseUs">
+                <div class="card card-body rettangolino">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                </div>
+            </div>
+
+            <!-- contact us -->
+            <p>
+                <a class="btn infoBtns" data-bs-toggle="collapse" href="#txtCollapseContactUs" role="button" aria-expanded="true" aria-controls="txtCollapseContactUs">
+                Contact Us
+                </a>
+            </p>
+            <div class="collapse show" id="txtCollapseContactUs">
+                <div class="card card-body rettangolino">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module">
+        import { startALR } from "./index.js";
+
+        window.startALR = startALR
+    </script>
+
+    <div id="smongolata" class="contactDivs">
+        <!-- paperella che va da destra a sinistra molto velocemente e cambia in maniera randomica la direzione
+            se la becchi onclick ti apre un modale che ti manda a fanculo
+        
+            stesso concetto ma con un acchiappaLaTalpa con la face di the rock che ti guarda male
+            -->
+        <div class="rettangoloneALR">
+            <div id="acchiappaLaRoccia" class="row row-cols-1 row-cols-sm-3">
+                <div id="rocciaPosA" class="col boxRoccia"></div>
+                <div id="rocciaPosB" class="col boxRoccia">
+                    <img id="rocciaAttuale" class="imgRoccia" src="./IV_stuff/img/acchiappaLaRoccia/mezzatalpa.png" alt="errore di rete"
+                        onmouseover="rocciaAttuale.src='./IV_stuff/img/acchiappaLaRoccia/talpa.png';"
+                        onmouseout="rocciaAttuale.src='./IV_stuff/img/acchiappaLaRoccia/mezzatalpa.png';"
+                        onclick="startALR()">
+                </div>
+                <div id="rocciaPosC" class="col boxRoccia"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="lamentati" class="contactDivs">
+
+    </div>
+
+    <div id="moviesInspiration" class="contactDivs"></div>
+
+    <div id="smongolataAPI" class="contactDivs"></div>
+
+    <!--footer-->
+    <div id="foot5" class="piede text-center white">      
+        <div class="row row-cols-1 row-cols-sm-3 text-center">
+            <!--contatti fasulli SCARTO-->
+            <div class="col">
+                <h5>CONTATTACI</h5>
+                <p>tel: <a href="#">+39 000 000 00 00</a></p>
+                <p>e-mail: <a href="#">exemple@scarto.org</a></p>
+                <p>indirizzo: 
+                    <a href="https://www.google.it/maps/place/20842+Besana+in+Brianza+MB/@45.6945514,9.2399834,13z/data=!4m6!3m5!1s0x4786a4bc6e82b365:0x40678022e66f1d0!8m2!3d45.6937341!4d9.27583!16zL20vMGR5Zm1i">
+                        besana (MB), 20842
+                    </a>
+                </p>
+            </div>
+            <div class="col">
+                <h5 class="white">PRODUCED BY</h5>
+                <img src="./IV_stuff/img/LOGO_BIANCO.png" class="logo" id="scarto" 
+                        onmouseover="scarto.src='./IV_stuff/img/LOGO_ARANCIO.png';"
+                        onmouseout="scarto.src='./IV_stuff/img/LOGO_BIANCO.png';">
+            </div>
+            <div class="col">
+                <h5 class="verticalDisposition">TORNA SU</h5>
+                <a href="./home.html#splash"><p>home</p></a>
+                <a href="./home.html#attuale"><p>film dell' anno</p></a>
+                <a href="./home.html#categorie"><p>film del mese</p></a>
+            <!--    <a href="#all"><p>tutto</p></a>-->
+            </div>
+        </div>
+    </div>
+
+    <!--link importazione da bootstrap-->
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+        crossorigin="anonymous"></script>
+     <!-- npn bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+
+    
+</body>
+</html>

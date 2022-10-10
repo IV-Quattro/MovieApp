@@ -173,6 +173,94 @@ in ordine di importanza:
     margin: auto 0;
 }/* TODO: DA RENDERE CENTRALE RISPETTO ALL INTERA NAVBAR*/
 
+/*----------------------------------------FOOTER---------------------------------------------*/
+.piede{
+    background-color: #000000;
+    
+ }
+
+/*logo scarto*/
+.logo{
+    width:75px;
+    height:100px;
+}
+
+/*******************************************contats.html********************************************/
+.contactDivs{
+    width: 100%;
+    text-align: center;
+    
+}
+
+.rettangolone{
+    width: 90%;
+    background-color:#808080;
+    color: #000;
+    border: 1px solid #ff9012;
+    margin: 1% auto 1%;
+    
+    /* height: 200px; */
+}
+
+.rettangolino{
+    width:90%;
+    margin: 1% auto;
+}
+
+.infoBtns{
+    width: 90%;
+    margin-top: 1%;
+    background-color:#000;
+    color: #fff;
+}
+
+.infoBtns:hover{
+    background-color: #ff9012;
+    color: #fff;
+    border-color: #000;
+}
+
+.infoBtns:active{
+    background-color: #ff9012;
+    color: #fff;
+    border-color: #000;
+}
+
+.infoBtns:focus{
+    background-color: #ff9012;
+    color: #fff;
+    border-color: #000;
+}
+
+
+/*--- Acchiappa La Roccia ---*/
+.rettangoloneALR{
+    width: 99.9%;
+    background-color:#808080;
+    color: #000;
+    border: 1px solid #ff9012;
+    margin: 1% auto 1%;
+}
+.boxRoccia{
+    
+    height: 180px;
+    /* border: 1px solid black; */
+}
+/* #rocciaPosA{
+    background-color:yellow;
+}
+#rocciaPosB{
+    background-color:red;
+}
+#rocciaPosC{
+    background-color:green;
+} */
+.imgRoccia{
+    width: 150px;
+    height: 150px;
+}
+
+
 
 /*-------------------------------------------home.html---------------------------------------------*/
 /*come migliorare home.html
@@ -404,17 +492,7 @@ si puo fare cosi
 
 
 
-/*#foot{}*/
- .piede{
-    background-color: #000000;
-    
- }
 
-/*logo scarto*/
-.logo{
-    width:75px;
-    height:100px;
-}
 
 
 
