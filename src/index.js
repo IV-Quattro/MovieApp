@@ -75,10 +75,10 @@ export const startALR = () => {
     // ho appena avviato il gioco
 
     try{
-        const COUNTER_MAX = 6;
-        let onGame = true;
+        // const COUNTER_MAX = 6; //non serve
+        let onGame = {value : true};
         let timeoutSrartID1;
-        const row = document.getElementById("acchiappaLaRoccia");
+        // const row = document.getElementById("acchiappaLaRoccia"); // non serve
         const rocciaPosA = document.getElementById("rocciaPosA");
         const rocciaPosB = document.getElementById("rocciaPosB");
         const rocciaPosC = document.getElementById("rocciaPosC");
@@ -103,7 +103,8 @@ export const startALR = () => {
 
 const rocciaAppear = (onGame, arrayPosRoccia, counter) => {
     try{
-        
+        let randomPosition = arrayPosRoccia[Math.floor(Math.random() * 3)];
+
         let appearingTimeoutID;
 
         
@@ -120,20 +121,17 @@ const rocciaAppear = (onGame, arrayPosRoccia, counter) => {
             rocciaImg.src = "./IV_stuff/img/acchiappaLaRoccia/sfida.png";
         });
         rocciaImg.addEventListener("click", () => {
-            onGame = false; //RIMETTI A POSTO STA MERDA
-            stopALR("Me");
-            console.error("click");
+            onGame.value = false; //RIMETTI A POSTO STA MERDA
+            stopALR("Me", randomPosition);
+            console.warn("click", randomPosition);
             
         });
         
-        let randomPosition = arrayPosRoccia[Math.floor(Math.random() * 3)];
-        console.log({randomPosition});
 
-        if(onGame == true){
+        if(onGame.value == true){
             randomPosition.appendChild(rocciaImg);
-
-        let showTime = Math.floor(Math.random() * (600 - 300)) + 300;
-        appearingTimeoutID = setTimeout(rocciaDisappear, showTime, onGame, arrayPosRoccia, randomPosition, rocciaImg, counter);
+            let showTime = Math.floor(Math.random() * (600 - 300)) + 300;
+            appearingTimeoutID = setTimeout(rocciaDisappear, showTime, onGame, arrayPosRoccia, randomPosition, rocciaImg, counter);
         }
         
         console.warn({appearingTimeoutID});
@@ -147,17 +145,19 @@ const rocciaDisappear = (onGame, arrayPosRoccia, posizione, rocciaImg, counter) 
     try{
         let disappearingTimeoutID;
 
-        posizione.removeChild(rocciaImg);
+        if(onGame.value == true){
+            posizione.removeChild(rocciaImg);
+        }
 
         counter = counter + 1;
         console.warn(counter);
         if(counter >= 9) { //10-23 15-33
-            clearTimeout(counter*2+3);
-            onGame = false;
-            stopALR("TheRock");
+            clearTimeout(counter*2);
+            onGame.value = false;
+            stopALR("TheRock", posizione);
         }
 
-        if(onGame == true){
+        if(onGame.value == true){
             let hideTime = Math.floor(Math.random() * (700 - 250)) + 250;
             disappearingTimeoutID = setTimeout(rocciaAppear, hideTime, onGame, arrayPosRoccia, counter);
         }
@@ -168,18 +168,19 @@ const rocciaDisappear = (onGame, arrayPosRoccia, posizione, rocciaImg, counter) 
     }
 }
 
-const stopALR = (winner) => {
+const stopALR = (winner, rocciaPosFinale) => {
     try{
             // clearTimeout(timeoutID);
         const rocciaPosA = document.getElementById("rocciaPosA");
         const rocciaPosB = document.getElementById("rocciaPosB");
         const rocciaPosC = document.getElementById("rocciaPosC");
+        // const rocciaPosFinale = document.getElementById("idUltimaPosizione");
+        // console.log(idUltimaPosizione);
+        console.log({rocciaPosFinale});
 
         removeAllChildNodes(rocciaPosA);
         removeAllChildNodes(rocciaPosB);
         removeAllChildNodes(rocciaPosC);
-
-        
 
         if (winner == "Me") {
             // quando vinci
@@ -190,12 +191,13 @@ const stopALR = (winner) => {
             rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/15.png";
 
             rocciaWinner.addEventListener("mouseover", (event) => {
-                rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/sopracciglio1.png";
+                rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/sopracciglio2.png";
             });
             rocciaWinner.addEventListener("mouseout", (event) => {
                 rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/15.png";
             });
-            rocciaPosB.appendChild(rocciaWinner);
+            rocciaPosFinale.appendChild(rocciaWinner);
+
         }
 
         else if(winner == "TheRock"){
@@ -207,12 +209,12 @@ const stopALR = (winner) => {
             rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/4.png";
 
             rocciaLoser.addEventListener("mouseover", (event) => {
-                rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/scary.png";
+                rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/prendimi.png";
             });
             rocciaLoser.addEventListener("mouseout", (event) => {
                 rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/4.png";
             });
-            rocciaPosB.appendChild(rocciaLoser);
+            rocciaPosFinale.appendChild(rocciaLoser);
         }
 
         else{

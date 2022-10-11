@@ -242,7 +242,6 @@ in ordine di importanza:
     margin: 1% auto 1%;
 }
 .boxRoccia{
-    
     height: 180px;
     /* border: 1px solid black; */
 }
@@ -259,6 +258,15 @@ in ordine di importanza:
     width: 150px;
     height: 150px;
 }
+
+/* .dimModal{
+    width: 90%;
+} */
+.hModale{
+    
+    background-color: #707070;
+}
+
 
 
 
