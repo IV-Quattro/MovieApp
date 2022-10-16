@@ -75,10 +75,14 @@ export const startALR = () => {
     // ho appena avviato il gioco
 
     try{
+        const sigla = document.getElementById("sigla");
+        sigla.play();
         // const COUNTER_MAX = 6; //non serve
         let onGame = {value : true};
         let timeoutSrartID1;
         // const row = document.getElementById("acchiappaLaRoccia"); // non serve
+
+        //TODO:aggiungi 1 posizione e cambia la row in 1-2-4
         const rocciaPosA = document.getElementById("rocciaPosA");
         const rocciaPosB = document.getElementById("rocciaPosB");
         const rocciaPosC = document.getElementById("rocciaPosC");
@@ -91,9 +95,10 @@ export const startALR = () => {
         let counter = 0;
         // const intNumber = Math.floor(Math.random() * (max - min)) + min;
         const primoRandomTime = Math.floor(Math.random() * (600 - 250)) + 250;
-        
-        timeoutSrartID1 = setTimeout(rocciaAppear, primoRandomTime, onGame, arrayPosRoccia, counter);
-        console.warn({timeoutSrartID1});
+        // if(timeoutSrartID1 == 1){
+            timeoutSrartID1 = setTimeout(rocciaAppear, primoRandomTime, onGame, arrayPosRoccia, counter);
+        // }
+        console.error({timeoutSrartID1});
         // avvioGioco(arrayPosRoccia);
 
     }catch(err){
@@ -151,7 +156,7 @@ const rocciaDisappear = (onGame, arrayPosRoccia, posizione, rocciaImg, counter) 
 
         counter = counter + 1;
         console.warn(counter);
-        if(counter >= 9) { //10-23 15-33
+        if(counter >= 12) { //10-23 15-33
             clearTimeout(counter*2);
             onGame.value = false;
             stopALR("TheRock", posizione);
@@ -170,6 +175,8 @@ const rocciaDisappear = (onGame, arrayPosRoccia, posizione, rocciaImg, counter) 
 
 const stopALR = (winner, rocciaPosFinale) => {
     try{
+        const sigla = document.getElementById("sigla");
+        sigla.pause();
             // clearTimeout(timeoutID);
         const rocciaPosA = document.getElementById("rocciaPosA");
         const rocciaPosB = document.getElementById("rocciaPosB");
@@ -196,11 +203,14 @@ const stopALR = (winner, rocciaPosFinale) => {
             rocciaWinner.addEventListener("mouseout", (event) => {
                 rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/15.png";
             });
-            rocciaPosFinale.appendChild(rocciaWinner);
 
+            rocciaWinner.setAttribute("data-bs-toggle","modal");
+            rocciaWinner.setAttribute("data-bs-target","#staticBackdrop");
+            rocciaWinner.addEventListener("click", editModal(winner, rocciaPosFinale));
+            rocciaPosFinale.appendChild(rocciaWinner);
         }
 
-        else if(winner == "TheRock"){
+        else{
             // quando perdi
             const rocciaLoser = document.createElement("img");
                 
@@ -214,17 +224,191 @@ const stopALR = (winner, rocciaPosFinale) => {
             rocciaLoser.addEventListener("mouseout", (event) => {
                 rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/4.png";
             });
+            rocciaLoser.setAttribute("data-bs-toggle","modal");
+            rocciaLoser.setAttribute("data-bs-target","#staticBackdrop");
+            rocciaLoser.addEventListener("click", editModal(winner, rocciaPosFinale));
             rocciaPosFinale.appendChild(rocciaLoser);
         }
 
-        else{
-            console.error({winner});
-        }
+        
     }catch(err){
         console.error(err)
     }
     
 }
+
+const editModal = (winner, rocciaPosFinale) => {
+    setTimeout(editModal_step2, 1200, winner, rocciaPosFinale);
+}
+
+const editModal_step2 = (winner, rocciaPosFinale) => {
+    try{
+        let ModalObj = new bootstrap.Modal(document.getElementById('staticBackdrop'), {});
+        const corpoModale = document.getElementById("corpoModale");
+
+        const scrittaContainer = document.createElement("div");
+        scrittaContainer.className = "imgEgifDim";
+        
+        const par = document.createElement("p");
+        par.className = "scrittaWinner";
+        let testoVincitore;
+        
+
+        if(winner == "Me"){
+            const soundMe = document.getElementById("youWinSound");
+            soundMe.play();
+            testoVincitore = document.createTextNode("YOU WIN");
+        }
+        else{
+            const soundTheRock = document.getElementById("youLoseSound");
+            soundTheRock.play();
+            testoVincitore = document.createTextNode("THE ROCK WINS");
+        }
+        
+        par.appendChild(testoVincitore);
+        scrittaContainer.appendChild(par);
+        corpoModale.appendChild(scrittaContainer);
+        
+        // const idModale = document.getElementById("staticBackdrop");
+        // idModale.classList.add("show");
+        
+        ModalObj.show();
+        removeAllChildNodes(rocciaPosFinale);
+
+        setTimeout(editModal_step3, 3000, winner, ModalObj, corpoModale);
+        // setTimeout
+        // step3 immagini 
+        // setTimeout
+        // step4 gif
+        // chiudi modale 
+
+    }catch(err){
+        console.error("editModal() error: ",err);
+    }
+    
+}
+
+const editModal_step3 = (winner, ModalObj, corpoModale) => {
+    removeAllChildNodes(corpoModale);
+    let winnerImages = document.createElement("img");
+    winnerImages.className = "imgEgifDim";
+
+    if(winner == "Me"){
+        
+        winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/sfotte.png";
+        winnerImages.addEventListener("mouseover", (event) => {
+            winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/faBrutto.png";
+        });
+        winnerImages.addEventListener("mouseout", (event) => {
+            winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/sfotte.png";
+        });
+    }
+    else{
+        winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/sfotte.png";
+        winnerImages.addEventListener("mouseover", (event) => {
+            winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/faBrutto.png";
+        });
+        winnerImages.addEventListener("mouseout", (event) => {
+            winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/sfotte.png";
+        });
+    }
+
+    corpoModale.appendChild(winnerImages);
+    setTimeout(editModal_step4, 5000, winner, ModalObj, corpoModale);
+    
+}
+
+const editModal_step4 = (winner, ModalObj, corpoModale) => {
+    removeAllChildNodes(corpoModale);
+    let winnerGifs = document.createElement("img");
+    winnerGifs.className = "imgEgifDim";
+    //TODO: fai array di gif
+
+    if(winner == "Me"){
+        
+        winnerGifs.src = "./IV_stuff/gif/youWinGif1.gif";
+        winnerGifs.addEventListener("mouseover", (event) => {
+            winnerGifs.src = "./IV_stuff/gif/youWinGif2.gif";
+        });
+        winnerGifs.addEventListener("mouseout", (event) => {
+            winnerGifs.src = "./IV_stuff/gif/youWinGif1.gif";
+        });
+    }
+    else{
+        winnerGifs.src = "./IV_stuff/gif/youLoseGif1.gif";
+        winnerGifs.addEventListener("mouseover", (event) => {
+            winnerGifs.src = "./IV_stuff/gif/youLoseGif2.gif";
+        });
+        winnerGifs.addEventListener("mouseout", (event) => {
+            winnerGifs.src = "./IV_stuff/gif/youLoseGif1.gif";
+        });
+    }
+
+    corpoModale.appendChild(winnerGifs);
+
+    setTimeout(editModal_step5, 10000, winner, ModalObj, corpoModale)
+}
+
+const editModal_step5 = (winner, ModalObj, corpoModale) => {
+    removeAllChildNodes(corpoModale);
+
+    const provocazioneGif = document.createElement("img");
+    provocazioneGif.src = "./IV_stuff/gif/provocazione.gif";
+    provocazioneGif.className = "imgEgifDim";
+
+    corpoModale.appendChild(provocazioneGif);
+    setTimeout(editModal_step6, 4000, winner, ModalObj, corpoModale);
+}
+    //TODO: se, quando è risolto il bug del restart, funziona tutto bene, cancellare l arg winner in tutte ste funzioni
+const editModal_step6 = (winner, ModalObj, corpoModale) => {
+    // let audio;
+    // if(winner == "Me"){
+    //     audio = document.getElementById("youWinSound");
+    // }
+    // else{
+    //     audio = document.getElementById("youLoseSound");
+    // }
+    // audio.pause();
+    ModalObj.hide();
+    removeAllChildNodes(corpoModale);
+
+    reimpostaStartALR();
+}
+
+export const reimpostaStartALR = () => {
+    //rimuovo tutto
+    const rocciaPosA = document.getElementById("rocciaPosA");
+    const rocciaPosB = document.getElementById("rocciaPosB");
+    const rocciaPosC = document.getElementById("rocciaPosC");
+
+    removeAllChildNodes(rocciaPosA);
+    removeAllChildNodes(rocciaPosB);
+    removeAllChildNodes(rocciaPosC);
+
+    const audio1 = document.getElementById("youWinSound");
+    const audio2 = document.getElementById("youLoseSound");
+    audio1.pause();
+    audio2.pause();
+
+    const startImage = document.createElement("img");
+    startImage.src = "./IV_stuff/img/acchiappaLaRoccia/mezzatalpa.png";
+    startImage.id = "rocciaAttuale";
+    startImage.className = "imgRoccia";
+    startImage.addEventListener("mouseover", (event) => {
+        startImage.src="./IV_stuff/img/acchiappaLaRoccia/talpa.png";
+    });
+    startImage.addEventListener("mouseout", (event) => {
+        startImage.src="./IV_stuff/img/acchiappaLaRoccia/mezzatalpa.png";
+    });
+    // startImage.addEventListener("click", startALR());
+
+    rocciaPosB.appendChild(startImage);
+
+}
+
+// export const endALR = () => {
+
+// }
 
 // const onGame = async (arrayPosRoccia) => {
     
@@ -269,9 +453,6 @@ const stopALR = (winner, rocciaPosFinale) => {
    
 // //    return theWinnerIs;
 // }
-
-
-
 
 
 

@@ -267,6 +267,27 @@ in ordine di importanza:
     background-color: #707070;
 }
 
+.ics{
+    
+    float: right !important;
+}
+.modalMediaDiv{
+    width: 100%;
+    height: 600px ;
+}
+.scrittaWinner{
+    font-size: 50px;
+    text-align: center;
+    margin: auto auto;
+}
+
+.imgEgifDim{
+     width: 100% ; 
+    
+    margin: auto auto;
+}
+
+
 
 
 
@@ -769,6 +790,8 @@ div suggerimenti
         margin-top:3%;
     }
 
+    
+
 }
 
 /*da minimo 487px in poi*/
@@ -895,6 +918,12 @@ div suggerimenti
 
     .margineAvviso2 {
         margin-top:2%;
+    }
+
+    /*contacts.html*/
+    .imgEgifDim{
+        height: 80% ; 
+        margin: auto auto;
     }
 
 }
