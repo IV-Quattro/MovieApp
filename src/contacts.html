@@ -189,22 +189,25 @@
         
             stesso concetto ma con un acchiappaLaTalpa con la face di the rock che ti guarda male
             -->
-        <div class="rettangoloneALR">
+        <div class="rettangoloneALR sfondoALR">
             <audio id="sigla">
-                <source src="./IV_stuff/sound/sigla.wav" type="audio/mpeg">
-                <source src="./IV_stuff/sound/sigla.ogg" type="audio/ogg">
+                <source src="./IV_stuff/acchiappaLaRoccia/sound/sigla.wav" type="audio/mpeg">
+                <source src="./IV_stuff/acchiappaLaRoccia/sound/sigla.ogg" type="audio/ogg">
                 Your browser does not support the audio element.
             </audio>
+        
             <div id="acchiappaLaRoccia" class="row row-cols-1 row-cols-sm-3">
                 <div id="rocciaPosA" class="col boxRoccia"></div>
                 <div id="rocciaPosB" class="col boxRoccia">
-                    <img id="rocciaAttuale" class="imgRoccia" src="./IV_stuff/img/acchiappaLaRoccia/mezzatalpa.png" alt="errore di rete"
-                        onmouseover="rocciaAttuale.src='./IV_stuff/img/acchiappaLaRoccia/talpa.png';"
-                        onmouseout="rocciaAttuale.src='./IV_stuff/img/acchiappaLaRoccia/mezzatalpa.png';"
+                    <img id="rocciaAttuale" class="imgRoccia" src="./IV_stuff/acchiappaLaRoccia/png/mezzatalpa.png" alt="errore di rete"
+                        onmouseover="rocciaAttuale.src='./IV_stuff/acchiappaLaRoccia/png/talpa.png';"
+                        onmouseout="rocciaAttuale.src='./IV_stuff/acchiappaLaRoccia/png/mezzatalpa.png';"
                         onclick="startALR()">
                 </div>
                 <div id="rocciaPosC" class="col boxRoccia"></div>
             </div>
+            
+            
         </div>
 
         <!-- Modal -->
@@ -215,13 +218,13 @@
                         <button type="button" class="btn-close ics" data-bs-dismiss="modal" aria-label="Close" onclick="reimpostaStartALR()"></button>
                     </div>
                     <audio id="youWinSound">
-                        <source src="./IV_stuff/sound/youWinSound1.wav" type="audio/mpeg">
-                        <source src="./IV_stuff/sound/youWinSound1.ogg" type="audio/ogg">
+                        <source src="./IV_stuff/acchiappaLaRoccia/sound/youWinSound1.wav" type="audio/mpeg">
+                        <source src="./IV_stuff/acchiappaLaRoccia/sound/youWinSound1.ogg" type="audio/ogg">
                         Your browser does not support the audio element.
                     </audio>
                     <audio id="youLoseSound">
-                        <source src="./IV_stuff/sound/youLoseSound1.wav" type="audio/mpeg">
-                        <source src="./IV_stuff/sound/youLoseSound1.ogg" type="audio/ogg">
+                        <source src="./IV_stuff/acchiappaLaRoccia/sound/youLoseSound1.wav" type="audio/mpeg">
+                        <source src="./IV_stuff/acchiappaLaRoccia/sound/youLoseSound1.ogg" type="audio/ogg">
                         Your browser does not support the audio element.
                     </audio>
                     <div id="corpoModale" class="modal-body modalMediaDiv">
@@ -234,32 +237,45 @@
     </div>
 
     <div id="lamentati" class="contactDivs">
-
-        <!-- the rock wins modal 
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl"> 
-                <div class="modal-content">
-                    <div class="modal-header hModale">
-                        <h1 class="modal-title fs-5 " id="staticBackdropLabel">The Rock Wins</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img id="bodyModale" width="50%" height="50%" src="./IV_stuff/img/acchiappaLaRoccia/sfotte.png" alt="errore di rete"
-                            onmouseover="bodyModale.src='./IV_stuff/img/acchiappaLaRoccia/faBrutto.png';"
-                            onmouseout="bodyModale.src='./IV_stuff/img/acchiappaLaRoccia/sfotte.png';"
-                            onclick="gifShit()">
-                    </div>
+        <div class="rettangolone">
+            <p>
+                <a class="btn infoBtns collapsed" data-bs-toggle="collapse" href="#lamentatiCollapse" role="button" aria-expanded="false" aria-controls="lamentatiCollapse">
+                    Lamentati
+                </a>
+            </p>
+            <div class="collapse" id="lamentatiCollapse">
+                <div class="card card-body rettangolino">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                <!-- form -->
                 </div>
+                
             </div>
-        </div> -->
-
-        
-
+        </div>
     </div>
 
     <div id="moviesInspiration" class="contactDivs"></div>
 
-    <div id="smongolataAPI" class="contactDivs"></div>
+    <div id="smongolataAPI" class="contactDivs">
+        <div class="rettangolone">
+            <img  id="chuckNorrisImg" class="chuckImg collapsed" src="./IV_stuff/img/chuckNorris0.png" alt="errore di rete"
+                onmouseover="chuckNorrisImg.src='./IV_stuff/img/chuckNorris1.png';"
+                onmouseout="chuckNorrisImg.src='./IV_stuff/img/chuckNorris0.png';"
+                onclick="chuckNorrisJokes()"
+                data-bs-toggle="collapse" href="#chuckCollapse" role="button" aria-expanded="false" aria-controls="chuckCollapse"
+                
+                >
+                <div class="collapse" id="chuckCollapse">
+                    <div class="card card-body rettangolino">
+                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                        <p id="chucknorrispar" class="chuckPar"></p>
+                    </div>
+                    <!-- form -->
+                </div>
+            
+
+            </p>
+        </div>
+    </div>
 
     <!--footer-->
     <div id="foot5" class="piede text-center white">      

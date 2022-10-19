@@ -236,11 +236,24 @@ in ordine di importanza:
 /*--- Acchiappa La Roccia ---*/
 .rettangoloneALR{
     width: 99.9%;
-    background-color:#808080;
+    background-color:#808080; 
     color: #000;
     border: 1px solid #ff9012;
     margin: 1% auto 1%;
 }
+
+.sfondoALR{ /*TODO:con mediaquery cambio immagine e bom*/
+    /* width:100%; */
+    /* height:100%; */
+    background-image: url(./IV_stuff/img/wwe.png);
+    /* transform: rotate(90deg); */
+    
+    /* bacground-color: rgba(100%, 100%, 100%, 50%); */
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
 .boxRoccia{
     height: 180px;
     /* border: 1px solid black; */
@@ -257,6 +270,7 @@ in ordine di importanza:
 .imgRoccia{
     width: 150px;
     height: 150px;
+    /* transform: rotate(-90deg); */
 }
 
 /* .dimModal{
@@ -281,15 +295,31 @@ in ordine di importanza:
     margin: auto auto;
 }
 
+.imgWin1{}
+.imgWin2{}
+.gifWin1{}
+.gifWin2{}
+.imglose1{}
+.imglose2{}
+.giflose1{}
+.giflose2{}
+
 .imgEgifDim{
      width: 100% ; 
     
     margin: auto auto;
 }
 
+/*fine acchiappa la roccia*/
 
-
-
+.chuckImg{
+    width: 200px;
+    height: 200px;
+}
+.chuckPar{
+    text-align: center;
+    font-size: 25px;
+}
 
 /*-------------------------------------------home.html---------------------------------------------*/
 /*come migliorare home.html
@@ -790,7 +820,12 @@ div suggerimenti
         margin-top:3%;
     }
 
-    
+    /*contacts.html*/
+    .sfondoALR{  
+        background-image: url(./IV_stuff/img/wwe1.png);
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
 
 }
 
@@ -851,12 +886,26 @@ div suggerimenti
     .margineAvviso2{
         margin-top:3%;
     }
+
+    /*contacts.html*/
+    .sfondoALR{  
+        background-image: url(./IV_stuff/img/wwe1.png);
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
 }
 
 @media (min-width: 576px ) {
     /* per sistemare il footer */
     .verticalDisposition{
         margin-top:0%;
+    }
+
+    /*contacts.html*/
+    .sfondoALR{  
+        background-image: url(./IV_stuff/img/wwe.png);
+        background-repeat: no-repeat;
+        background-position: center; 
     }
 }
 
@@ -922,7 +971,7 @@ div suggerimenti
 
     /*contacts.html*/
     .imgEgifDim{
-        height: 80% ; 
+        width: 60% ; 
         margin: auto auto;
     }
 

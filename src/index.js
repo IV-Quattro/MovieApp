@@ -76,6 +76,7 @@ export const startALR = () => {
 
     try{
         const sigla = document.getElementById("sigla");
+        sigla.load();
         sigla.play();
         // const COUNTER_MAX = 6; //non serve
         let onGame = {value : true};
@@ -83,6 +84,7 @@ export const startALR = () => {
         // const row = document.getElementById("acchiappaLaRoccia"); // non serve
 
         //TODO:aggiungi 1 posizione e cambia la row in 1-2-4
+                //il cazzo, poi c ho la faccia decentrata
         const rocciaPosA = document.getElementById("rocciaPosA");
         const rocciaPosB = document.getElementById("rocciaPosB");
         const rocciaPosC = document.getElementById("rocciaPosC");
@@ -117,18 +119,21 @@ const rocciaAppear = (onGame, arrayPosRoccia, counter) => {
     
         rocciaImg.setAttribute("id", "rocciaAttuale");
         rocciaImg.className = "imgRoccia";
-        rocciaImg.src = "./IV_stuff/img/acchiappaLaRoccia/sfida.png";
+        rocciaImg.src = "./IV_stuff/acchiappaLaRoccia/png/sfida.png";
 
         rocciaImg.addEventListener("mouseover", (event) => {
-            rocciaImg.src = "./IV_stuff/img/acchiappaLaRoccia/scary.png";
+            rocciaImg.src = "./IV_stuff/acchiappaLaRoccia/png/scary.png";
         });
         rocciaImg.addEventListener("mouseout", (event) => {
-            rocciaImg.src = "./IV_stuff/img/acchiappaLaRoccia/sfida.png";
+            rocciaImg.src = "./IV_stuff/acchiappaLaRoccia/png/sfida.png";
         });
-        rocciaImg.addEventListener("click", () => {
-            onGame.value = false; //RIMETTI A POSTO STA MERDA
+        // MANCA EVENT
+        rocciaImg.addEventListener("click", (event) => {
+            onGame.value = false; 
             stopALR("Me", randomPosition);
             console.warn("click", randomPosition);
+            
+            // TODO: valuta se è necessario cancellare i timerId --> si dall altra parte lo faccio
             
         });
         
@@ -195,13 +200,13 @@ const stopALR = (winner, rocciaPosFinale) => {
                 
             rocciaWinner.setAttribute("id", "rocciaAttuale");
             rocciaWinner.className = "imgRoccia";
-            rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/15.png";
+            rocciaWinner.src = "./IV_stuff/acchiappaLaRoccia/png/15.png";
 
             rocciaWinner.addEventListener("mouseover", (event) => {
-                rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/sopracciglio2.png";
+                rocciaWinner.src = "./IV_stuff/acchiappaLaRoccia/png/sopracciglio2.png";
             });
             rocciaWinner.addEventListener("mouseout", (event) => {
-                rocciaWinner.src = "./IV_stuff/img/acchiappaLaRoccia/15.png";
+                rocciaWinner.src = "./IV_stuff/acchiappaLaRoccia/png/15.png";
             });
 
             rocciaWinner.setAttribute("data-bs-toggle","modal");
@@ -216,13 +221,13 @@ const stopALR = (winner, rocciaPosFinale) => {
                 
             rocciaLoser.setAttribute("id", "rocciaAttuale");
             rocciaLoser.className = "imgRoccia";
-            rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/4.png";
+            rocciaLoser.src = "./IV_stuff/acchiappaLaRoccia/png/4.png";
 
             rocciaLoser.addEventListener("mouseover", (event) => {
-                rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/prendimi.png";
+                rocciaLoser.src = "./IV_stuff/acchiappaLaRoccia/png/prendimi.png";
             });
             rocciaLoser.addEventListener("mouseout", (event) => {
-                rocciaLoser.src = "./IV_stuff/img/acchiappaLaRoccia/4.png";
+                rocciaLoser.src = "./IV_stuff/acchiappaLaRoccia/png/4.png";
             });
             rocciaLoser.setAttribute("data-bs-toggle","modal");
             rocciaLoser.setAttribute("data-bs-target","#staticBackdrop");
@@ -237,11 +242,11 @@ const stopALR = (winner, rocciaPosFinale) => {
     
 }
 
-const editModal = (winner, rocciaPosFinale) => {
-    setTimeout(editModal_step2, 1200, winner, rocciaPosFinale);
+const editModal = (winner) => {
+    setTimeout(editModal_step2, 1200, winner);
 }
 
-const editModal_step2 = (winner, rocciaPosFinale) => {
+const editModal_step2 = (winner) => {
     try{
         let ModalObj = new bootstrap.Modal(document.getElementById('staticBackdrop'), {});
         const corpoModale = document.getElementById("corpoModale");
@@ -256,11 +261,13 @@ const editModal_step2 = (winner, rocciaPosFinale) => {
 
         if(winner == "Me"){
             const soundMe = document.getElementById("youWinSound");
+            soundMe.load();
             soundMe.play();
             testoVincitore = document.createTextNode("YOU WIN");
         }
         else{
             const soundTheRock = document.getElementById("youLoseSound");
+            soundTheRock.load();
             soundTheRock.play();
             testoVincitore = document.createTextNode("THE ROCK WINS");
         }
@@ -273,7 +280,7 @@ const editModal_step2 = (winner, rocciaPosFinale) => {
         // idModale.classList.add("show");
         
         ModalObj.show();
-        removeAllChildNodes(rocciaPosFinale);
+        
 
         setTimeout(editModal_step3, 3000, winner, ModalObj, corpoModale);
         // setTimeout
@@ -295,21 +302,21 @@ const editModal_step3 = (winner, ModalObj, corpoModale) => {
 
     if(winner == "Me"){
         
-        winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/sfotte.png";
+        winnerImages.src = "./IV_stuff/acchiappaLaRoccia/png/sfotte.png";
         winnerImages.addEventListener("mouseover", (event) => {
-            winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/faBrutto.png";
+            winnerImages.src = "./IV_stuff/acchiappaLaRoccia/png/faBrutto.png";
         });
         winnerImages.addEventListener("mouseout", (event) => {
-            winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/sfotte.png";
+            winnerImages.src = "./IV_stuff/acchiappaLaRoccia/png/sfotte.png";
         });
     }
     else{
-        winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/sfotte.png";
+        winnerImages.src = "./IV_stuff/acchiappaLaRoccia/png/sfotte.png";
         winnerImages.addEventListener("mouseover", (event) => {
-            winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/faBrutto.png";
+            winnerImages.src = "./IV_stuff/acchiappaLaRoccia/png/faBrutto.png";
         });
         winnerImages.addEventListener("mouseout", (event) => {
-            winnerImages.src = "./IV_stuff/img/acchiappaLaRoccia/sfotte.png";
+            winnerImages.src = "./IV_stuff/acchiappaLaRoccia/png/sfotte.png";
         });
     }
 
@@ -326,40 +333,41 @@ const editModal_step4 = (winner, ModalObj, corpoModale) => {
 
     if(winner == "Me"){
         
-        winnerGifs.src = "./IV_stuff/gif/youWinGif1.gif";
+        winnerGifs.src = "./IV_stuff/acchiappaLaRoccia/gif/youWinGif1.gif";
         winnerGifs.addEventListener("mouseover", (event) => {
-            winnerGifs.src = "./IV_stuff/gif/youWinGif2.gif";
+            winnerGifs.src = "./IV_stuff/acchiappaLaRoccia/gif/youWinGif2.gif";
         });
         winnerGifs.addEventListener("mouseout", (event) => {
-            winnerGifs.src = "./IV_stuff/gif/youWinGif1.gif";
+            winnerGifs.src = "./IV_stuff/acchiappaLaRoccia/gif/youWinGif1.gif";
         });
     }
     else{
-        winnerGifs.src = "./IV_stuff/gif/youLoseGif1.gif";
+        winnerGifs.src = "./IV_stuff/acchiappaLaRoccia/gif/youLoseGif1.gif";
         winnerGifs.addEventListener("mouseover", (event) => {
-            winnerGifs.src = "./IV_stuff/gif/youLoseGif2.gif";
+            winnerGifs.src = "./IV_stuff/acchiappaLaRoccia/gif/youLoseGif2.gif";
         });
         winnerGifs.addEventListener("mouseout", (event) => {
-            winnerGifs.src = "./IV_stuff/gif/youLoseGif1.gif";
+            winnerGifs.src = "./IV_stuff/acchiappaLaRoccia/gif/youLoseGif1.gif";
         });
     }
 
     corpoModale.appendChild(winnerGifs);
 
-    setTimeout(editModal_step5, 10000, winner, ModalObj, corpoModale)
+    setTimeout(editModal_step5, 10000, winner, ModalObj, corpoModale);
 }
 
 const editModal_step5 = (winner, ModalObj, corpoModale) => {
     removeAllChildNodes(corpoModale);
 
     const provocazioneGif = document.createElement("img");
-    provocazioneGif.src = "./IV_stuff/gif/provocazione.gif";
+    provocazioneGif.src = "./IV_stuff/acchiappaLaRoccia/gif/provocazione.gif";
     provocazioneGif.className = "imgEgifDim";
 
     corpoModale.appendChild(provocazioneGif);
     setTimeout(editModal_step6, 4000, winner, ModalObj, corpoModale);
 }
     //TODO: se, quando è risolto il bug del restart, funziona tutto bene, cancellare l arg winner in tutte ste funzioni
+    // oppure al contrario posso tenermelo qua per eventuali add-on
 const editModal_step6 = (winner, ModalObj, corpoModale) => {
     // let audio;
     // if(winner == "Me"){
@@ -391,16 +399,18 @@ export const reimpostaStartALR = () => {
     audio2.pause();
 
     const startImage = document.createElement("img");
-    startImage.src = "./IV_stuff/img/acchiappaLaRoccia/mezzatalpa.png";
+    startImage.src = "./IV_stuff/acchiappaLaRoccia/png/mezzatalpa.png";
     startImage.id = "rocciaAttuale";
     startImage.className = "imgRoccia";
     startImage.addEventListener("mouseover", (event) => {
-        startImage.src="./IV_stuff/img/acchiappaLaRoccia/talpa.png";
+        startImage.src="./IV_stuff/acchiappaLaRoccia/png/talpa.png";
     });
     startImage.addEventListener("mouseout", (event) => {
-        startImage.src="./IV_stuff/img/acchiappaLaRoccia/mezzatalpa.png";
+        startImage.src="./IV_stuff/acchiappaLaRoccia/png/mezzatalpa.png";
     });
-    // startImage.addEventListener("click", startALR());
+    startImage.addEventListener("click", (event) => {
+        startALR();
+    });
 
     rocciaPosB.appendChild(startImage);
 
