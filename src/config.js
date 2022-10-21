@@ -3,7 +3,7 @@ export const API_KEY="450e73c0";
 //assemblaggio url per chiamate ajax
 export const URL_BASE=`https://www.omdbapi.com/?apikey=${API_KEY}&`;
 
-export const URL_BASE_STREAMING = "https://streamingcommunity.golf/search?q=";
+export const URL_BASE_STREAMING = "https://streamingcommunity.city/search?q=";
 export const URL_BASE_MAGNET = "https://www.1337xx.to";
 
 //per non sbagliare la sintassi
