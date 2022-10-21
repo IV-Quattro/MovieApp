@@ -416,6 +416,16 @@ export const reimpostaStartALR = () => {
 
 }
 
+export const chuckNorrisJokes = () => {
+    const chuckJokeURL = "https://api.chucknorris.io/jokes/random";
+    fetch(chuckJokeURL)
+        .then(responseJoke => responseJoke.json())
+        .then(responseJokeJson => {
+            const par = document.getElementById("chucknorrispar");
+            par.innerHTML = responseJokeJson.value;
+        })
+}
+
 // export const endALR = () => {
 
 // }
@@ -475,7 +485,7 @@ fare la divisione per lettere con bootstrap
     quando premo il primo con la lettera A
     gli passo A come parametro e mi genera le card di tutti i film dal titolo che inizia per A
     primo cassetto: all --> resta com è
-*/                //TODO: button switch a-z o random per la lista dei film
+*/                //TODO: aggiungi sezione suggerimento 3 film
 
 export const topDistanceCalculator = (id) => {
     const testDiv = document.getElementById(id);

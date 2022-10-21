@@ -106,7 +106,13 @@
             </p>
             <div class="collapse" id="txtCollapseMe">
                 <div class="card card-body rettangolino">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    <!-- <pre> -->
+                        Mi chiamo IV, sono uno studente che sta frequentando un corso ITS per avvicinarmi al mondo dell informatica.
+                        Ho iniziato questa movie app come progetto scolastico di front-end, ma invece che consegnarlo e bom, 
+                        l ho portato avanti per sperimentare javascript su un argomento che mi piace; 
+                        Non so bene neanche io dove voglio arrivare, quanto intendo proseguire, quante cose voglio ancora aggiungere.
+                        La parte di sviluppo è interamente gestita da me, la scelta dei film l ho fatta in collaborazione con il team di Scarto.
+                    <!-- </pre> -->
                 </div>
             </div>
 
@@ -118,7 +124,7 @@
             </p>
             <div class="collapse show" id="txtCollapseContactMe">
                 <div class="card card-body rettangolino">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    E' possibile trovare il codice sorgente della movie app ZeroIdee sul mio account Github: https://github.com/IV-Quattro/MovieApp
                 </div>
             </div>
 
@@ -179,8 +185,10 @@
     <script type="module">
         import { startALR } from "./index.js";
         import { reimpostaStartALR } from "./index.js";
+        import { chuckNorrisJokes } from "./index.js";
         window.startALR = startALR;
         window.reimpostaStartALR = reimpostaStartALR;
+        window.chuckNorrisJokes = chuckNorrisJokes;
     </script>
 
     <div id="smongolata" class="contactDivs">
@@ -266,7 +274,6 @@
                 >
                 <div class="collapse" id="chuckCollapse">
                     <div class="card card-body rettangolino">
-                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
                         <p id="chucknorrispar" class="chuckPar"></p>
                     </div>
                     <!-- form -->
