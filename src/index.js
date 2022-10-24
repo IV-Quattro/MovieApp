@@ -492,47 +492,33 @@ export const topDistanceCalculator = (id) => {
     console.table(testDiv.id,testDiv.offsetTop);
     return testDiv.offsetTop;
 }
+const removeAllChildNodes = (parent) => {
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
+    }
+}
+
 
 export const filmCardsGenerator = (sortType) => {
     console.time();
     try {
         const wrapperContenitore = document.getElementById("collapseExample");
-        const contenitore = document.getElementById("contenitoreLista");
         const rigaimdbFilms = document.getElementById("imdbFilms");
+
+        const wrapperEasyChoise = document.getElementById("collapseEasyChoise")
+        const adviceRow = document.getElementById("adviceRow");
+        switch(sortType){
+            case "Tre":
+                removeAllChildNodes(adviceRow);
+                break;
+            default:
+                removeAllChildNodes(rigaimdbFilms);
+                break;
+        }
         
-        //perche allora trovo la stessa lista 1000 volte?????
-        contenitore.removeChild(rigaimdbFilms);
-        //TODO:riscrivila
-
-        // non funziona
-        // contenitore.remove(rigaimdbFilms);
-        // contenitore.appendChild(rigaimdbFilms);
-
-        // do{
-        //     // var deleteResponse = rigaimdbFilms.removeChild(rigaimdbFilms.lastChild);
-        //     console.log("deleting ", rigaimdbFilms.lastChild);
-        // }while(deleteResponse != null)
-
-        // non funziona
-        // for(let i=0; i<rigaimdbFilms.length; i++) {
-        //     rigaimdbFilms.removeChild(rigaimdbFilms.lastChild);
-        // }
-
-        //TODO:riscrivila
-        console.warn("rigarigaimdbFilms prima", rigaimdbFilms);
-        console.log(rigaimdbFilms.lastChild);
-        
-        
-        removeAllChildNodes(rigaimdbFilms);
-
-        console.log(rigaimdbFilms.lastChild);
-        console.warn("rigarigaimdbFilms dopo", rigaimdbFilms);
-
-
-        contenitore.appendChild(rigaimdbFilms);
-
-        
-        
+        // TODO: capisci se è possibile estrarre (e quindi scaricare) solo 3 campi del json
+        // capisci se è possibile fare la fetch 1 volta sola e trattenere in una variabile globale out of scope il risultato
+        // cosi che sia poi riordinabile a piacere ma senza rifare la fetch + conversione json()
         fetch("./listaFilm.json")
             .then(responseLocale => responseLocale.json())
             .then(listaCompleta => {
@@ -555,10 +541,23 @@ export const filmCardsGenerator = (sortType) => {
                         
                         // wrapperContenitore.classList.add("collapsing");
                     // }
-                    if(wrapperContenitore.className == "collapse") {
-                        wrapperContenitore.classList.remove("collapse");
-                        wrapperContenitore.className("collapsing");
+
+                    switch(sortType){
+                        case "Tre":
+                            if(wrapperEasyChoise.className == "collapse") {
+                                wrapperEasyChoise.classList.remove("collapse");
+                                wrapperEasyChoise.className("collapsing");
+                            }
+                            break;
+                        default:
+                            // TODO: CAZZO LA SINTASSI E' SBAGLIATA, MA SE LO TOLGO, NON APRE CON LO SCROLLING
+                            if(wrapperContenitore.className == "collapse") {
+                                wrapperContenitore.classList.remove("collapse");
+                                wrapperContenitore.className("collapsing");
+                            }
+                            break;
                     }
+                    
                     
                 } 
             });
@@ -568,11 +567,7 @@ export const filmCardsGenerator = (sortType) => {
     }
 }
 
-const removeAllChildNodes = (parent) => {
-    while(parent.firstChild){
-        parent.removeChild(parent.firstChild)
-    }
-}
+
 
 //SYNC WAY
 const getDetailedMovieArray = (ivListOriginal, sortType, rigaimdbFilms) => {
@@ -603,9 +598,15 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
     try{
         var sortedArray = [];   //all interno dello switch non ha scope ma non posso ridichiararlo nei vari case
         switch(sortType) {
-            
+
+            case "Tre":
+                sortedArray = notSortedArray.sort(() => Math.random() - 0.5);
+                const adviceRow = document.getElementById("adviceRow");
+                genMovieAdviceCards(sortedArray, adviceRow);
+                break;
+
             case "Random":
-                sortedArray = notSortedArray.sort(() => Math.random() - 0.5);   
+                sortedArray = notSortedArray.sort(() => Math.random() - 0.5); 
                 break;
 
             case "A-Z":
@@ -753,9 +754,9 @@ const sortArray = (notSortedArray, sortType, rigaimdbFilms) => {
                 break;
             
             //TODO: valuta questa se farla o no
-            case "ratingsCrescenti":
+            // case "ratingsDecrescenti":
 
-                break;
+            //     break;
             
             default: //random
                 sortedArray = notSortedArray.sort(() => Math.random() - 0.5);
@@ -775,6 +776,14 @@ const genCard = (sortedMoviesArray, rigaimdbFilms) => {
     } 
     console.log("time:");
     console.timeEnd();
+}
+
+const genMovieAdviceCards = (sortedMoviesArray, adviceRow) => {    
+    //poche opzioni semplificano la scelta
+    for(let i=0; i<3; i++)
+    {
+        adviceRow.appendChild(newFilmCardGenerator(sortedMoviesArray[i]));
+    } 
 }
 
 // const GetSortOrder = (campo) => {    

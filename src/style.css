@@ -103,18 +103,27 @@ in ordine di importanza:
 
 .btn-success{
     background-color: #707070;
-    color: #707070;
+    
+    color: #FFFFFF;
     border-color: #707070;
-}
-.btn-outline-success{
-    background-color: #404040;
-    color: #404040;
-}
-.btn-success:hover{
-    background-color: #707070;
-    border-color: #707070;
+    --bs-btn-bg: #707070;
+    --bs-btn-border-color: #707070 ;
+    --bs-btn-focus-shadow-rgb: none;
 }
 
+.btn-success:hover{
+    background-color: #707070;
+    border-color: #404040;
+}
+.btn-success:active{
+    background-color: #707070;
+    color: #FFFFFF;
+}
+.btn-success:focus{
+    background-color: #707070;
+    color: #FFFFFF;
+    border: 1px solid #707070;
+}
 
 
 /* voci standard */
@@ -122,8 +131,7 @@ in ordine di importanza:
     /* background-color: rgba(0,0,0,0); */
     color: #ff9012;
     border-color:#ff9012;
-
-    
+    box-shadow: none;    
 }
 
 .btn.btn-outline-warning:hover{
@@ -141,7 +149,7 @@ in ordine di importanza:
     background-color: #404040;
     border-color:#ff9012;;
     color: #fff;
-    --bs-btn-focus-shadow-rgb: 255, 144, 18;
+    /* --bs-btn-focus-shadow-rgb: 255, 144, 18 !important; */
 }
 
 /*-------------------------------------------Navbar---------------------------------------------*/
@@ -232,6 +240,12 @@ in ordine di importanza:
     border-color: #000;
 }
 
+.contactsLink{
+    color:#000 !important; 
+}
+.contactsLink:hover{
+    color: #ff9012 !important;
+}
 
 /*--- Acchiappa La Roccia ---*/
 .rettangoloneALR{
@@ -482,6 +496,21 @@ si puo fare cosi
     border-width: 2px;
 }
 
+#movieAdvice{
+    background-color:#373737;
+}
+
+.refreshbutton{
+    width: 30px;
+    height: 30px;
+}
+
+.adviceBG{
+    background-color:#373737;
+    /* border: 1px solid rgb(60,60,60);     */
+    border-left: none;
+    border-right: none;
+}
 
 #all{
     background-color:#404040;

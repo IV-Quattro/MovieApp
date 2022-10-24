@@ -8,6 +8,8 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" integrity="sha512-Oy+sz5W86PK0ZIkawrG0iv7XwWhYecM3exvUtMKNJMekGFJtVAhibhRPTpmyTj8+lJCkmWfnpxKgT2OopquBHA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link href="style.css" rel="stylesheet" />
     <meta name="author" content="Ivan Reggiani">
     <meta name="keywords" content="zeroidee, zero idee, 0idee, 0 idee, movie, movies, film, films, trailer, trailers, quick movie search, quick movies search, detailed movies, detailed movie"/>
@@ -35,19 +37,19 @@
         //per fare la fetch delle movie cards in base alla scrollbar position
         try{
             let isFuncTriggered = false;
-            let divDistance = topDistanceCalculator("attuale");
+            let divDistance = topDistanceCalculator("categorie"); //funziona solo per categorie
             //tolgo un tot per farlo partire prima o dopo
-            const collapseExample = document.getElementById("collapseExample");
+            const collapseExample = document.getElementById("collapseEasyChoise");
             // divDistance = divDistance - 100;
             console.log(divDistance);
             window.addEventListener("scroll", () => {
                 // console.warn("addeventlistner",scrollY);
-                if(collapseExample.className == "collapse") {
+                if(collapseExample.className == "collapse") { //questo per non fargli misurare costantemente lo scroll
                     if (document.body.scrollTop > divDistance || document.documentElement.scrollTop > divDistance || window.scrollY > divDistance) 
                     {
-                        console.log("sia lode al grande san gennaro");
                         if(isFuncTriggered == false) {
-                            filmCardsGenerator('Random');
+                            console.log("sia lode al grande san gennaro");
+                            filmCardsGenerator('Tre');
                             isFuncTriggered = true;
                         } 
                     }
@@ -348,11 +350,41 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div> 
+        
+        <!-- sezione movieAdvice -->
+        <div id="movieAdvice" class="container-fluid">
+            <h1 class="text-center white strisciaColorata">SCELTA FACILE</h1>
+            <p class="white text-center">
+                per sveltire maggiormente il processo di scelta del film, 
+                qui vengono riportati solo 3 film casuali della lista.<br>
+                meno opzioni facilitano la scelta e diminuiscono i tempi di incertezza.
+            </p>
+
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEasyChoise" aria-expanded="false" aria-controls="collapseEasyChoise" onclick="window.filmCardsGenerator('Tre')">
+                    aggiorna<i class="fa fa-refresh refreshbutton" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div>
+                <div class="collapse" id="collapseEasyChoise">
+                    <div class="card card-body adviceBG">
+                        <div id="adviceRow" class="row row-sm-1 row-lg-3 ">
+                                <!-- 3 film qua -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
             <!--sezione con tutti i film-->
         <div id="all" class="container-fluid">
 
-            <h1 class="text-center white strisciaColorata">FILM SELEZIONATI</h1>
+            <h1 class="text-center white strisciaColorata">LISTA COMPLETA FILM</h1>
             <p class="white text-center">
                 Questa sezione consiste in una rigida selezione da parte del team di SCARTO.<br>
                 Questa lista di film non è fondata sui tuoi interessi, è fondata sulle conoscenze di un team competente in materia <br>
@@ -407,7 +439,7 @@
                     <!-- <div class="btn-group d-xxl-block gap-2 col-4" role="group" aria-label="Basic radio toggle button group"> -->
                     <div class="btn-group radioDiv" role="group" aria-label="Basic radio toggle button group">
 
-                        <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                        <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio1" autocomplete="off">
                         <label class="btn btn-outline-warning" for="btnradio1" onclick="window.filmCardsGenerator('Random')"><b class="txtDimensionSort">RANDOM</b></label>
                       
                         <input type="radio" class="btn-check radioChoices" name="btnradio" id="btnradio2" autocomplete="off">
@@ -499,6 +531,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
         integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
         crossorigin="anonymous"></script>
+
+    
 </body>
 
 </html>
