@@ -324,7 +324,23 @@ in ordine di importanza:
     margin: auto auto;
 }
 
-/*fine acchiappa la roccia*/
+
+/* lamentati */
+.lamentatiPar{
+    text-align: left;
+}
+.bottoneSubmit{
+    width: 20%;
+}
+.inputName{
+    width:50%;
+}
+.inputMovie{
+    width: 70%;
+}
+
+
+/* chuck norris jokes */
 
 .chuckImg{
     width: 200px;
@@ -856,6 +872,15 @@ div suggerimenti
         background-position: center; 
     }
 
+    .bottoneSubmit{
+        width: 50%;
+    }
+    .inputName{
+        width: 100%;
+    }
+    .inputMovie{
+        width: 100%;
+    }
 }
 
 /*da minimo 487px in poi*/

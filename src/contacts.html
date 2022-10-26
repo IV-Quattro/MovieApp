@@ -124,7 +124,7 @@
             </p>
             <div class="collapse show" id="txtCollapseContactMe">
                 <div class="card card-body rettangolino">
-                    E' possibile trovare il codice sorgente della movie app ZeroIdee sul mio account Github: <a href="https://github.com/IV-Quattro/MovieApp" class="contactsLink">https://github.com/IV-Quattro/MovieApp</a>
+                    E' possibile trovare il codice sorgente della movie app ZeroIdee sul mio account Github: <a href="https://github.com/IV-Quattro/MovieApp" class="contactsLink" target="_blank">https://github.com/IV-Quattro/MovieApp</a>
                 </div>
             </div>
 
@@ -253,15 +253,123 @@
             </p>
             <div class="collapse" id="lamentatiCollapse">
                 <div class="card card-body rettangolino">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                <!-- form -->
+                    <p class="lamentatiPar">
+                        Se hai notato qualcosa che non ti quadra nel sito e ti va di lasciarmi un feedback, qui ti permetto di sfogarti.
+                        <br>Le lamentele piu costruttive, le piu distruttive e le piu divertenti verranno utilizzate come ispirazione per migliorare il mio website.
+                        <br>Quindi easy, non trattenerti...
+                    </p>
+                    <br>
+                    <div class="mb-3">
+                        <!-- <label for="exampleFormControlInput1" class="form-label"><p class="lamentatiPar">Nome</p></label> -->
+                        <input  class="form-control" id="exampleFormControlInput1" placeholder="Pattarozzi">
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> -->
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Non dirmi che non hai niente di cui lamentarti, andiamo."></textarea>
+                    </div>
+                    <p class="lamentatiPar">P.S. se mi insulti verrà girato il messaggio alla mail di tua mamma, dico sul serio.</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <p class="lamentatiPar">questotastononserveaniente</p>
+                    </div>
+                    <button class="btn btn-primary bottoneSubmit" type="submit" disabled>invia lamentela</button>
+                
                 </div>
                 
             </div>
         </div>
     </div>
 
-    <div id="moviesInspiration" class="contactDivs"></div>
+    <!-- consiglia una feature
+    se ti è venuto in mente qualche funzionalità che calzerebbe a pennello con questo website e ti va di proporla, ogni consiglio è bene accetto. ho gia il mio bel da fare qua ma se mi è possibile la includo. Per ogni funzionalità che implemento cresco come sviluppatore quindi don't worry, spara pure. -->
+
+    <div id="featureInspiration" class="contactDivs">
+        <div class="rettangolone">
+            <p>
+                <a class="btn infoBtns collapsed" data-bs-toggle="collapse" href="#featureAdviceCollapse" role="button" aria-expanded="false" aria-controls="featureAdviceCollapse">
+                    Consiglia una Feature
+                </a>
+            </p>
+            <div class="collapse" id="featureAdviceCollapse">
+                <div class="card card-body rettangolino">
+                    <p class="lamentatiPar">
+                        Se ti è venuto in mente qualche funzionalità che calzerebbe a pennello con questo website e ti va di proporla, ogni consiglio è bene accetto. 
+                        <br>Ho gia il mio bel da fare qua, ma se mi è possibile la includo. 
+                        Per ogni funzionalità che implemento cresco come sviluppatore 
+                        <br>quindi don't worry, spara pure.
+                    </p>
+                    <br>
+                    <div class="mb-3">
+                        <!-- <label for="exampleFormControlInput1" class="form-label"><p class="lamentatiPar">Nome</p></label> -->
+                        <input  class="form-control" id="exampleFormControlInput1" placeholder="Pattarozzi">
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> -->
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Sparami giu qualcosa di figo da sviluppare"></textarea>
+                    </div>
+                    
+                    <button class="btn btn-primary bottoneSubmit" type="submit" disabled>invia feature</button>
+                
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="moviesInspiration" class="contactDivs">
+        <div class="rettangolone">
+            <p>
+                <a class="btn infoBtns collapsed" data-bs-toggle="collapse" href="#adviceCollapse" role="button" aria-expanded="false" aria-controls="adviceCollapse">
+                    Consigliami un Movie
+                </a>
+            </p>
+            <div class="collapse" id="adviceCollapse">
+                <div class="card card-body rettangolino">
+                    <p class="lamentatiPar">
+                        Se hai in mente un paio di film che pensi si meritino di far parte della mia lista, in questa sezione puoi consigliarmi fino a 3 titoli. 
+                        <br>Tieni conto che questa selezione di film è molto rigida quindi se non è un indiscusso masterpiece, non mandarmelo. 
+                    </p>
+                    <br>
+                    <div class="mb-3">
+                        <input class="form-control inputName" id="exampleFormControlInput2" placeholder="Pattarozzi">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="mb-3 col-8">
+                            <input class="form-control" id="movie1" placeholder="Titolo 1" >
+                        </div>
+                        <div class="mb-3 col-4">
+                            <input class="form-control" id="anno1" placeholder="anno">
+                        </div>
+                        <div class="mb-3 col-8">
+                            <input class="form-control" id="movie2" placeholder="Titolo 2" disabled>
+                        </div>
+                        <div class="mb-3 col-4">
+                            <input class="form-control" id="anno2" placeholder="anno" disabled>
+                        </div>
+                        <div class="mb-3 col-8">
+                            <input class="form-control" id="movie3" placeholder="Titolo 3" disabled>
+                        </div>
+                        <div class="mb-3 col-4">
+                            <input class="form-control" id="anno2" placeholder="anno" disabled>
+                        </div>
+                    </div>
+                    <!-- come all inizio
+                    <div class="mb-3">
+                        <input class="form-control inputMovie" id="movie1" placeholder="Titolo 1" >
+                    </div> -->
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <p class="lamentatiPar">Non sto inviando stupide jappominchiate</p>
+                    </div>
+                    <!-- TODO: valuta se mettere anche l anno o il regista -->
+
+                    <button class="btn btn-primary bottoneSubmit" type="submit" disabled>invia movies</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="smongolataAPI" class="contactDivs">
         <div class="rettangolone">
